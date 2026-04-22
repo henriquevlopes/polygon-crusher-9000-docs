@@ -1,59 +1,92 @@
-/* ── Brand colours (Blender-inspired: blue-grey + light blue) ────────── */
+/* ── Palette (from Banner_01 — warm cream, orange-red, dark brown) ───── */
 :root {
-  --pc-blue: #4e9de0;
-  --pc-blue-dim: rgba(78, 157, 224, 0.12);
-  --pc-grey: #546e7a;
+  --pc-cream:       #f5e8d0;
+  --pc-cream-dark:  #ecdcc0;
+  --pc-orange:      #e8502a;
+  --pc-orange-dim:  rgba(232, 80, 42, 0.12);
+  --pc-brown:       #2c1810;
+  --pc-brown-mid:   #5c3520;
+  --pc-tan:         #c8905a;
 }
 
-/* ── Hide right-side table of contents ──────────────────────────────── */
+/* ── Page background — warm cream ───────────────────────────────────── */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color:         var(--pc-cream);
+  --md-default-fg-color:         var(--pc-brown);
+  --md-default-fg-color--light:  var(--pc-brown-mid);
+  --md-code-bg-color:            var(--pc-cream-dark);
+  --md-typeset-a-color:          var(--pc-orange);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+.md-header {
+  background-color: var(--pc-brown) !important;
+  color: var(--pc-cream) !important;
+}
+
+.md-header__title {
+  color: var(--pc-cream) !important;
+}
+
+/* ── Left sidebar ────────────────────────────────────────────────────── */
+.md-sidebar--primary {
+  background-color: var(--pc-cream-dark);
+}
+
+.md-nav__title {
+  color: var(--pc-brown);
+}
+
+/* ── Right sidebar (TOC) — hidden ────────────────────────────────────── */
 .md-sidebar--secondary {
   display: none !important;
 }
 
-/* Expand content area now that right sidebar is gone */
 .md-content {
   max-width: 860px;
 }
 
-/* ── Always-visible Home link in sidebar ────────────────────────────── */
-.md-nav--primary .md-nav__item:first-child .md-nav__link {
-  font-weight: 600;
+/* ── Active nav link ─────────────────────────────────────────────────── */
+.md-nav__link--active {
+  color: var(--pc-orange) !important;
+  font-weight: 700;
 }
 
-/* ── Hero section on homepage ───────────────────────────────────────── */
+/* ── Footer ──────────────────────────────────────────────────────────── */
+.md-footer {
+  background-color: var(--pc-brown) !important;
+  color: var(--pc-cream) !important;
+}
+
+.md-footer-meta {
+  background-color: var(--pc-brown) !important;
+}
+
+/* ── Search ──────────────────────────────────────────────────────────── */
+.md-search__form {
+  background-color: rgba(255,255,255,0.12) !important;
+}
+
+/* ── Hero section ────────────────────────────────────────────────────── */
 .pc-hero {
   text-align: center;
-  padding: 3rem 1rem 2rem;
-}
-
-.pc-hero h1 {
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-}
-
-.pc-hero p {
-  font-size: 1.15rem;
-  opacity: 0.75;
-  max-width: 560px;
-  margin: 0 auto 2rem;
+  padding: 2.5rem 1rem 1.5rem;
 }
 
 .pc-hero img {
-  max-width: 380px;
+  max-width: 360px;
   width: 100%;
   border-radius: 12px;
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.75rem;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  box-shadow: 0 8px 32px rgba(44, 24, 16, 0.20);
 }
 
 .pc-hero .md-button {
   margin: 0.3rem;
 }
 
-/* ── Feature grid cards ─────────────────────────────────────────────── */
+/* ── Feature grid cards ──────────────────────────────────────────────── */
 .pc-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -62,16 +95,16 @@
 }
 
 .pc-card {
-  background: var(--md-code-bg-color);
-  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--pc-cream-dark);
+  border: 1px solid var(--pc-tan);
   border-radius: 8px;
   padding: 1.25rem 1.25rem 1rem;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .pc-card:hover {
-  border-color: var(--pc-blue);
-  box-shadow: 0 0 0 1px var(--pc-blue), 0 4px 16px var(--pc-blue-dim);
+  border-color: var(--pc-orange);
+  box-shadow: 0 0 0 1px var(--pc-orange), 0 4px 20px var(--pc-orange-dim);
 }
 
 .pc-card-icon {
@@ -81,25 +114,25 @@
 }
 
 .pc-card h3 {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 700;
   margin: 0 0 0.4rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.55;
+  letter-spacing: 0.06em;
+  color: var(--pc-brown-mid);
 }
 
 .pc-card p {
   font-size: 0.875rem;
   line-height: 1.55;
   margin: 0;
-  opacity: 0.85;
+  color: var(--pc-brown);
 }
 
-/* ── CTA buttons ────────────────────────────────────────────────────── */
+/* ── CTA buttons ─────────────────────────────────────────────────────── */
 .md-button--primary {
-  background-color: var(--pc-blue) !important;
-  border-color: var(--pc-blue) !important;
+  background-color: var(--pc-orange) !important;
+  border-color: var(--pc-orange) !important;
   color: #fff !important;
 }
 
@@ -107,19 +140,35 @@
   filter: brightness(1.1);
 }
 
-/* ── Admonition ─────────────────────────────────────────────────────── */
+.md-button:not(.md-button--primary) {
+  border-color: var(--pc-tan) !important;
+  color: var(--pc-brown) !important;
+}
+
+/* ── Admonitions ─────────────────────────────────────────────────────── */
 .md-typeset .admonition,
 .md-typeset details {
   border-radius: 6px;
+  background-color: var(--pc-cream-dark);
 }
 
-/* ── Table header ───────────────────────────────────────────────────── */
+/* ── Tables ──────────────────────────────────────────────────────────── */
 .md-typeset table:not([class]) th {
-  background-color: var(--md-code-bg-color);
+  background-color: var(--pc-cream-dark);
+  color: var(--pc-brown);
 }
 
-/* ── Sidebar active link ────────────────────────────────────────────── */
-.md-nav__link--active {
-  color: var(--pc-blue) !important;
-  font-weight: 600;
+.md-typeset table:not([class]) td {
+  border-color: var(--pc-tan);
+}
+
+/* ── Code blocks ─────────────────────────────────────────────────────── */
+.md-typeset code {
+  background-color: var(--pc-cream-dark);
+  color: var(--pc-brown);
+}
+
+/* ── Horizontal rules ────────────────────────────────────────────────── */
+.md-typeset hr {
+  border-color: var(--pc-tan);
 }
