@@ -3,26 +3,14 @@ site_description: Blender addon for fast, normal-preserving mesh decimation
 site_author: Henri Lopes
 site_url: https://henriquevlopes.github.io/polygon-crusher-9000-docs/
 
-repo_name: henriquevlopes/polygon-crusher-9000-docs
-repo_url: https://github.com/henriquevlopes/polygon-crusher-9000-docs
-
 theme:
   name: material
   logo: assets/logo.svg
   favicon: assets/logo.svg
   palette:
-    - scheme: slate
-      primary: black
-      accent: deep orange
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    - scheme: default
-      primary: white
-      accent: deep orange
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
+    scheme: default
+    primary: white
+    accent: deep orange
   features:
     - navigation.instant
     - navigation.instant.prefetch
@@ -35,8 +23,6 @@ theme:
     - search.suggest
     - content.code.copy
     - content.tooltips
-  icon:
-    repo: fontawesome/brands/github
 
 nav:
   - Home: index.md
