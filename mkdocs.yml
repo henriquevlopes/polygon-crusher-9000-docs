@@ -1,0 +1,63 @@
+site_name: Polygon Crusher 9000
+site_description: Blender addon for fast, normal-preserving mesh decimation
+site_author: Henri Lopes
+site_url: https://henriquevlopes.github.io/polygon-crusher-9000-docs/
+
+repo_name: henriquevlopes/polygon-crusher-9000-docs
+repo_url: https://github.com/henriquevlopes/polygon-crusher-9000-docs
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.sections
+    - toc.integrate
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quick-start.md
+  - Settings Reference: settings.md
+  - How It Works: how-it-works.md
+  - Troubleshooting: troubleshooting.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/solid/envelope
+      link: mailto:henriquevlopes@gmail.com
+      name: Contact Support
