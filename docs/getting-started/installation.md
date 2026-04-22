@@ -2,7 +2,7 @@
 
 ## Download
 
-Download the latest `.zip` file from the [releases page](#).
+Purchase and download the latest `.zip` file from the [Superhive store](#).
 
 !!! warning "Don't unzip the file"
     Blender installs addons directly from the `.zip`. Do **not** extract it first.
@@ -24,5 +24,5 @@ The addon panel appears in the **3D Viewport sidebar**:
 
 ## Updating
 
-To update to a newer version, install the new `.zip` following the same steps above.  
+To update to a newer version, download the new `.zip` from your Superhive account and install it following the same steps above.  
 Blender will replace the existing addon automatically.

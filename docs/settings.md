@@ -30,8 +30,7 @@ adjust the slider.
 
 **Checkbox** — default on
 
-Transfers the original surface normals onto the decimated mesh using Blender's
-Data Transfer modifier (`POLYINTERP_LNORPROJ` mapping). This preserves smooth
+Transfers the original surface normals onto the decimated mesh, preserving smooth
 shading even at very high reduction levels.
 
 !!! tip
@@ -44,8 +43,8 @@ shading even at very high reduction levels.
 
 **Checkbox** — default off
 
-Re-projects the original UV map onto the crushed mesh using Blender's Data Transfer
-modifier. Useful when the decimated mesh needs to receive a texture.
+Re-projects the original UV map onto the crushed mesh. Useful when the decimated
+mesh needs to receive a texture.
 
 !!! note
     UV transfer works on both standard and lossless crushed meshes. Quality depends
