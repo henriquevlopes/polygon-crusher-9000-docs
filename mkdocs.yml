@@ -9,8 +9,8 @@ theme:
   favicon: assets/logo.svg
   palette:
     scheme: default
-    primary: white
-    accent: deep orange
+    primary: blue grey
+    accent: light blue
   features:
     - navigation.instant
     - navigation.instant.prefetch
@@ -19,7 +19,6 @@ theme:
     - navigation.expand
     - navigation.indexes
     - navigation.footer
-    - toc.follow
     - search.highlight
     - search.suggest
     - content.code.copy

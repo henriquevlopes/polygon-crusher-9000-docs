@@ -1,8 +1,23 @@
-/* ── Brand colours ──────────────────────────────────────────────────── */
+/* ── Brand colours (Blender-inspired: blue-grey + light blue) ────────── */
 :root {
-  --pc-orange: #f4511e;
-  --pc-orange-light: #ff7043;
-  --pc-orange-dim: rgba(244, 81, 30, 0.10);
+  --pc-blue: #4e9de0;
+  --pc-blue-dim: rgba(78, 157, 224, 0.12);
+  --pc-grey: #546e7a;
+}
+
+/* ── Hide right-side table of contents ──────────────────────────────── */
+.md-sidebar--secondary {
+  display: none !important;
+}
+
+/* Expand content area now that right sidebar is gone */
+.md-content {
+  max-width: 860px;
+}
+
+/* ── Always-visible Home link in sidebar ────────────────────────────── */
+.md-nav--primary .md-nav__item:first-child .md-nav__link {
+  font-weight: 600;
 }
 
 /* ── Hero section on homepage ───────────────────────────────────────── */
@@ -45,8 +60,8 @@
 }
 
 .pc-card:hover {
-  border-color: var(--pc-orange);
-  box-shadow: 0 0 0 1px var(--pc-orange), 0 4px 16px var(--pc-orange-dim);
+  border-color: var(--pc-blue);
+  box-shadow: 0 0 0 1px var(--pc-blue), 0 4px 16px var(--pc-blue-dim);
 }
 
 .pc-card-icon {
@@ -61,7 +76,7 @@
   margin: 0 0 0.4rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 .pc-card p {
@@ -73,14 +88,13 @@
 
 /* ── CTA buttons ────────────────────────────────────────────────────── */
 .md-button--primary {
-  background-color: var(--pc-orange) !important;
-  border-color: var(--pc-orange) !important;
+  background-color: var(--pc-blue) !important;
+  border-color: var(--pc-blue) !important;
   color: #fff !important;
 }
 
 .md-button--primary:hover {
-  background-color: var(--pc-orange-light) !important;
-  border-color: var(--pc-orange-light) !important;
+  filter: brightness(1.1);
 }
 
 /* ── Admonition ─────────────────────────────────────────────────────── */
@@ -96,6 +110,6 @@
 
 /* ── Sidebar active link ────────────────────────────────────────────── */
 .md-nav__link--active {
-  color: var(--pc-orange) !important;
+  color: var(--pc-blue) !important;
   font-weight: 600;
 }
