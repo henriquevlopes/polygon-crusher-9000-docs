@@ -12,14 +12,14 @@ theme:
   favicon: assets/logo.svg
   palette:
     - scheme: slate
-      primary: deep orange
-      accent: orange
+      primary: black
+      accent: deep orange
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
     - scheme: default
-      primary: deep orange
-      accent: orange
+      primary: white
+      accent: deep orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -28,8 +28,7 @@ theme:
     - navigation.instant.prefetch
     - navigation.top
     - navigation.sections
-    - navigation.tabs
-    - navigation.tabs.sticky
+    - navigation.expand
     - navigation.footer
     - toc.follow
     - search.highlight

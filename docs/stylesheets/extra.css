@@ -1,13 +1,8 @@
 /* ── Brand colours ──────────────────────────────────────────────────── */
 :root {
-  --pc-orange: #ff6d00;
-  --pc-orange-light: #ff9e40;
-  --pc-orange-dim: rgba(255, 109, 0, 0.12);
-}
-
-/* ── Navigation tabs ────────────────────────────────────────────────── */
-.md-tabs {
-  background-color: var(--md-primary-fg-color);
+  --pc-orange: #f4511e;
+  --pc-orange-light: #ff7043;
+  --pc-orange-dim: rgba(244, 81, 30, 0.10);
 }
 
 /* ── Hero section on homepage ───────────────────────────────────────── */
@@ -20,15 +15,11 @@
   font-size: 2.4rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--pc-orange), var(--pc-orange-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .pc-hero p {
   font-size: 1.15rem;
-  opacity: 0.85;
+  opacity: 0.75;
   max-width: 560px;
   margin: 0 auto 2rem;
 }
@@ -65,17 +56,17 @@
 }
 
 .pc-card h3 {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 700;
   margin: 0 0 0.4rem;
-  color: var(--pc-orange);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
 }
 
 .pc-card p {
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
   opacity: 0.85;
 }
@@ -92,25 +83,19 @@
   border-color: var(--pc-orange-light) !important;
 }
 
-/* ── Admonition accent ──────────────────────────────────────────────── */
+/* ── Admonition ─────────────────────────────────────────────────────── */
 .md-typeset .admonition,
 .md-typeset details {
   border-radius: 6px;
 }
 
-/* ── Table styling ──────────────────────────────────────────────────── */
+/* ── Table header ───────────────────────────────────────────────────── */
 .md-typeset table:not([class]) th {
-  background-color: var(--pc-orange-dim);
-  color: var(--md-default-fg-color);
+  background-color: var(--md-code-bg-color);
 }
 
 /* ── Sidebar active link ────────────────────────────────────────────── */
 .md-nav__link--active {
   color: var(--pc-orange) !important;
   font-weight: 600;
-}
-
-/* ── Footer nav ─────────────────────────────────────────────────────── */
-.md-footer {
-  background-color: var(--md-primary-fg-color);
 }
