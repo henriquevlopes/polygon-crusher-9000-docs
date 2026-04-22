@@ -1,0 +1,116 @@
+/* ── Brand colours ──────────────────────────────────────────────────── */
+:root {
+  --pc-orange: #ff6d00;
+  --pc-orange-light: #ff9e40;
+  --pc-orange-dim: rgba(255, 109, 0, 0.12);
+}
+
+/* ── Navigation tabs ────────────────────────────────────────────────── */
+.md-tabs {
+  background-color: var(--md-primary-fg-color);
+}
+
+/* ── Hero section on homepage ───────────────────────────────────────── */
+.pc-hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+
+.pc-hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--pc-orange), var(--pc-orange-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pc-hero p {
+  font-size: 1.15rem;
+  opacity: 0.85;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+.pc-hero .md-button {
+  margin: 0.3rem;
+}
+
+/* ── Feature grid cards ─────────────────────────────────────────────── */
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.pc-card {
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.25rem 1.25rem 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pc-card:hover {
+  border-color: var(--pc-orange);
+  box-shadow: 0 0 0 1px var(--pc-orange), 0 4px 16px var(--pc-orange-dim);
+}
+
+.pc-card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.pc-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--pc-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pc-card p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* ── CTA buttons ────────────────────────────────────────────────────── */
+.md-button--primary {
+  background-color: var(--pc-orange) !important;
+  border-color: var(--pc-orange) !important;
+  color: #fff !important;
+}
+
+.md-button--primary:hover {
+  background-color: var(--pc-orange-light) !important;
+  border-color: var(--pc-orange-light) !important;
+}
+
+/* ── Admonition accent ──────────────────────────────────────────────── */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 6px;
+}
+
+/* ── Table styling ──────────────────────────────────────────────────── */
+.md-typeset table:not([class]) th {
+  background-color: var(--pc-orange-dim);
+  color: var(--md-default-fg-color);
+}
+
+/* ── Sidebar active link ────────────────────────────────────────────── */
+.md-nav__link--active {
+  color: var(--pc-orange) !important;
+  font-weight: 600;
+}
+
+/* ── Footer nav ─────────────────────────────────────────────────────── */
+.md-footer {
+  background-color: var(--md-primary-fg-color);
+}

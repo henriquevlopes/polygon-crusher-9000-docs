@@ -8,6 +8,8 @@ repo_url: https://github.com/henriquevlopes/polygon-crusher-9000-docs
 
 theme:
   name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
   palette:
     - scheme: slate
       primary: deep orange
@@ -23,11 +25,17 @@ theme:
         name: Switch to dark mode
   features:
     - navigation.instant
+    - navigation.instant.prefetch
     - navigation.top
     - navigation.sections
-    - toc.integrate
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.footer
+    - toc.follow
     - search.highlight
+    - search.suggest
     - content.code.copy
+    - content.tooltips
   icon:
     repo: fontawesome/brands/github
 
@@ -54,6 +62,9 @@ markdown_extensions:
 
 plugins:
   - search
+
+extra_css:
+  - stylesheets/extra.css
 
 extra:
   social:
