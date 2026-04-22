@@ -1,8 +1,6 @@
 <div class="pc-hero" markdown>
 
-# Polygon Crusher 9000
-
-**Fast, clean mesh decimation for Blender — without destroying your normals.**
+![Polygon Crusher 9000](assets/Banner_01.png)
 
 [Get Started →](getting-started/installation.md){ .md-button .md-button--primary }
 [Settings Reference →](settings.md){ .md-button }
