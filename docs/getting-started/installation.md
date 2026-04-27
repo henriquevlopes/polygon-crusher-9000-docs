@@ -15,12 +15,17 @@ Purchase and download the latest `.zip` file from the [Superhive store](#).
 4. Select the downloaded `polygon_crusher_9000_*.zip`
 5. Enable the addon by ticking the checkbox next to **Polygon Crusher 9000**
 
+## Requirements
+
+- **Blender 4.2 or later** (tested on 5.1)
+- Windows, macOS, or Linux
+
 ## Open the Panel
 
 The addon panel appears in the **3D Viewport sidebar**:
 
 - Press **N** to open the sidebar (if it's not visible)
-- Click the **Polygon Crusher** tab
+- Click the **Crusher** tab
 
 ## Updating
 

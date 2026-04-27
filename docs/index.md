@@ -30,20 +30,20 @@ Transfers original surface normals onto the result — smooth shading survives e
 </div>
 
 <div class="pc-card" markdown>
-<span class="pc-card-icon">🗺️</span>
+<span class="pc-card-icon">🧬</span>
 
-### UV Transfer
+### Modifier-Aware
 
-Optionally re-projects the original UV map onto the crushed mesh so textures stay intact.
+Crushes the *evaluated* mesh — boolean, subdivision, and the rest of the modifier stack are baked in automatically. Originals stay untouched.
 
 </div>
 
 <div class="pc-card" markdown>
-<span class="pc-card-icon">🔒</span>
+<span class="pc-card-icon">🎚️</span>
 
-### Lossless Mode
+### Tunable Aggressiveness
 
-Removes only redundant geometry — zero visual change. Ideal for CAD imports and over-subdivided hard-surface models.
+Dial how hard the simplifier pushes. Lower values keep fine features (eyes, hair, creases); higher values converge faster on lower-detail meshes.
 
 </div>
 
@@ -52,7 +52,7 @@ Removes only redundant geometry — zero visual change. Ideal for CAD imports an
 
 ### Live Progress
 
-Blender stays responsive during long crushes. Press **ESC** at any time to abort cleanly and restore the scene.
+Blender stays responsive during long crushes — heavy work runs on a worker thread. Press **ESC** at any time to abort.
 
 </div>
 
@@ -73,8 +73,8 @@ Per-object triangle counts and timing displayed after each crush, directly in th
 
 | | |
 |---|---|
-| **Blender** | 4.0 or later (tested on 5.1) |
-| **OS** | Windows |
+| **Blender** | 4.2 or later (tested on 5.1) |
+| **OS** | Windows, macOS, Linux |
 
 ---
 
