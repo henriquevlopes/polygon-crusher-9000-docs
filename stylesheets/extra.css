@@ -1,0 +1,186 @@
+/* ── Palette (from Banner_01 — warm cream, orange-red, dark brown) ───── */
+:root {
+  --pc-cream:       #f5e8d0;
+  --pc-cream-dark:  #ecdcc0;
+  --pc-orange:      #e8502a;
+  --pc-orange-dim:  rgba(232, 80, 42, 0.12);
+  --pc-brown:       #2c1810;
+  --pc-brown-mid:   #5c3520;
+  --pc-tan:         #c8905a;
+}
+
+/* ── Page background — warm cream ───────────────────────────────────── */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color:         var(--pc-cream);
+  --md-default-fg-color:         var(--pc-brown);
+  --md-default-fg-color--light:  var(--pc-brown-mid);
+  --md-code-bg-color:            var(--pc-cream-dark);
+  --md-typeset-a-color:          var(--pc-orange);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+.md-header {
+  background-color: var(--pc-brown) !important;
+  color: var(--pc-cream) !important;
+}
+
+.md-header__title {
+  color: var(--pc-cream) !important;
+}
+
+/* ── Left sidebar ────────────────────────────────────────────────────── */
+.md-sidebar--primary {
+  background-color: var(--pc-cream-dark);
+}
+
+.md-nav__title {
+  color: var(--pc-brown);
+}
+
+.md-nav--primary > .md-nav__title {
+  display: none;
+}
+
+/* ── Right sidebar (TOC) — hidden ────────────────────────────────────── */
+.md-sidebar--secondary {
+  display: none !important;
+}
+
+.md-content {
+  max-width: 860px;
+}
+
+/* ── Active nav link ─────────────────────────────────────────────────── */
+.md-nav__link--active {
+  color: var(--pc-orange) !important;
+  font-weight: 700;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────── */
+.md-footer {
+  background-color: var(--pc-brown) !important;
+  color: var(--pc-cream) !important;
+}
+
+.md-footer-meta {
+  background-color: var(--pc-brown) !important;
+}
+
+/* ── Search ──────────────────────────────────────────────────────────── */
+.md-search__form {
+  background-color: rgba(255,255,255,0.12) !important;
+}
+
+/* ── Hero section ────────────────────────────────────────────────────── */
+.pc-hero {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+}
+
+.pc-hero img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  margin: 0 auto 1.75rem;
+  display: block;
+  box-shadow: 0 8px 32px rgba(44, 24, 16, 0.20);
+}
+
+.pc-hero .md-button {
+  margin: 0.3rem;
+}
+
+/* ── Feature grid cards ──────────────────────────────────────────────── */
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.pc-card {
+  background: var(--pc-cream-dark);
+  border: 1px solid var(--pc-tan);
+  border-radius: 8px;
+  padding: 1.25rem 1.25rem 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pc-card:hover {
+  border-color: var(--pc-orange);
+  box-shadow: 0 0 0 1px var(--pc-orange), 0 4px 20px var(--pc-orange-dim);
+}
+
+.pc-card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.pc-card h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pc-brown-mid);
+}
+
+.pc-card p {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  margin: 0;
+  color: var(--pc-brown);
+}
+
+/* ── CTA buttons ─────────────────────────────────────────────────────── */
+.md-button--primary {
+  background-color: var(--pc-orange) !important;
+  border-color: var(--pc-orange) !important;
+  color: #fff !important;
+}
+
+.md-button--primary:hover {
+  filter: brightness(1.1);
+}
+
+.md-button:not(.md-button--primary) {
+  border-color: var(--pc-tan) !important;
+  color: var(--pc-brown) !important;
+}
+
+/* ── Admonitions ─────────────────────────────────────────────────────── */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 6px;
+  background-color: var(--pc-cream-dark);
+}
+
+/* ── Tables ──────────────────────────────────────────────────────────── */
+.md-typeset table:not([class]) th {
+  background-color: var(--pc-cream-dark);
+  color: var(--pc-brown);
+}
+
+.md-typeset table:not([class]) td {
+  border-color: var(--pc-tan);
+}
+
+/* ── Code blocks ─────────────────────────────────────────────────────── */
+.md-typeset code {
+  background-color: var(--pc-cream-dark);
+  color: var(--pc-brown);
+}
+
+/* ── Horizontal rules ────────────────────────────────────────────────── */
+.md-typeset hr {
+  border-color: var(--pc-tan);
+}
+
+/* ── Full-width images in content ────────────────────────────────────── */
+.md-typeset img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(44, 24, 16, 0.15);
+}
