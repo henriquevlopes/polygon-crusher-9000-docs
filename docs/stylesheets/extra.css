@@ -1,77 +1,176 @@
-/* ── Palette (from Banner_01 — warm cream, orange-red, dark brown) ───── */
+/* ── Blender default-theme palette ──────────────────────────────────────
+   Sampled from Blender 4.x default UI:
+   - Region (main bg)          #303030
+   - Editor panel              #393939
+   - Header / footer           #272727
+   - Border / separator        #1a1a1a
+   - Button / input            #545454
+   - Button hover              #656565
+   - Text (primary)            #e6e6e6
+   - Text (dim)                #a6a6a6
+   - Brand orange              #ea7600  (logo)
+   - Brand orange bright       #f5792a
+   - Selection blue            #4772b3
+   ─────────────────────────────────────────────────────────────────────── */
 :root {
-  --pc-cream:       #f5e8d0;
-  --pc-cream-dark:  #ecdcc0;
-  --pc-orange:      #e8502a;
-  --pc-orange-dim:  rgba(232, 80, 42, 0.12);
-  --pc-brown:       #2c1810;
-  --pc-brown-mid:   #5c3520;
-  --pc-tan:         #c8905a;
+  --bl-bg:           #303030;
+  --bl-bg-2:         #393939;
+  --bl-bg-3:         #272727;
+  --bl-bg-input:     #545454;
+  --bl-bg-input-hi:  #656565;
+  --bl-border:       #1a1a1a;
+  --bl-text:         #e6e6e6;
+  --bl-text-dim:     #a6a6a6;
+  --bl-orange:       #ea7600;
+  --bl-orange-hi:    #f5792a;
+  --bl-orange-dim:   rgba(234, 118, 0, 0.14);
+  --bl-blue:         #4772b3;
 }
 
-/* ── Page background — warm cream ───────────────────────────────────── */
-[data-md-color-scheme="default"] {
-  --md-default-bg-color:         var(--pc-cream);
-  --md-default-fg-color:         var(--pc-brown);
-  --md-default-fg-color--light:  var(--pc-brown-mid);
-  --md-code-bg-color:            var(--pc-cream-dark);
-  --md-typeset-a-color:          var(--pc-orange);
+/* ── Material palette overrides (slate / dark mode) ─────────────────────── */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color:                #303030;
+  --md-default-bg-color--light:         #393939;
+  --md-default-bg-color--lighter:       #404040;
+  --md-default-bg-color--lightest:      #545454;
+  --md-default-fg-color:                #e6e6e6;
+  --md-default-fg-color--light:         #cfcfcf;
+  --md-default-fg-color--lighter:       #a6a6a6;
+  --md-default-fg-color--lightest:      #6a6a6a;
+
+  --md-primary-fg-color:                var(--bl-bg-3);
+  --md-primary-fg-color--light:         #2f2f2f;
+  --md-primary-fg-color--dark:          #1d1d1d;
+  --md-primary-bg-color:                #e6e6e6;
+  --md-primary-bg-color--light:         #cfcfcf;
+
+  --md-accent-fg-color:                 var(--bl-orange-hi);
+  --md-accent-fg-color--transparent:    var(--bl-orange-dim);
+  --md-accent-bg-color:                 #ffffff;
+
+  --md-typeset-a-color:                 var(--bl-orange-hi);
+  --md-typeset-mark-color:              var(--bl-orange-dim);
+
+  --md-code-bg-color:                   #232323;
+  --md-code-fg-color:                   #e6e6e6;
+
+  --md-footer-bg-color:                 var(--bl-bg-3);
+  --md-footer-bg-color--dark:           #1d1d1d;
+  --md-footer-fg-color:                 #e6e6e6;
+  --md-footer-fg-color--light:          #c0c0c0;
+  --md-footer-fg-color--lighter:        #909090;
 }
 
-/* ── Header ─────────────────────────────────────────────────────────── */
+/* ── Body ───────────────────────────────────────────────────────────────── */
+body {
+  background-color: var(--bl-bg);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
 .md-header {
-  background-color: var(--pc-brown) !important;
-  color: var(--pc-cream) !important;
+  background-color: var(--bl-bg-3) !important;
+  color: var(--bl-text) !important;
+  border-bottom: 1px solid var(--bl-border);
+  box-shadow: none;
 }
 
 .md-header__title {
-  color: var(--pc-cream) !important;
+  color: var(--bl-text) !important;
 }
 
-/* ── Left sidebar ────────────────────────────────────────────────────── */
+/* ── Tabs (top nav) ─────────────────────────────────────────────────────── */
+.md-tabs {
+  background-color: var(--bl-bg-3) !important;
+  border-bottom: 1px solid var(--bl-border);
+}
+
+/* ── Sidebars ───────────────────────────────────────────────────────────── */
 .md-sidebar--primary {
-  background-color: var(--pc-cream-dark);
+  background-color: var(--bl-bg-2);
 }
 
 .md-nav__title {
-  color: var(--pc-brown);
+  color: var(--bl-text);
+  background-color: var(--bl-bg-2) !important;
 }
 
 .md-nav--primary > .md-nav__title {
   display: none;
 }
 
-/* ── Right sidebar (TOC) — hidden ────────────────────────────────────── */
+.md-nav__link {
+  color: var(--bl-text-dim);
+}
+
+.md-nav__link:hover {
+  color: var(--bl-orange-hi);
+}
+
+.md-nav__link--active,
+.md-nav__link--active code {
+  color: var(--bl-orange-hi) !important;
+  font-weight: 700;
+}
+
+/* Right sidebar (TOC) hidden, matching prior layout. */
 .md-sidebar--secondary {
   display: none !important;
 }
 
 .md-content {
   max-width: 860px;
+  color: var(--bl-text);
 }
 
-/* ── Active nav link ─────────────────────────────────────────────────── */
-.md-nav__link--active {
-  color: var(--pc-orange) !important;
-  font-weight: 700;
+.md-typeset {
+  color: var(--bl-text);
 }
 
-/* ── Footer ──────────────────────────────────────────────────────────── */
+/* Headings — slightly brighter than body text, matching Blender label brightness */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  color: #ffffff;
+}
+
+.md-typeset h2 {
+  border-bottom: 1px solid var(--bl-border);
+  padding-bottom: 0.3rem;
+}
+
+/* ── Search ─────────────────────────────────────────────────────────────── */
+.md-search__form {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid var(--bl-border);
+}
+
+.md-search__form:hover {
+  background-color: rgba(255, 255, 255, 0.10) !important;
+}
+
+.md-search__input {
+  color: var(--bl-text);
+}
+
+.md-search__input::placeholder {
+  color: var(--bl-text-dim);
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
 .md-footer {
-  background-color: var(--pc-brown) !important;
-  color: var(--pc-cream) !important;
+  background-color: var(--bl-bg-3) !important;
+  color: var(--bl-text) !important;
+  border-top: 1px solid var(--bl-border);
 }
 
 .md-footer-meta {
-  background-color: var(--pc-brown) !important;
+  background-color: #1d1d1d !important;
 }
 
-/* ── Search ──────────────────────────────────────────────────────────── */
-.md-search__form {
-  background-color: rgba(255,255,255,0.12) !important;
-}
-
-/* ── Hero section ────────────────────────────────────────────────────── */
+/* ── Hero (home page) ───────────────────────────────────────────────────── */
 .pc-hero {
   text-align: center;
   padding: 2.5rem 1rem 1.5rem;
@@ -83,14 +182,14 @@
   border-radius: 12px;
   margin: 0 auto 1.75rem;
   display: block;
-  box-shadow: 0 8px 32px rgba(44, 24, 16, 0.20);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
 }
 
 .pc-hero .md-button {
   margin: 0.3rem;
 }
 
-/* ── Feature grid cards ──────────────────────────────────────────────── */
+/* ── Feature grid cards ─────────────────────────────────────────────────── */
 .pc-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -99,16 +198,17 @@
 }
 
 .pc-card {
-  background: var(--pc-cream-dark);
-  border: 1px solid var(--pc-tan);
-  border-radius: 8px;
+  background: var(--bl-bg-2);
+  border: 1px solid var(--bl-border);
+  border-radius: 6px;
   padding: 1.25rem 1.25rem 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
 }
 
 .pc-card:hover {
-  border-color: var(--pc-orange);
-  box-shadow: 0 0 0 1px var(--pc-orange), 0 4px 20px var(--pc-orange-dim);
+  border-color: var(--bl-orange);
+  box-shadow: 0 0 0 1px var(--bl-orange), 0 6px 20px rgba(0, 0, 0, 0.45);
+  transform: translateY(-1px);
 }
 
 .pc-card-icon {
@@ -123,64 +223,142 @@
   margin: 0 0 0.4rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--pc-brown-mid);
+  color: var(--bl-text-dim);
 }
 
 .pc-card p {
   font-size: 0.875rem;
   line-height: 1.55;
   margin: 0;
-  color: var(--pc-brown);
+  color: var(--bl-text);
 }
 
-/* ── CTA buttons ─────────────────────────────────────────────────────── */
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+.md-button {
+  background-color: var(--bl-bg-input) !important;
+  border: 1px solid var(--bl-border) !important;
+  color: var(--bl-text) !important;
+  border-radius: 4px !important;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.md-button:hover {
+  background-color: var(--bl-bg-input-hi) !important;
+  border-color: var(--bl-orange) !important;
+  color: var(--bl-text) !important;
+}
+
 .md-button--primary {
-  background-color: var(--pc-orange) !important;
-  border-color: var(--pc-orange) !important;
-  color: #fff !important;
+  background-color: var(--bl-orange) !important;
+  border-color: var(--bl-orange) !important;
+  color: #ffffff !important;
 }
 
 .md-button--primary:hover {
-  filter: brightness(1.1);
+  background-color: var(--bl-orange-hi) !important;
+  border-color: var(--bl-orange-hi) !important;
+  color: #ffffff !important;
 }
 
-.md-button:not(.md-button--primary) {
-  border-color: var(--pc-tan) !important;
-  color: var(--pc-brown) !important;
-}
-
-/* ── Admonitions ─────────────────────────────────────────────────────── */
+/* ── Admonitions (note / tip / warning) ────────────────────────────────── */
 .md-typeset .admonition,
 .md-typeset details {
-  border-radius: 6px;
-  background-color: var(--pc-cream-dark);
+  background-color: var(--bl-bg-2);
+  border: 1px solid var(--bl-border);
+  border-left: 3px solid var(--bl-orange);
+  border-radius: 4px;
+  color: var(--bl-text);
+  box-shadow: none;
 }
 
-/* ── Tables ──────────────────────────────────────────────────────────── */
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background-color: rgba(234, 118, 0, 0.10) !important;
+  color: var(--bl-text) !important;
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+.md-typeset table:not([class]) {
+  background-color: var(--bl-bg-2);
+  border: 1px solid var(--bl-border);
+}
+
 .md-typeset table:not([class]) th {
-  background-color: var(--pc-cream-dark);
-  color: var(--pc-brown);
+  background-color: var(--bl-bg-3);
+  color: var(--bl-text);
+  border-bottom: 1px solid var(--bl-border);
 }
 
 .md-typeset table:not([class]) td {
-  border-color: var(--pc-tan);
+  color: var(--bl-text);
+  border-top: 1px solid var(--bl-border);
 }
 
-/* ── Code blocks ─────────────────────────────────────────────────────── */
+.md-typeset table:not([class]) tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ── Code ───────────────────────────────────────────────────────────────── */
 .md-typeset code {
-  background-color: var(--pc-cream-dark);
-  color: var(--pc-brown);
+  background-color: #232323;
+  color: var(--bl-orange-hi);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
 }
 
-/* ── Horizontal rules ────────────────────────────────────────────────── */
+.md-typeset pre > code,
+.md-typeset .highlight code {
+  color: var(--bl-text);
+  background-color: #232323;
+}
+
+.md-typeset pre {
+  background-color: #232323;
+  border: 1px solid var(--bl-border);
+  border-radius: 4px;
+}
+
+/* ── Horizontal rules ───────────────────────────────────────────────────── */
 .md-typeset hr {
-  border-color: var(--pc-tan);
+  border-color: var(--bl-border);
 }
 
-/* ── Full-width images in content ────────────────────────────────────── */
+/* ── Inline links ───────────────────────────────────────────────────────── */
+.md-typeset a {
+  color: var(--bl-orange-hi);
+}
+
+.md-typeset a:hover {
+  color: #ffa64c;
+}
+
+/* ── Full-width images in content ───────────────────────────────────────── */
 .md-typeset img {
   width: 100%;
   max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 6px 24px rgba(44, 24, 16, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Selection (mimic Blender selection accent) ─────────────────────────── */
+::selection {
+  background: var(--bl-orange);
+  color: #ffffff;
+}
+
+/* ── Scrollbar (webkit, mimics Blender's slim dark scrollbars) ──────────── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bl-bg-3);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bl-bg-input);
+  border-radius: 5px;
+  border: 2px solid var(--bl-bg-3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bl-bg-input-hi);
 }

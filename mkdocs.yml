@@ -8,9 +8,9 @@ theme:
   logo: assets/logo.svg
   favicon: assets/logo.svg
   palette:
-    scheme: default
-    primary: deep orange
-    accent: orange
+    scheme: slate
+    primary: custom
+    accent: custom
   features:
     - navigation.instant
     - navigation.instant.prefetch
