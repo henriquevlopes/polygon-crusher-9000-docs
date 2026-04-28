@@ -1,6 +1,6 @@
 # Polygon Crusher 9000
 
-![Polygon Crusher 9000](assets/Banner_02.png)
+![Polygon Crusher 9000](assets/polygon_crusher_9000_showcase.jpg)
 
 Blender addon for fast, normal-preserving mesh decimation.
 

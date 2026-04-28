@@ -1,0 +1,434 @@
+/* ── Synthwave palette (sampled from polygon_crusher_9000_showcase.jpg) ──
+   - Deep purple bg          #0f0822
+   - Mid purple bg           #1a0e2e
+   - Panel purple            #251744
+   - Input / button bg       #2e1d4a
+   - Border purple           #3d1a5e
+   - Lavender text           #e8def5
+   - Muted lavender          #9b8ec9
+   - Magenta accent          #e63ad8
+   - Magenta bright          #ff5edb
+   - Cyan accent             #3fe3ff
+   - Cyan bright             #6eecff
+   - Gold (inline code)      #f5d666
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --pc-bg-deep:    #0f0822;
+  --pc-bg:         #1a0e2e;
+  --pc-bg-panel:   #251744;
+  --pc-bg-input:   #2e1d4a;
+  --pc-border:     #3d1a5e;
+  --pc-text:       #e8def5;
+  --pc-text-dim:   #9b8ec9;
+  --pc-magenta:    #e63ad8;
+  --pc-magenta-hi: #ff5edb;
+  --pc-cyan:       #3fe3ff;
+  --pc-cyan-hi:    #6eecff;
+  --pc-gold:       #f5d666;
+}
+
+/* ── Body / overall background ──────────────────────────────────────────── */
+body,
+.wy-body-for-nav {
+  background: var(--pc-bg) !important;
+  color: var(--pc-text);
+}
+
+/* ── Main content area ──────────────────────────────────────────────────── */
+.wy-nav-content-wrap {
+  background: var(--pc-bg) !important;
+}
+
+.wy-nav-content {
+  background: var(--pc-bg) !important;
+  color: var(--pc-text);
+  max-width: 900px;
+}
+
+/* ── Headings ───────────────────────────────────────────────────────────── */
+.rst-content h1,
+.rst-content h2,
+.rst-content h3,
+.rst-content h4,
+.rst-content h5,
+.rst-content h6 {
+  color: var(--pc-cyan-hi);
+  font-weight: 700;
+}
+
+.rst-content h1 {
+  color: var(--pc-magenta-hi);
+  text-shadow: 0 0 14px rgba(230, 58, 216, 0.35);
+  border-bottom: 2px solid var(--pc-magenta);
+  padding-bottom: 0.25em;
+}
+
+.rst-content h2 {
+  border-bottom: 1px solid var(--pc-border);
+  padding-bottom: 0.3em;
+}
+
+/* ── Body text ──────────────────────────────────────────────────────────── */
+.rst-content p,
+.rst-content li,
+.rst-content dd,
+.wy-plain-list-disc li {
+  color: var(--pc-text);
+}
+
+.rst-content strong {
+  color: var(--pc-cyan-hi);
+}
+
+.rst-content em {
+  color: var(--pc-magenta-hi);
+}
+
+/* ── Links ──────────────────────────────────────────────────────────────── */
+.rst-content a,
+.rst-content a:visited {
+  color: var(--pc-cyan-hi);
+  text-decoration: none;
+}
+
+.rst-content a:hover {
+  color: var(--pc-magenta-hi);
+  text-decoration: underline;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────────────── */
+.wy-nav-side {
+  background: var(--pc-bg-deep) !important;
+  border-right: 1px solid var(--pc-border);
+}
+
+/* The top "search" section of the sidebar (logo / site title / search) */
+.wy-side-nav-search {
+  background: linear-gradient(135deg, var(--pc-bg-deep), #2a1450) !important;
+  border-bottom: 1px solid var(--pc-magenta);
+  padding-bottom: 1.2em;
+}
+
+.wy-side-nav-search > a,
+.wy-side-nav-search .wy-dropdown > a {
+  color: var(--pc-magenta-hi) !important;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(230, 58, 216, 0.4);
+}
+
+.wy-side-nav-search > div.version {
+  color: var(--pc-text-dim) !important;
+}
+
+.wy-side-nav-search input[type="text"] {
+  background: var(--pc-bg-input) !important;
+  border: 1px solid var(--pc-border) !important;
+  color: var(--pc-text) !important;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.wy-side-nav-search input[type="text"]::placeholder {
+  color: var(--pc-text-dim);
+}
+
+/* ── Sidebar nav menu ───────────────────────────────────────────────────── */
+.wy-menu-vertical {
+  background: var(--pc-bg-deep);
+}
+
+.wy-menu-vertical p.caption {
+  color: var(--pc-magenta-hi);
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.08em;
+}
+
+.wy-menu-vertical a,
+.wy-menu-vertical li.toctree-l1 a,
+.wy-menu-vertical li.toctree-l2 a,
+.wy-menu-vertical li.toctree-l3 a {
+  color: var(--pc-text-dim);
+  border-right: none;
+}
+
+.wy-menu-vertical a:hover,
+.wy-menu-vertical li.toctree-l1 a:hover,
+.wy-menu-vertical li.toctree-l2 a:hover,
+.wy-menu-vertical li.toctree-l3 a:hover {
+  background: var(--pc-bg-input);
+  color: var(--pc-cyan-hi);
+}
+
+.wy-menu-vertical li.current {
+  background: var(--pc-bg-panel);
+}
+
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.toctree-l1.current > a {
+  background: var(--pc-bg-panel) !important;
+  color: var(--pc-magenta-hi) !important;
+  border-top: none;
+  border-bottom: none;
+  border-right: 3px solid var(--pc-magenta) !important;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l3.current > a {
+  background: var(--pc-bg-panel) !important;
+  color: var(--pc-magenta-hi) !important;
+}
+
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
+  background: var(--pc-bg-panel) !important;
+  color: var(--pc-text-dim);
+}
+
+.wy-menu-vertical li.toctree-l1.current > a:hover,
+.wy-menu-vertical li.current > a:hover {
+  background: var(--pc-bg-input) !important;
+  color: var(--pc-magenta-hi) !important;
+}
+
+/* ── Mobile top bar (hamburger menu) ────────────────────────────────────── */
+.wy-nav-top {
+  background: var(--pc-bg-deep) !important;
+  color: var(--pc-magenta-hi);
+}
+
+.wy-nav-top a {
+  color: var(--pc-magenta-hi);
+}
+
+.wy-nav-top i {
+  color: var(--pc-cyan-hi);
+}
+
+/* ── Inline code ────────────────────────────────────────────────────────── */
+.rst-content code,
+.rst-content tt,
+.rst-content code.literal,
+code,
+.rst-content pre code {
+  background: var(--pc-bg-input);
+  color: var(--pc-gold);
+  border: 1px solid var(--pc-border);
+  border-radius: 3px;
+  padding: 0.1em 0.4em;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.rst-content pre {
+  background: var(--pc-bg-deep) !important;
+  border: 1px solid var(--pc-border);
+  border-radius: 4px;
+  padding: 0.9em 1em;
+  color: var(--pc-text);
+}
+
+.rst-content pre code {
+  background: transparent !important;
+  border: none;
+  color: var(--pc-text);
+  padding: 0;
+}
+
+.rst-content .highlight {
+  background: var(--pc-bg-deep);
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+.rst-content table.docutils,
+.rst-content table.field-list {
+  background: var(--pc-bg-panel);
+  border: 1px solid var(--pc-border);
+  border-collapse: collapse;
+}
+
+.rst-content table.docutils thead,
+.rst-content table.docutils thead th,
+.rst-content table.docutils thead tr {
+  background: var(--pc-bg-deep) !important;
+  color: var(--pc-magenta-hi) !important;
+  border-color: var(--pc-border) !important;
+}
+
+.rst-content table.docutils thead th {
+  text-transform: uppercase;
+  font-size: 0.78em;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.rst-content table.docutils tbody td,
+.rst-content table.docutils tbody tr {
+  background: var(--pc-bg-panel) !important;
+  color: var(--pc-text) !important;
+  border-color: var(--pc-border) !important;
+}
+
+.rst-content table.docutils tbody tr:nth-child(2n) td {
+  background: var(--pc-bg-input) !important;
+}
+
+.rst-content table.docutils tbody tr:hover td {
+  background: rgba(230, 58, 216, 0.10) !important;
+  color: var(--pc-text);
+}
+
+/* ── Admonitions (note / tip / warning) ─────────────────────────────────── */
+.rst-content .admonition {
+  background: var(--pc-bg-panel);
+  border-left: 4px solid var(--pc-magenta);
+  color: var(--pc-text);
+  border-radius: 3px;
+  padding: 0;
+}
+
+.rst-content .admonition-title {
+  background: rgba(230, 58, 216, 0.18) !important;
+  color: var(--pc-magenta-hi) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--pc-border);
+  padding: 0.5em 1em;
+}
+
+.rst-content .admonition .last,
+.rst-content .admonition p {
+  color: var(--pc-text);
+  padding: 0.6em 1em 0.8em;
+  margin: 0;
+}
+
+.rst-content .note,
+.rst-content .tip {
+  border-left-color: var(--pc-cyan);
+}
+
+.rst-content .note .admonition-title,
+.rst-content .tip .admonition-title {
+  background: rgba(63, 227, 255, 0.16) !important;
+  color: var(--pc-cyan-hi) !important;
+}
+
+.rst-content .warning,
+.rst-content .danger,
+.rst-content .caution {
+  border-left-color: var(--pc-magenta);
+}
+
+/* ── Horizontal rules ───────────────────────────────────────────────────── */
+.rst-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--pc-magenta) 20%,
+    var(--pc-cyan) 80%,
+    transparent);
+  margin: 2em 0;
+}
+
+/* ── Buttons (prev/next at bottom of pages) ─────────────────────────────── */
+.rst-content .btn,
+.btn-neutral,
+.rst-footer-buttons .btn {
+  background: var(--pc-bg-input) !important;
+  color: var(--pc-cyan-hi) !important;
+  border: 1px solid var(--pc-border) !important;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  box-shadow: none !important;
+}
+
+.rst-content .btn:hover,
+.btn-neutral:hover,
+.rst-footer-buttons .btn:hover {
+  background: var(--pc-bg-panel) !important;
+  border-color: var(--pc-magenta) !important;
+  color: var(--pc-magenta-hi) !important;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+footer {
+  color: var(--pc-text-dim) !important;
+}
+
+footer a,
+footer a:visited {
+  color: var(--pc-cyan-hi) !important;
+}
+
+footer a:hover {
+  color: var(--pc-magenta-hi) !important;
+}
+
+footer hr {
+  background: var(--pc-border);
+}
+
+/* ── Images in content ──────────────────────────────────────────────────── */
+.rst-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 6px 28px rgba(230, 58, 216, 0.18),
+              0 0 0 1px var(--pc-border);
+}
+
+/* ── Search results highlight ───────────────────────────────────────────── */
+.rst-content .highlighted {
+  background: rgba(245, 214, 102, 0.25);
+  color: var(--pc-gold);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* ── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--pc-magenta);
+  color: #ffffff;
+}
+
+/* ── Scrollbar (slim purple/magenta) ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--pc-bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pc-bg-input);
+  border-radius: 5px;
+  border: 2px solid var(--pc-bg-deep);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pc-magenta);
+}
+
+/* ── Search results page ────────────────────────────────────────────────── */
+#search-results .search li {
+  border-bottom: 1px solid var(--pc-border);
+}
+
+#search-results .search li a {
+  color: var(--pc-cyan-hi);
+}
+
+/* ── Misc readthedocs theme element overrides ──────────────────────────── */
+.wy-breadcrumbs li {
+  color: var(--pc-text-dim);
+}
+
+.wy-breadcrumbs li a {
+  color: var(--pc-cyan-hi);
+}
+
+.wy-breadcrumbs-aside a {
+  color: var(--pc-text-dim);
+}
