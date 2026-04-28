@@ -14,13 +14,13 @@
    - Gold (muted)       #c9b06a
    ───────────────────────────────────────────────────────────────────────── */
 :root {
-  --pc-bg-deep:    #181028;
-  --pc-bg:         #20142d;
-  --pc-bg-panel:   #2a1d42;
-  --pc-bg-input:   #322447;
-  --pc-border:     #3a2a55;
-  --pc-text:       #e2d9eb;
-  --pc-text-dim:   #9c91b0;
+  --pc-bg-deep:    #1e1734;
+  --pc-bg:         #291f3d;
+  --pc-bg-panel:   #332750;
+  --pc-bg-input:   #3b2e5b;
+  --pc-border:     #473962;
+  --pc-text:       #ece4f3;
+  --pc-text-dim:   #a89dbe;
   --pc-magenta:    #b860a8;
   --pc-magenta-hi: #d381c7;
   --pc-cyan:       #7eafc1;
