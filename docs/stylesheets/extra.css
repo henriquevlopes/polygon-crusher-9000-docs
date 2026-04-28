@@ -359,10 +359,13 @@ footer hr {
 }
 
 /* ── Images in content (clean shadow, no neon tint) ─────────────────────── */
-.rst-content img {
+.rst-content img,
+.rst-content .section img,
+.wy-nav-content img {
   max-width: 100%;
-  border-radius: 6px;
+  border-radius: 12px !important;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
 }
 
 /* ── Search results highlight ───────────────────────────────────────────── */
