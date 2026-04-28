@@ -1,30 +1,31 @@
-/* ── Synthwave palette (sampled from polygon_crusher_9000_showcase.jpg) ──
-   - Deep purple bg          #0f0822
-   - Mid purple bg           #1a0e2e
-   - Panel purple            #251744
-   - Input / button bg       #2e1d4a
-   - Border purple           #3d1a5e
-   - Lavender text           #e8def5
-   - Muted lavender          #9b8ec9
-   - Magenta accent          #e63ad8
-   - Magenta bright          #ff5edb
-   - Cyan accent             #3fe3ff
-   - Cyan bright             #6eecff
-   - Gold (inline code)      #f5d666
+/* ── Muted synthwave palette (calmer take on showcase image colors) ─────
+   Same families as the bright version, just desaturated:
+   - Bg deep            #181028
+   - Bg main            #20142d
+   - Bg panel           #2a1d42
+   - Bg input/button    #322447
+   - Border subtle      #3a2a55
+   - Text               #e2d9eb
+   - Text dim           #9c91b0
+   - Magenta (muted)    #b860a8   ← calmer pink-magenta
+   - Magenta hi         #d381c7
+   - Cyan (muted)       #7eafc1   ← steel cyan, not neon
+   - Cyan hi            #a4cad6
+   - Gold (muted)       #c9b06a
    ───────────────────────────────────────────────────────────────────────── */
 :root {
-  --pc-bg-deep:    #0f0822;
-  --pc-bg:         #1a0e2e;
-  --pc-bg-panel:   #251744;
-  --pc-bg-input:   #2e1d4a;
-  --pc-border:     #3d1a5e;
-  --pc-text:       #e8def5;
-  --pc-text-dim:   #9b8ec9;
-  --pc-magenta:    #e63ad8;
-  --pc-magenta-hi: #ff5edb;
-  --pc-cyan:       #3fe3ff;
-  --pc-cyan-hi:    #6eecff;
-  --pc-gold:       #f5d666;
+  --pc-bg-deep:    #181028;
+  --pc-bg:         #20142d;
+  --pc-bg-panel:   #2a1d42;
+  --pc-bg-input:   #322447;
+  --pc-border:     #3a2a55;
+  --pc-text:       #e2d9eb;
+  --pc-text-dim:   #9c91b0;
+  --pc-magenta:    #b860a8;
+  --pc-magenta-hi: #d381c7;
+  --pc-cyan:       #7eafc1;
+  --pc-cyan-hi:    #a4cad6;
+  --pc-gold:       #c9b06a;
 }
 
 /* ── Body / overall background ──────────────────────────────────────────── */
@@ -45,7 +46,7 @@ body,
   max-width: 900px;
 }
 
-/* ── Headings ───────────────────────────────────────────────────────────── */
+/* ── Headings (no glow, subtle) ─────────────────────────────────────────── */
 .rst-content h1,
 .rst-content h2,
 .rst-content h3,
@@ -53,13 +54,12 @@ body,
 .rst-content h5,
 .rst-content h6 {
   color: var(--pc-cyan-hi);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .rst-content h1 {
   color: var(--pc-magenta-hi);
-  text-shadow: 0 0 14px rgba(230, 58, 216, 0.35);
-  border-bottom: 2px solid var(--pc-magenta);
+  border-bottom: 1px solid var(--pc-border);
   padding-bottom: 0.25em;
 }
 
@@ -78,10 +78,12 @@ body,
 
 .rst-content strong {
   color: var(--pc-cyan-hi);
+  font-weight: 600;
 }
 
 .rst-content em {
-  color: var(--pc-magenta-hi);
+  color: var(--pc-text);
+  font-style: italic;
 }
 
 /* ── Links ──────────────────────────────────────────────────────────────── */
@@ -104,16 +106,15 @@ body,
 
 /* The top "search" section of the sidebar (logo / site title / search) */
 .wy-side-nav-search {
-  background: linear-gradient(135deg, var(--pc-bg-deep), #2a1450) !important;
-  border-bottom: 1px solid var(--pc-magenta);
+  background: var(--pc-bg-deep) !important;
+  border-bottom: 1px solid var(--pc-border);
   padding-bottom: 1.2em;
 }
 
 .wy-side-nav-search > a,
 .wy-side-nav-search .wy-dropdown > a {
   color: var(--pc-magenta-hi) !important;
-  font-weight: 700;
-  text-shadow: 0 0 8px rgba(230, 58, 216, 0.4);
+  font-weight: 600;
 }
 
 .wy-side-nav-search > div.version {
@@ -138,10 +139,11 @@ body,
 }
 
 .wy-menu-vertical p.caption {
-  color: var(--pc-magenta-hi);
+  color: var(--pc-text-dim);
   text-transform: uppercase;
   font-size: 0.75em;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
+  font-weight: 600;
 }
 
 .wy-menu-vertical a,
@@ -170,7 +172,7 @@ body,
   color: var(--pc-magenta-hi) !important;
   border-top: none;
   border-bottom: none;
-  border-right: 3px solid var(--pc-magenta) !important;
+  border-right: 2px solid var(--pc-magenta) !important;
 }
 
 .wy-menu-vertical li.toctree-l2.current > a,
@@ -249,15 +251,12 @@ code,
 .rst-content table.docutils thead th,
 .rst-content table.docutils thead tr {
   background: var(--pc-bg-deep) !important;
-  color: var(--pc-magenta-hi) !important;
+  color: var(--pc-text) !important;
   border-color: var(--pc-border) !important;
 }
 
 .rst-content table.docutils thead th {
-  text-transform: uppercase;
-  font-size: 0.78em;
-  letter-spacing: 0.06em;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .rst-content table.docutils tbody td,
@@ -272,25 +271,23 @@ code,
 }
 
 .rst-content table.docutils tbody tr:hover td {
-  background: rgba(230, 58, 216, 0.10) !important;
+  background: rgba(184, 96, 168, 0.08) !important;
   color: var(--pc-text);
 }
 
 /* ── Admonitions (note / tip / warning) ─────────────────────────────────── */
 .rst-content .admonition {
   background: var(--pc-bg-panel);
-  border-left: 4px solid var(--pc-magenta);
+  border-left: 3px solid var(--pc-magenta);
   color: var(--pc-text);
   border-radius: 3px;
   padding: 0;
 }
 
 .rst-content .admonition-title {
-  background: rgba(230, 58, 216, 0.18) !important;
+  background: rgba(184, 96, 168, 0.12) !important;
   color: var(--pc-magenta-hi) !important;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-weight: 600;
   border-bottom: 1px solid var(--pc-border);
   padding: 0.5em 1em;
 }
@@ -309,25 +306,15 @@ code,
 
 .rst-content .note .admonition-title,
 .rst-content .tip .admonition-title {
-  background: rgba(63, 227, 255, 0.16) !important;
+  background: rgba(126, 175, 193, 0.12) !important;
   color: var(--pc-cyan-hi) !important;
 }
 
-.rst-content .warning,
-.rst-content .danger,
-.rst-content .caution {
-  border-left-color: var(--pc-magenta);
-}
-
-/* ── Horizontal rules ───────────────────────────────────────────────────── */
+/* ── Horizontal rules (subtle, no gradient) ─────────────────────────────── */
 .rst-content hr {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg,
-    transparent,
-    var(--pc-magenta) 20%,
-    var(--pc-cyan) 80%,
-    transparent);
+  background: var(--pc-border);
   margin: 2em 0;
 }
 
@@ -339,11 +326,10 @@ code,
   color: var(--pc-cyan-hi) !important;
   border: 1px solid var(--pc-border) !important;
   border-radius: 4px;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  letter-spacing: 0.06em;
-  font-weight: 700;
+  font-weight: 600;
   box-shadow: none !important;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .rst-content .btn:hover,
@@ -372,17 +358,16 @@ footer hr {
   background: var(--pc-border);
 }
 
-/* ── Images in content ──────────────────────────────────────────────────── */
+/* ── Images in content (clean shadow, no neon tint) ─────────────────────── */
 .rst-content img {
   max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 6px 28px rgba(230, 58, 216, 0.18),
-              0 0 0 1px var(--pc-border);
+  border-radius: 6px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
 }
 
 /* ── Search results highlight ───────────────────────────────────────────── */
 .rst-content .highlighted {
-  background: rgba(245, 214, 102, 0.25);
+  background: rgba(201, 176, 106, 0.22);
   color: var(--pc-gold);
   border-radius: 2px;
   padding: 0 2px;
@@ -394,7 +379,7 @@ footer hr {
   color: #ffffff;
 }
 
-/* ── Scrollbar (slim purple/magenta) ────────────────────────────────────── */
+/* ── Scrollbar (slim purple) ────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
