@@ -4,25 +4,14 @@ site_author: Henri Lopes
 site_url: https://henriquevlopes.github.io/polygon-crusher-9000-docs/
 
 theme:
-  name: material
+  name: readthedocs
   logo: assets/logo.svg
   favicon: assets/logo.svg
-  palette:
-    scheme: slate
-    primary: custom
-    accent: custom
-  features:
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.top
-    - navigation.sections
-    - navigation.expand
-    - navigation.indexes
-    - navigation.footer
-    - search.highlight
-    - search.suggest
-    - content.code.copy
-    - content.tooltips
+  highlightjs: false
+  prev_next_buttons_location: bottom
+  navigation_depth: 3
+  collapse_navigation: false
+  sticky_navigation: true
 
 nav:
   - Home: index.md
@@ -48,12 +37,3 @@ markdown_extensions:
 
 plugins:
   - search
-
-extra_css:
-  - stylesheets/extra.css
-
-extra:
-  social:
-    - icon: fontawesome/solid/envelope
-      link: mailto:henriquevlopes@gmail.com
-      name: Contact Support
