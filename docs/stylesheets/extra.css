@@ -12,13 +12,14 @@
    - Gold deep          #a07f24
    ───────────────────────────────────────────────────────────────────────── */
 :root {
-  --pc-bg-deep:    #1f1f1f;
-  --pc-bg:         #2c2c2c;
-  --pc-bg-panel:   #353535;
-  --pc-bg-input:   #404040;
-  --pc-border:     #4a4a4a;
+  --pc-bg-deep:    #1f1f1f;   /* sidebar (unchanged) */
+  --pc-bg:         #3a3a3a;   /* main content — lifted for clearer contrast vs sidebar */
+  --pc-bg-panel:   #444444;
+  --pc-bg-input:   #505050;
+  --pc-border:     #595959;
+  --pc-code-bg:    #2a2a2a;   /* code blocks stay dark for readability */
   --pc-text:       #ececec;
-  --pc-text-dim:   #a8a8a8;
+  --pc-text-dim:   #b8b8b8;
   --pc-gold:       #d9b54a;
   --pc-gold-hi:    #f0d176;
   --pc-gold-deep:  #a07f24;
@@ -217,7 +218,7 @@ code,
 }
 
 .rst-content pre {
-  background: var(--pc-bg-deep) !important;
+  background: var(--pc-code-bg) !important;
   border: 1px solid var(--pc-border);
   border-radius: 4px;
   padding: 0.9em 1em;
@@ -232,7 +233,7 @@ code,
 }
 
 .rst-content .highlight {
-  background: var(--pc-bg-deep);
+  background: var(--pc-code-bg);
 }
 
 /* ── Tables ─────────────────────────────────────────────────────────────── */
@@ -246,7 +247,7 @@ code,
 .rst-content table.docutils thead,
 .rst-content table.docutils thead th,
 .rst-content table.docutils thead tr {
-  background: var(--pc-bg-deep) !important;
+  background: var(--pc-code-bg) !important;
   color: var(--pc-text) !important;
   border-color: var(--pc-border) !important;
 }
