@@ -1,5 +1,16 @@
 # Quick Start
 
+## The Crusher Panel
+
+Once the addon is installed, open the **N-panel → Crusher tab** in the 3D
+Viewport. The panel exposes the reduction settings, a live triangle estimate,
+the **Crush** button, and a collapsible **Statistics** sub-panel that fills in
+after each run.
+
+![The Polygon Crusher 9000 panel in Blender](../assets/PolygonCrusher9000_UI.png){ .ui-panel }
+
+---
+
 ## Basic Workflow
 
 1. **Select** one or more mesh objects in the 3D Viewport

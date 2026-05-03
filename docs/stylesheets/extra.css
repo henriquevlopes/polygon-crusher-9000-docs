@@ -369,6 +369,16 @@ footer hr {
   overflow: hidden;
 }
 
+/* Portrait panel screenshots from inside Blender — keep them at native
+   size so the UI stays crisp instead of stretching to the full content
+   width. Floats nicely centered with breathing room. */
+.rst-content img.ui-panel,
+.wy-nav-content img.ui-panel {
+  max-width: 320px !important;
+  display: block;
+  margin: 1.5em auto;
+}
+
 /* ── Search results highlight ───────────────────────────────────────────── */
 .rst-content .highlighted {
   background: rgba(217, 181, 74, 0.22);
