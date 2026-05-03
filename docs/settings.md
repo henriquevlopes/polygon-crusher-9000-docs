@@ -4,6 +4,24 @@ All settings live in the **Crusher** tab of the 3D Viewport sidebar (press **N**
 
 ---
 
+## Presets
+
+**Dropdown** — preset list with **+** / **−** buttons
+
+Save and recall combinations of crush settings. Handy for keeping a separate
+preset per workflow — e.g. one for high-poly scans, one for game-ready LODs,
+and one for hard-surface CAD imports.
+
+- **+** — save the current Reduction, Aggressiveness, and Keep-* checkbox
+  values as a new named preset.
+- **−** — remove the currently selected preset.
+- Picking a preset from the dropdown restores its saved settings to the panel.
+
+The default **Custom** entry represents whatever you have manually dialled in
+without saving.
+
+---
+
 ## Reduction
 
 **Slider** — 1% to 99% — default **50%**
@@ -63,6 +81,21 @@ dramatically.
     Leave this on in almost all cases. Disabling it results in flat, faceted
     shading on the decimated mesh — especially noticeable on smooth-shaded
     scans and sculpts.
+
+---
+
+## Keep UVs
+
+**Checkbox** — default **off**
+
+Transfers the source mesh's UV map onto the decimated result so texture
+mapping survives the crush. Useful when the crushed mesh needs to keep its
+original textures or material assignments.
+
+!!! note
+    UV transfer quality scales with how much the topology changed. Moderate
+    reductions give the cleanest results; very aggressive reductions can
+    stretch or distort UV seams along edges where many triangles collapsed.
 
 ---
 

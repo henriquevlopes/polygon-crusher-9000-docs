@@ -71,6 +71,12 @@ takes about as long as crushing one.
 
 Press **ESC** at any time to abort the run.
 
+### Performance on Apple Silicon
+
+The native simplifier ships hand-tuned for Apple Silicon (arm64). On M-series
+Macs, the algorithm takes full advantage of the unified memory architecture and
+arm64 SIMD — multi-million-triangle meshes typically crush in seconds.
+
 ---
 
 ## After Crushing
