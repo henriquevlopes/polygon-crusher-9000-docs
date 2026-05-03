@@ -13,7 +13,7 @@ modifier-aware, parallelizes across CPU cores for multi-object selections, and
 includes a **Keep UVs** option that keeps the original UV map intact — handy
 for textured photogrammetry scans where re-baking would otherwise be required.
 
-Built for: 3D scans, sculpts, CAD imports, LOD generation, and real-time assets.
+Built for: 3D scans, sculpts, remeshed highpoly models, LOD generation.
 
 [Get Started](getting-started/installation.md) · [Settings Reference](settings.md)
 
