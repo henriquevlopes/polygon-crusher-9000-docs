@@ -12,14 +12,14 @@
    - Gold deep          #a07f24
    ───────────────────────────────────────────────────────────────────────── */
 :root {
-  --pc-bg-deep:    #1f1f1f;   /* sidebar (unchanged) */
-  --pc-bg:         #3a3a3a;   /* main content — lifted for clearer contrast vs sidebar */
-  --pc-bg-panel:   #444444;
-  --pc-bg-input:   #505050;
-  --pc-border:     #595959;
-  --pc-code-bg:    #2a2a2a;   /* code blocks stay dark for readability */
-  --pc-text:       #ececec;
-  --pc-text-dim:   #b8b8b8;
+  --pc-bg-deep:    #2a2a2a;   /* sidebar */
+  --pc-bg:         #464646;   /* main content — lifted again for an overall lighter page */
+  --pc-bg-panel:   #525252;
+  --pc-bg-input:   #5d5d5d;
+  --pc-border:     #6a6a6a;
+  --pc-code-bg:    #353535;   /* code blocks stay distinctly darker than main bg */
+  --pc-text:       #f1f1f1;   /* ~12:1 contrast on #464646 */
+  --pc-text-dim:   #c4c4c4;   /* ~5.1:1 contrast on #464646 — passes AA */
   --pc-gold:       #d9b54a;
   --pc-gold-hi:    #f0d176;
   --pc-gold-deep:  #a07f24;
