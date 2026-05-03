@@ -1,6 +1,19 @@
 ![Polygon Crusher 9000](assets/PolygonCrusher9000_header.jpg)
 
-Blender addon for fast, normal-preserving mesh decimation.
+## What is Polygon Crusher 9000?
+
+Polygon Crusher 9000 is a Blender addon for fast, high-quality mesh decimation.
+It crushes multi-million-triangle meshes down to whatever budget your scene
+needs while preserving the qualities that matter — surface shading, silhouette,
+and UV mapping.
+
+Unlike Blender's built-in Decimate, the simplifier runs as a worker subprocess,
+so the UI stays responsive and large meshes finish in seconds. It's
+modifier-aware, parallelizes across CPU cores for multi-object selections, and
+includes a **Keep UVs** option that keeps the original UV map intact — handy
+for textured photogrammetry scans where re-baking would otherwise be required.
+
+Built for: 3D scans, sculpts, CAD imports, LOD generation, and real-time assets.
 
 [Get Started](getting-started/installation.md) · [Settings Reference](settings.md)
 

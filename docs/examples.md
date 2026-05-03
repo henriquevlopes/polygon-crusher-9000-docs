@@ -27,3 +27,8 @@ mesh keeps the original UV map intact, so the photographic texture stays
 correctly mapped onto the lower-poly result — no re-baking, no seam distortion.
 
 ![Decimated photogrammetry scan with UVs preserved — 764K to 118K triangles](assets/PolygonCrusher9000_example03.jpg)
+
+The wireframe view of the same crush makes the topology change explicit —
+dense original on the left, ~85% lighter decimated result on the right:
+
+![Wireframe of the same scan — original 764K triangles vs decimated 118K](assets/PolygonCrusher9000_example03_wireframe.jpg)
