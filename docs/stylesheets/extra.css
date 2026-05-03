@@ -13,13 +13,13 @@
    ───────────────────────────────────────────────────────────────────────── */
 :root {
   --pc-bg-deep:    #2a2a2a;   /* sidebar */
-  --pc-bg:         #464646;   /* main content — lifted again for an overall lighter page */
-  --pc-bg-panel:   #525252;
-  --pc-bg-input:   #5d5d5d;
-  --pc-border:     #6a6a6a;
-  --pc-code-bg:    #353535;   /* code blocks stay distinctly darker than main bg */
-  --pc-text:       #f1f1f1;   /* ~12:1 contrast on #464646 */
-  --pc-text-dim:   #c4c4c4;   /* ~5.1:1 contrast on #464646 — passes AA */
+  --pc-bg:         #525252;   /* main content — brighter still */
+  --pc-bg-panel:   #5d5d5d;
+  --pc-bg-input:   #686868;
+  --pc-border:     #757575;
+  --pc-code-bg:    #3a3a3a;   /* code blocks stay distinctly darker than main bg */
+  --pc-text:       #f5f5f5;   /* ~7:1 contrast on #525252 — AAA */
+  --pc-text-dim:   #d4d4d4;   /* ~4.9:1 contrast on #525252 — passes AA */
   --pc-gold:       #d9b54a;
   --pc-gold-hi:    #f0d176;
   --pc-gold-deep:  #a07f24;
@@ -84,14 +84,17 @@ body,
 }
 
 /* ── Links ──────────────────────────────────────────────────────────────── */
+/* Use gold-hi for body links so they hit AA contrast on the lighter
+   main bg; gold stays reserved for headings, sidebar branding, and
+   inline-code accents (which sit on darker backgrounds). */
 .rst-content a,
 .rst-content a:visited {
-  color: var(--pc-gold);
+  color: var(--pc-gold-hi);
   text-decoration: none;
 }
 
 .rst-content a:hover {
-  color: var(--pc-gold-hi);
+  color: #f8e095;
   text-decoration: underline;
 }
 
