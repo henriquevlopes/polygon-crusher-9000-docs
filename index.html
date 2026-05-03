@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Blender addon for fast, normal-preserving mesh decimation" /><meta name="author" content="Henri Lopes" /><link rel="canonical" href="https://henriquevlopes.github.io/polygon-crusher-9000-docs/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Polygon Crusher 9000</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link href="stylesheets/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/polygon-crusher-9000-docs/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]--> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".">
+          <img src="assets/logo.svg" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="getting-started/installation/">Installation</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="getting-started/installation/#download">Download</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="getting-started/installation/#install-in-blender">Install in Blender</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="getting-started/installation/#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="getting-started/installation/#open-the-panel">Open the Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="getting-started/installation/#updating">Updating</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="getting-started/quick-start/">Quick Start</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="getting-started/quick-start/#the-crusher-panel">The Crusher Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="getting-started/quick-start/#basic-workflow">Basic Workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="getting-started/quick-start/#choosing-a-reduction-amount">Choosing a Reduction Amount</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="getting-started/quick-start/#tips">Tips</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="getting-started/quick-start/#for-3d-scans-and-photogrammetry">For 3D Scans and Photogrammetry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="getting-started/quick-start/#for-lower-detail-or-hard-surface-meshes">For Lower-Detail or Hard-Surface Meshes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="getting-started/quick-start/#working-with-modifiers">Working with Modifiers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="getting-started/quick-start/#processing-multiple-objects">Processing Multiple Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="getting-started/quick-start/#performance-on-apple-silicon">Performance on Apple Silicon</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="getting-started/quick-start/#after-crushing">After Crushing</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="examples/">Examples</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="examples/#high-poly-sculpt-8m-450k-triangles">High-poly sculpt — 8M → 450K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="examples/#hard-surface-mesh-70k-2k-triangles">Hard-surface mesh — 70K → 2K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="examples/#textured-photogrammetry-scan-764k-118k-triangles-uvs-preserved">Textured photogrammetry scan — 764K → 118K triangles, UVs preserved</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="settings/">Settings Reference</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="settings/#presets">Presets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="settings/#reduction">Reduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="settings/#aggressiveness">Aggressiveness</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="settings/#keep-original">Keep original</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="settings/#keep-normals">Keep Normals</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="settings/#keep-uvs">Keep UVs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="settings/#statistics-sub-panel">Statistics (sub-panel)</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="troubleshooting/">Troubleshooting</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="troubleshooting/#native-binary-not-found">"Native binary not found"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="troubleshooting/#crushed-mesh-looks-faceted">Crushed mesh looks faceted</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="troubleshooting/#crusher-ignored-my-modifiers">Crusher ignored my modifiers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="troubleshooting/#result-didnt-hit-the-requested-reduction">Result didn't hit the requested reduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="troubleshooting/#blender-freezes-during-crush">Blender freezes during crush</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="troubleshooting/#where-did-my-crushed-object-go">Where did my crushed object go?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="troubleshooting/#statistics-panel-says-no-run-yet">Statistics panel says "(No run yet)"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="troubleshooting/#contact-support">Contact Support</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Polygon Crusher 9000</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><img alt="Polygon Crusher 9000" src="assets/PolygonCrusher9000_header.jpg" /></p>
+<h2 id="what-is-polygon-crusher-9000">What is Polygon Crusher 9000?</h2>
+<p>Polygon Crusher 9000 is a Blender addon for fast, high-quality mesh decimation.
+It crushes multi-million-triangle meshes down to whatever budget your scene
+needs while preserving the qualities that matter — surface shading, silhouette,
+and UV mapping.</p>
+<p>Unlike Blender's built-in Decimate, the simplifier runs as a worker subprocess,
+so the UI stays responsive and large meshes finish in seconds. It's
+modifier-aware, parallelizes across CPU cores for multi-object selections, and
+includes a <strong>Keep UVs</strong> option that keeps the original UV map intact — handy
+for textured photogrammetry scans where re-baking would otherwise be required.</p>
+<p>Built for: 3D scans, sculpts, remeshed highpoly models, LOD generation.</p>
+<p><a href="getting-started/installation/">Get Started</a> · <a href="settings/">Settings Reference</a></p>
+<hr />
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Smart Decimation</strong> — high-quality mesh reduction that preserves shape and silhouette at any reduction level.</li>
+<li><strong>Normal Preservation</strong> — transfers original surface normals onto the result, so smooth shading survives even aggressive crushing.</li>
+<li><strong>Modifier-Aware</strong> — crushes the <em>evaluated</em> mesh; boolean, subdivision, and the rest of the modifier stack are baked in automatically. Originals stay untouched.</li>
+<li><strong>Tunable Aggressiveness</strong> — dial how hard the simplifier pushes. Lower values keep fine features (eyes, hair, creases); higher values converge faster on lower-detail meshes.</li>
+<li><strong>Live Progress</strong> — Blender stays responsive during long crushes — heavy work runs on a worker thread. Press <strong>ESC</strong> at any time to abort.</li>
+<li><strong>Session Stats</strong> — per-object triangle counts and timing displayed after each crush, directly in the panel.</li>
+</ul>
+<hr />
+<h2 id="requirements">Requirements</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Blender</strong></td>
+<td>4.2 or later (tested on 5.1)</td>
+</tr>
+<tr>
+<td><strong>OS</strong></td>
+<td>Windows, macOS, Linux</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="support">Support</h2>
+<p>Questions or issues? Email <a href="mailto:henriquevlopes@gmail.com">henriquevlopes@gmail.com</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="getting-started/installation/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="getting-started/installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-05-03 19:57:00.062827+00:00
+-->

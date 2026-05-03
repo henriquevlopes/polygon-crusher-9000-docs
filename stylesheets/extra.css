@@ -1,0 +1,433 @@
+/* ── Header-image palette: neutral dark gray + gold "9000" accent ───────
+   Sampled from PolygonCrusher9000_header.jpg:
+   - Bg deep            #1f1f1f
+   - Bg main            #2c2c2c
+   - Bg panel           #353535
+   - Bg input/button    #404040
+   - Border subtle      #4a4a4a
+   - Text               #ececec  (matches "POLYGON CRUSHER" off-white)
+   - Text dim           #a8a8a8  (matches "DECIMATE AND PRESERVE…" subtitle)
+   - Gold (main 9000)   #d9b54a
+   - Gold highlight     #f0d176
+   - Gold deep          #a07f24
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --pc-bg-deep:    #2a2a2a;   /* sidebar */
+  --pc-bg:         #525252;   /* main content — brighter still */
+  --pc-bg-panel:   #5d5d5d;
+  --pc-bg-input:   #686868;
+  --pc-border:     #757575;
+  --pc-code-bg:    #3a3a3a;   /* code blocks stay distinctly darker than main bg */
+  --pc-text:       #f5f5f5;   /* ~7:1 contrast on #525252 — AAA */
+  --pc-text-dim:   #d4d4d4;   /* ~4.9:1 contrast on #525252 — passes AA */
+  --pc-gold:       #d9b54a;
+  --pc-gold-hi:    #f0d176;
+  --pc-gold-deep:  #a07f24;
+}
+
+/* ── Body / overall background ──────────────────────────────────────────── */
+body,
+.wy-body-for-nav {
+  background: var(--pc-bg) !important;
+  color: var(--pc-text);
+}
+
+/* ── Main content area ──────────────────────────────────────────────────── */
+.wy-nav-content-wrap {
+  background: var(--pc-bg) !important;
+}
+
+.wy-nav-content {
+  background: var(--pc-bg) !important;
+  color: var(--pc-text);
+  max-width: 900px;
+}
+
+/* ── Headings ───────────────────────────────────────────────────────────── */
+.rst-content h1,
+.rst-content h2,
+.rst-content h3,
+.rst-content h4,
+.rst-content h5,
+.rst-content h6 {
+  color: var(--pc-text);
+  font-weight: 600;
+}
+
+.rst-content h1 {
+  color: var(--pc-gold);
+  border-bottom: 1px solid var(--pc-border);
+  padding-bottom: 0.25em;
+}
+
+.rst-content h2 {
+  border-bottom: 1px solid var(--pc-border);
+  padding-bottom: 0.3em;
+}
+
+/* ── Body text ──────────────────────────────────────────────────────────── */
+.rst-content p,
+.rst-content li,
+.rst-content dd,
+.wy-plain-list-disc li {
+  color: var(--pc-text);
+}
+
+.rst-content strong {
+  color: var(--pc-gold-hi);
+  font-weight: 600;
+}
+
+.rst-content em {
+  color: var(--pc-text);
+  font-style: italic;
+}
+
+/* ── Links ──────────────────────────────────────────────────────────────── */
+/* Use gold-hi for body links so they hit AA contrast on the lighter
+   main bg; gold stays reserved for headings, sidebar branding, and
+   inline-code accents (which sit on darker backgrounds). */
+.rst-content a,
+.rst-content a:visited {
+  color: var(--pc-gold-hi);
+  text-decoration: none;
+}
+
+.rst-content a:hover {
+  color: #f8e095;
+  text-decoration: underline;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────────────── */
+.wy-nav-side {
+  background: var(--pc-bg-deep) !important;
+  border-right: 1px solid var(--pc-border);
+}
+
+/* The top "search" section of the sidebar (logo / site title / search) */
+.wy-side-nav-search {
+  background: var(--pc-bg-deep) !important;
+  border-bottom: 1px solid var(--pc-border);
+  padding-bottom: 1.2em;
+}
+
+.wy-side-nav-search > a,
+.wy-side-nav-search .wy-dropdown > a {
+  color: var(--pc-gold) !important;
+  font-weight: 600;
+}
+
+.wy-side-nav-search > div.version {
+  color: var(--pc-text-dim) !important;
+}
+
+.wy-side-nav-search input[type="text"] {
+  background: var(--pc-bg-input) !important;
+  border: 1px solid var(--pc-border) !important;
+  color: var(--pc-text) !important;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.wy-side-nav-search input[type="text"]::placeholder {
+  color: var(--pc-text-dim);
+}
+
+/* ── Sidebar nav menu ───────────────────────────────────────────────────── */
+.wy-menu-vertical {
+  background: var(--pc-bg-deep);
+}
+
+.wy-menu-vertical p.caption {
+  color: var(--pc-text-dim);
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.wy-menu-vertical a,
+.wy-menu-vertical li.toctree-l1 a,
+.wy-menu-vertical li.toctree-l2 a,
+.wy-menu-vertical li.toctree-l3 a {
+  color: var(--pc-text-dim);
+  border-right: none;
+}
+
+.wy-menu-vertical a:hover,
+.wy-menu-vertical li.toctree-l1 a:hover,
+.wy-menu-vertical li.toctree-l2 a:hover,
+.wy-menu-vertical li.toctree-l3 a:hover {
+  background: var(--pc-bg-input);
+  color: var(--pc-gold-hi);
+}
+
+.wy-menu-vertical li.current {
+  background: var(--pc-bg-panel);
+}
+
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.toctree-l1.current > a {
+  background: var(--pc-bg-panel) !important;
+  color: var(--pc-gold) !important;
+  border-top: none;
+  border-bottom: none;
+  border-right: 2px solid var(--pc-gold) !important;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l3.current > a {
+  background: var(--pc-bg-panel) !important;
+  color: var(--pc-gold) !important;
+}
+
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
+  background: var(--pc-bg-panel) !important;
+  color: var(--pc-text-dim);
+}
+
+.wy-menu-vertical li.toctree-l1.current > a:hover,
+.wy-menu-vertical li.current > a:hover {
+  background: var(--pc-bg-input) !important;
+  color: var(--pc-gold-hi) !important;
+}
+
+/* ── Mobile top bar (hamburger menu) ────────────────────────────────────── */
+.wy-nav-top {
+  background: var(--pc-bg-deep) !important;
+  color: var(--pc-gold);
+}
+
+.wy-nav-top a {
+  color: var(--pc-gold);
+}
+
+.wy-nav-top i {
+  color: var(--pc-text);
+}
+
+/* ── Inline code ────────────────────────────────────────────────────────── */
+.rst-content code,
+.rst-content tt,
+.rst-content code.literal,
+code,
+.rst-content pre code {
+  background: var(--pc-bg-input);
+  color: var(--pc-gold);
+  border: 1px solid var(--pc-border);
+  border-radius: 3px;
+  padding: 0.1em 0.4em;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.rst-content pre {
+  background: var(--pc-code-bg) !important;
+  border: 1px solid var(--pc-border);
+  border-radius: 4px;
+  padding: 0.9em 1em;
+  color: var(--pc-text);
+}
+
+.rst-content pre code {
+  background: transparent !important;
+  border: none;
+  color: var(--pc-text);
+  padding: 0;
+}
+
+.rst-content .highlight {
+  background: var(--pc-code-bg);
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+.rst-content table.docutils,
+.rst-content table.field-list {
+  background: var(--pc-bg-panel);
+  border: 1px solid var(--pc-border);
+  border-collapse: collapse;
+}
+
+.rst-content table.docutils thead,
+.rst-content table.docutils thead th,
+.rst-content table.docutils thead tr {
+  background: var(--pc-code-bg) !important;
+  color: var(--pc-text) !important;
+  border-color: var(--pc-border) !important;
+}
+
+.rst-content table.docutils thead th {
+  font-weight: 600;
+}
+
+.rst-content table.docutils tbody td,
+.rst-content table.docutils tbody tr {
+  background: var(--pc-bg-panel) !important;
+  color: var(--pc-text) !important;
+  border-color: var(--pc-border) !important;
+}
+
+.rst-content table.docutils tbody tr:nth-child(2n) td {
+  background: var(--pc-bg-input) !important;
+}
+
+.rst-content table.docutils tbody tr:hover td {
+  background: rgba(217, 181, 74, 0.08) !important;
+  color: var(--pc-text);
+}
+
+/* ── Admonitions (note / tip / warning) ─────────────────────────────────── */
+.rst-content .admonition {
+  background: var(--pc-bg-panel);
+  border-left: 3px solid var(--pc-gold);
+  color: var(--pc-text);
+  border-radius: 3px;
+  padding: 0;
+}
+
+.rst-content .admonition-title {
+  background: rgba(217, 181, 74, 0.12) !important;
+  color: var(--pc-gold) !important;
+  font-weight: 600;
+  border-bottom: 1px solid var(--pc-border);
+  padding: 0.5em 1em;
+}
+
+.rst-content .admonition .last,
+.rst-content .admonition p {
+  color: var(--pc-text);
+  padding: 0.6em 1em 0.8em;
+  margin: 0;
+}
+
+/* Notes / tips use a softer dim border instead of gold */
+.rst-content .note,
+.rst-content .tip {
+  border-left-color: var(--pc-text-dim);
+}
+
+.rst-content .note .admonition-title,
+.rst-content .tip .admonition-title {
+  background: rgba(168, 168, 168, 0.10) !important;
+  color: var(--pc-text) !important;
+}
+
+/* ── Horizontal rules (subtle, no gradient) ─────────────────────────────── */
+.rst-content hr {
+  border: none;
+  height: 1px;
+  background: var(--pc-border);
+  margin: 2em 0;
+}
+
+/* ── Buttons (prev/next at bottom of pages) ─────────────────────────────── */
+.rst-content .btn,
+.btn-neutral,
+.rst-footer-buttons .btn {
+  background: var(--pc-bg-input) !important;
+  color: var(--pc-gold) !important;
+  border: 1px solid var(--pc-border) !important;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: none !important;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.rst-content .btn:hover,
+.btn-neutral:hover,
+.rst-footer-buttons .btn:hover {
+  background: var(--pc-bg-panel) !important;
+  border-color: var(--pc-gold) !important;
+  color: var(--pc-gold-hi) !important;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+footer {
+  color: var(--pc-text-dim) !important;
+}
+
+footer a,
+footer a:visited {
+  color: var(--pc-gold) !important;
+}
+
+footer a:hover {
+  color: var(--pc-gold-hi) !important;
+}
+
+footer hr {
+  background: var(--pc-border);
+}
+
+/* ── Images in content (rounded corners, clean shadow) ──────────────────── */
+.rst-content img,
+.rst-content .section img,
+.wy-nav-content img {
+  max-width: 100%;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+/* Portrait panel screenshots from inside Blender — keep them at native
+   size so the UI stays crisp instead of stretching to the full content
+   width. Floats nicely centered with breathing room. */
+.rst-content img.ui-panel,
+.wy-nav-content img.ui-panel {
+  max-width: 320px !important;
+  display: block;
+  margin: 1.5em auto;
+}
+
+/* ── Search results highlight ───────────────────────────────────────────── */
+.rst-content .highlighted {
+  background: rgba(217, 181, 74, 0.22);
+  color: var(--pc-gold-hi);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* ── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--pc-gold);
+  color: var(--pc-bg-deep);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--pc-bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pc-bg-input);
+  border-radius: 5px;
+  border: 2px solid var(--pc-bg-deep);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pc-gold);
+}
+
+/* ── Search results page ────────────────────────────────────────────────── */
+#search-results .search li {
+  border-bottom: 1px solid var(--pc-border);
+}
+
+#search-results .search li a {
+  color: var(--pc-gold);
+}
+
+/* ── Misc readthedocs theme element overrides ──────────────────────────── */
+.wy-breadcrumbs li {
+  color: var(--pc-text-dim);
+}
+
+.wy-breadcrumbs li a {
+  color: var(--pc-gold);
+}
+
+.wy-breadcrumbs-aside a {
+  color: var(--pc-text-dim);
+}

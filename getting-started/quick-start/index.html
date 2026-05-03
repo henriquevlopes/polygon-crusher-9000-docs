@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Henri Lopes" /><link rel="canonical" href="https://henriquevlopes.github.io/polygon-crusher-9000-docs/getting-started/quick-start/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Quick Start - Polygon Crusher 9000</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link href="../../stylesheets/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Quick Start";
+        var mkdocs_page_input_path = "getting-started/quick-start.md";
+        var mkdocs_page_url = "/polygon-crusher-9000-docs/getting-started/quick-start/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]--> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../assets/logo.svg" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+    <ul>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../installation/#download">Download</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../installation/#install-in-blender">Install in Blender</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../installation/#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../installation/#open-the-panel">Open the Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../installation/#updating">Updating</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Quick Start</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-crusher-panel">The Crusher Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-workflow">Basic Workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#choosing-a-reduction-amount">Choosing a Reduction Amount</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#for-3d-scans-and-photogrammetry">For 3D Scans and Photogrammetry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#for-lower-detail-or-hard-surface-meshes">For Lower-Detail or Hard-Surface Meshes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-modifiers">Working with Modifiers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#processing-multiple-objects">Processing Multiple Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-on-apple-silicon">Performance on Apple Silicon</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#after-crushing">After Crushing</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../examples/">Examples</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/#high-poly-sculpt-8m-450k-triangles">High-poly sculpt — 8M → 450K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/#hard-surface-mesh-70k-2k-triangles">Hard-surface mesh — 70K → 2K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/#textured-photogrammetry-scan-764k-118k-triangles-uvs-preserved">Textured photogrammetry scan — 764K → 118K triangles, UVs preserved</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../settings/">Settings Reference</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#presets">Presets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#reduction">Reduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#aggressiveness">Aggressiveness</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#keep-original">Keep original</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#keep-normals">Keep Normals</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#keep-uvs">Keep UVs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#statistics-sub-panel">Statistics (sub-panel)</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/">Troubleshooting</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#native-binary-not-found">"Native binary not found"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#crushed-mesh-looks-faceted">Crushed mesh looks faceted</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#crusher-ignored-my-modifiers">Crusher ignored my modifiers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#result-didnt-hit-the-requested-reduction">Result didn't hit the requested reduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#blender-freezes-during-crush">Blender freezes during crush</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#where-did-my-crushed-object-go">Where did my crushed object go?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#statistics-panel-says-no-run-yet">Statistics panel says "(No run yet)"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#contact-support">Contact Support</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Polygon Crusher 9000</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Getting Started</li>
+      <li class="breadcrumb-item active">Quick Start</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="quick-start">Quick Start</h1>
+<h2 id="the-crusher-panel">The Crusher Panel</h2>
+<p>Once the addon is installed, open the <strong>N-panel → Crusher tab</strong> in the 3D
+Viewport. The panel exposes the reduction settings, a live triangle estimate,
+the <strong>Crush</strong> button, and a collapsible <strong>Statistics</strong> sub-panel that fills in
+after each run.</p>
+<p><img alt="The Polygon Crusher 9000 panel in Blender" class="ui-panel" src="../../assets/PolygonCrusher9000_UI.png" /></p>
+<hr />
+<h2 id="basic-workflow">Basic Workflow</h2>
+<ol>
+<li><strong>Select</strong> one or more mesh objects in the 3D Viewport</li>
+<li>Open the <strong>Crusher</strong> panel (press <strong>N</strong> → Crusher tab)</li>
+<li>Set your desired <strong>Reduction</strong> percentage</li>
+<li>Click <strong>Crush</strong></li>
+</ol>
+<p>The addon will:</p>
+<ul>
+<li>Evaluate each selected object's full modifier stack and crush the resulting mesh</li>
+<li>Transfer the original surface normals onto the decimated mesh (when <strong>Keep Normals</strong> is on)</li>
+<li>Place the result in a <strong>Crushed</strong> collection at the scene root</li>
+<li>Hide the original (or delete it, depending on <strong>Keep original</strong>)</li>
+<li>Preserve smooth shading if any face on the source was smooth</li>
+</ul>
+<p>The decimated copy lands at the source's exact world transform.</p>
+<hr />
+<h2 id="choosing-a-reduction-amount">Choosing a Reduction Amount</h2>
+<table>
+<thead>
+<tr>
+<th>Reduction</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>20–40%</strong></td>
+<td>Light clean-up; barely noticeable up close</td>
+</tr>
+<tr>
+<td><strong>50–70%</strong></td>
+<td>Background props, secondary assets (default 50%)</td>
+</tr>
+<tr>
+<td><strong>80–95%</strong></td>
+<td>Distant objects, LODs, real-time assets</td>
+</tr>
+</tbody>
+</table>
+<p>The panel shows a live <strong>Estimated output</strong> triangle count below the sliders so you
+can see exactly how your reduction setting maps to the final mesh before crushing.</p>
+<hr />
+<h2 id="tips">Tips</h2>
+<h3 id="for-3d-scans-and-photogrammetry">For 3D Scans and Photogrammetry</h3>
+<p>Keep <strong>Aggressiveness</strong> low (around <strong>1.0–2.0</strong>) to preserve fine features like eyes,
+hair, and creases. Leave <strong>Keep Normals</strong> on so the smooth shading of the original
+scan survives — even at very high reduction levels.</p>
+<h3 id="for-lower-detail-or-hard-surface-meshes">For Lower-Detail or Hard-Surface Meshes</h3>
+<p>Bump <strong>Aggressiveness</strong> up to <strong>5.0–7.0</strong>. The simplifier converges faster and hits
+the target reduction more reliably on meshes with less surface detail.</p>
+<h3 id="working-with-modifiers">Working with Modifiers</h3>
+<p>Crusher reads the <strong>evaluated</strong> mesh — i.e. whatever the viewport actually shows,
+including booleans, subdivision, remesh, and any other modifier on the stack. The
+original object and its modifier stack are left untouched. The crushed result is a
+fresh static mesh with no modifiers.</p>
+<h3 id="processing-multiple-objects">Processing Multiple Objects</h3>
+<p>Select all the objects you want to crush before clicking <strong>Crush</strong>. They run in
+parallel — one subprocess per CPU core — so on an 8-core host, crushing 8 meshes
+takes about as long as crushing one.</p>
+<p>Press <strong>ESC</strong> at any time to abort the run.</p>
+<h3 id="performance-on-apple-silicon">Performance on Apple Silicon</h3>
+<p>The native simplifier ships hand-tuned for Apple Silicon (arm64). On M-series
+Macs, the algorithm takes full advantage of the unified memory architecture and
+arm64 SIMD — multi-million-triangle meshes typically crush in seconds.</p>
+<hr />
+<h2 id="after-crushing">After Crushing</h2>
+<p>Open the collapsible <strong>Statistics</strong> sub-panel under the Crusher panel to see
+per-phase timings and triangle counts for the currently selected crushed object.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../examples/" class="btn btn-neutral float-right" title="Examples">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../examples/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
