@@ -1,14 +1,9 @@
 # Examples
 
-## 3D Scan Decimation
+## Polygon Crusher vs Blender Decimate
 
-Original 8 million polygon scan reduced by 99% to 80,000 polygons. Shading remains
-visually identical to the original.
+Same source mesh, same target reduction (8M → 450K triangles). Polygon Crusher
+runs roughly 11× faster and avoids the artifacts and lost detail produced by
+Blender's built-in Decimate modifier.
 
-![3D scan before and after decimation](assets/3d_scan_gif.gif)
-
----
-
-## 99% Reduction — 8M to 80K
-
-![Original vs decimated — 8M to 80K polygons](assets/3d_scan_transition.jpg)
+![Polygon Crusher vs Blender Decimate — 8M to 450K triangles, 10s vs 1:49](assets/PolygonCrusher9000_example01.jpg)
