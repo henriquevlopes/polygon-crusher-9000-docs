@@ -20,6 +20,15 @@ nav:
     - Quick Start: getting-started/quick-start.md
   - Examples: examples.md
   - Settings Reference: settings.md
+  - Features:
+    - Target Modes: features/target-modes.md
+    - Hard Surface Preservation: features/hard-surface.md
+    - Protect Areas: features/protect.md
+    - Clean Mesh: features/clean-mesh.md
+    - Bake Maps and Auto UVs: features/bake-maps.md
+    - LODs: features/lods.md
+    - Keep Original and Revert: features/revert.md
+  - Limits: limits.md
   - Troubleshooting: troubleshooting.md
 
 markdown_extensions:
