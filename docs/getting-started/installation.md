@@ -10,22 +10,22 @@ Purchase and download the latest `.zip` file from the [Superhive store](#).
 ## Install in Blender
 
 1. Open Blender
-2. Go to **Edit → Preferences → Add-ons**
-3. Click **Install from Disk…**
-4. Select the downloaded `polygon_crusher_9000_*.zip`
-5. Enable the addon by ticking the checkbox next to **Polygon Crusher 9000**
+2. Go to **Edit → Preferences → Get Extensions**
+3. Choose **Install from Disk…**
+4. Select the downloaded `polygon_crusher_9000-<version>.zip`
+5. Enable the addon under the **Add-ons** tab if it is not enabled automatically
 
 ## Requirements
 
-- **Blender 4.2 or later** (tested on 5.1)
-- Windows, macOS, or Linux
+- **Blender 4.2 or later**
+- Windows (x64), Linux (x64 or ARM64), or macOS (Apple Silicon). Intel Macs have no bundled binary.
 
 ## Open the Panel
 
 The addon panel appears in the **3D Viewport sidebar**:
 
 - Press **N** to open the sidebar (if it's not visible)
-- Click the **Crusher** tab
+- Click the **9000 Toolkit** tab, then open the **Polygon Crusher 9000** panel. It starts collapsed.
 
 ## Updating
 

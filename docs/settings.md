@@ -1,119 +1,352 @@
 # Settings Reference
 
-All settings live in the **Crusher** tab of the 3D Viewport sidebar (press **N**).
+All settings are in the **Polygon Crusher 9000** panel. Open the 3D Viewport
+sidebar (press **N**) and click the **9000 Toolkit** tab. The panel starts
+collapsed every time you open Blender or load a file.
+
+Options that do not apply right now are greyed out instead of hidden. For
+example, **Strength** is grey until you pick a Protect group.
+
+The panel has these sections, from top to bottom: **Target**, **Preserve**,
+**Bake**, **Cleanup**, **LODs**, then the **Keep Original** checkbox with the
+**Crush** and **Revert** buttons. A collapsible **Statistics** sub-panel sits
+underneath.
+
+!!! note "Screenshot"
+    The panel screenshot on the [Quick Start](getting-started/quick-start.md)
+    page shows an older version of the panel. This page describes the current
+    one.
+
+---
+
+## Target
+
+The Target section decides how many triangles you end up with. See
+[Target Modes](features/target-modes.md) for how to choose between the three
+modes.
+
+### Target Mode
+
+**Three buttons:** **Percent**, **Count**, **Budget** — default **Percent**
+
+- **Percent** — remove a share of the triangles.
+- **Count** — crush each selected object to a triangle count.
+- **Budget** — one triangle total for the whole selection.
+
+The control below the buttons changes with the mode.
+
+### Preset (Percent mode only)
+
+**Dropdown** with **+** and **−** buttons — default **Custom**
+
+Presets save and recall a set of settings. See [Presets](#presets) below.
+
+### Reduction (Percent mode)
+
+**Slider** — 1% to 99% — default **50%**
+
+Percentage of triangles to remove. **50%** removes half of them. Dragging the
+slider covers 5% to 95%. You can type a value from 1% to 99%.
+
+The result never has fewer than 4 triangles.
+
+### Target Triangles (Count mode)
+
+**Number** — minimum 4 — default **5000**
+
+The triangle count each selected object is crushed to. If an object already has
+fewer triangles than this, it is not made bigger: the target is clamped to the
+object's own triangle count.
+
+### Total Triangles (Budget mode)
+
+**Number** — minimum 4 — default **100,000**
+
+The triangle total for all selected objects together.
+
+### Triangle readout
+
+Under the target control, the panel shows `before → after triangles`, added
+up over the selected meshes. It uses the same rounding as the crush. The
+readout is hidden while **Make LODs** is on.
+
+The "after" number is the target, not a promise. See [Limits](limits.md).
+
+---
+
+## Preserve
+
+### Keep Normals
+
+**Toggle button** — default **on**
+
+Copies the original's surface normals onto the crushed mesh, so smooth
+shading survives even when the topology changes a lot. Crease corners keep
+their own normals.
+
+Leave this on in almost all cases. Turning it off gives flat, faceted shading
+on smooth surfaces.
+
+Greyed out while **Normal Map** baking is on. The bake uses the crushed mesh's
+own smooth shading instead. See [Bake Maps and Auto UVs](features/bake-maps.md).
+
+### Keep UVs
+
+**Toggle button** — default **on**
+
+Carries the active UV map through the crush, so textures still line up. If the
+mesh has no UVs, this does nothing.
+
+### Hard Surface
+
+**Button** — turns on **Borders**, **Materials**, **UV Seams** and **Sharp
+Edges** together, and sets **Sharp Angle** to **30°**
+
+The button shows as pressed when all four are on. Click it again to turn all
+four off. See [Hard Surface Preservation](features/hard-surface.md).
+
+### Borders
+
+**Toggle button** — default **off**
+
+Keeps open borders (holes and cut edges) exactly in place.
+
+### Materials
+
+**Toggle button** — default **off**
+
+Keeps the borders between materials exactly in place.
+
+### UV Seams
+
+**Toggle button** — default **off**
+
+Keeps UV seams exactly in place, so textures do not smear across them. Needs
+**Keep UVs**. The button is greyed out when Keep UVs is off.
+
+### Sharp Edges
+
+**Toggle button** — default **off**
+
+Keeps hard edges crisp: edges you marked Sharp, plus edges sharper than
+**Sharp Angle**. Bumps from scan noise are ignored. On a mesh that looks like
+a scan, only the edges you marked Sharp are kept. The crushed mesh gets these
+edges marked Sharp too.
+
+### Sharp Angle
+
+**Angle** — 1° to 180° — default **30°**
+
+Edges where two faces meet at more than this angle count as sharp. Greyed out
+unless **Sharp Edges** is on.
+
+### Protect
+
+**Vertex group field** — default empty
+
+Pick a vertex group. Its painted areas keep more detail. When the active
+object is a mesh, the field lists that object's vertex groups. See
+[Protect Areas](features/protect.md).
+
+### Strength (Protect)
+
+**Slider** — 0% to 100% — default **50%**
+
+How strongly the Protect group resists crushing. Greyed out until a Protect
+group is set.
+
+---
+
+## Bake
+
+Bakes the original's detail onto the crushed mesh as texture maps. See
+[Bake Maps and Auto UVs](features/bake-maps.md).
+
+### Normal Map
+
+**Toggle button** — default **off**
+
+Bakes the original's surface detail into a normal map and connects it in copies
+of the crushed mesh's materials.
+
+### Base Color
+
+**Toggle button** — default **off**
+
+Bakes the original's vertex colors (its active color attribute) into a base
+color map and connects it in copies of the crushed mesh's materials. Objects
+without vertex colors are skipped.
+
+### Size
+
+**Dropdown** — **512**, **1K**, **2K**, **4K** — default **2K**
+
+Resolution of the baked maps. Greyed out until Normal Map or Base Color is on.
+
+### Normal Y
+
+**Dropdown** — **OpenGL** or **DirectX** — default **OpenGL**
+
+Green channel convention of the saved normal map.
+
+- **OpenGL** (green up): Blender, Unity, Godot.
+- **DirectX** (green down): Unreal. It still looks correct in Blender.
+
+Greyed out unless **Normal Map** is on.
+
+### Save To
+
+**Dropdown** — **Blend File Folder** or **Custom Folder** — default **Blend File Folder**
+
+Where the baked maps are saved.
+
+- **Blend File Folder** — the same folder as the .blend file. If the file has
+  never been saved, the maps are packed into the .blend instead. The panel
+  shows "Unsaved file: maps get packed".
+- **Custom Folder** — a folder you pick in the **Folder** field. Paths that
+  start with `//` are relative to the .blend file. If the field is empty,
+  Crush stops and asks you to pick a folder.
+
+---
+
+## Cleanup
+
+### Clean Mesh
+
+**Checkbox** — default **off**
+
+Repairs the mesh before crushing. See [Clean Mesh](features/clean-mesh.md).
+
+### Remove Small Pieces
+
+**Slider** — 0% to 5% — default **0.1%**
+
+Deletes loose pieces that are smaller than this share of the mesh's
+triangles. **0%** keeps every piece. Greyed out unless **Clean Mesh** is on.
+
+---
+
+## LODs
+
+### Make LODs
+
+**Checkbox** — default **off**
+
+Makes a chain of LODs instead of one crushed copy. While it is on, the Target
+section and **Keep Original** are greyed out, and the **Crush** button reads
+**Crush LODs**. See [LODs](features/lods.md).
+
+### Levels
+
+**Number** — 1 to 8 — default **3**
+
+How many LOD levels to make. The original stays as LOD0.
+
+### Ratio
+
+**Slider** — 5% to 95% — default **50%**
+
+The share of triangles each level keeps compared to the level before it. With
+**50%**, the levels have 50%, 25%, 12.5% of the original, and so on.
+
+When an object is active, the panel lists the triangle count of every level
+under these two controls.
+
+Levels and Ratio are greyed out until **Make LODs** is on.
+
+---
+
+## Keep Original
+
+**Checkbox** — default **on**
+
+When on, the original object is **hidden** (eye icon off) after the crush, so
+you can compare or go back. When off, the original is **deleted** and only the
+crushed result remains.
+
+Greyed out while **Make LODs** is on, because LODs always keep the original.
+Revert only works when the original was kept. See
+[Keep Original and Revert](features/revert.md).
+
+---
+
+## Crush and Revert
+
+**Crush** — the main button for every mode. It is available when at least one
+mesh object is selected. While a crush runs, the button turns into a progress
+bar. Press **ESC** to cancel.
+
+**Revert** — the small icon button next to Crush. Deletes the selected
+crushed object and brings back its original. Greyed out when there is nothing
+to revert. See [Keep Original and Revert](features/revert.md).
+
+When the native binary is missing, the panel shows "Native binary not found"
+and Crush refuses to run. See [Troubleshooting](troubleshooting.md).
 
 ---
 
 ## Presets
 
-**Dropdown** — preset list with **+** / **−** buttons
+Presets work in **Percent** mode only. The preset row has a dropdown and
+**+** and **−** buttons.
 
-Save and recall combinations of crush settings. Handy for keeping a separate
-preset per workflow — e.g. one for high-poly scans, one for game-ready LODs,
-and one for hard-surface CAD imports.
+**Built-in presets:**
 
-- **+** — save the current Reduction, Aggressiveness, and Keep-* checkbox
-  values as a new named preset.
-- **−** — remove the currently selected preset.
-- Picking a preset from the dropdown restores its saved settings to the panel.
+| Preset | Reduction | Keep Normals | Keep UVs |
+|--------|-----------|--------------|----------|
+| Light Cleanup | 25% | on | on |
+| Quality | 50% | on | on |
+| Balanced | 75% | on | on |
+| Heavy | 85% | on | on |
+| Maximum | 95% | on | on |
+| Fast Preview | 80% | off | off |
 
-The default **Custom** entry represents whatever you have manually dialled in
-without saving.
+Built-in presets turn all four Preserve options (Borders, Materials, UV Seams,
+Sharp Edges) off.
 
----
+A preset stores: Reduction, Keep Normals, Keep UVs, the four Preserve
+options, and Sharp Angle. It does not store the target count, Protect, Bake,
+Clean Mesh, or LOD settings.
 
-## Reduction
-
-**Slider** — 1% to 99% — default **50%**
-
-Percentage of triangles to remove. **50%** discards half of the original triangle count.
-
-- **20–40%** — light clean-up; barely noticeable up close
-- **50–70%** — background props, secondary assets
-- **80–95%** — distant objects, LODs, real-time assets
-
-The panel shows a live **Estimated output** triangle count beneath the slider so
-you can see how your reduction setting maps to a final triangle count before
-pressing **Crush**.
-
----
-
-## Aggressiveness
-
-**Slider** — 0.1 to 20.0 — default **1.0**
-
-Controls how aggressively the simplifier raises its error tolerance each iteration.
-
-- **Lower values (0.5–2.0)** — more conservative; better feature preservation
-  (eyes, hair, fine creases) at the cost of possibly missing the exact target
-  reduction. Recommended for high-detail scans and sculpts.
-- **Higher values (5.0–7.0)** — converge faster and hit the target reduction more
-  reliably on lower-detail or hard-surface meshes, at some cost to fine detail.
-
-!!! tip
-    Start at the default (1.0) for organic / photogrammetry meshes. Bump it up
-    only if you're not hitting the requested reduction.
-
----
-
-## Keep original
-
-**Checkbox** — default **on**
-
-When enabled, the original object is **hidden** (eye icon off) rather than deleted,
-so you can compare before/after or recover it later.
-
-When disabled, the original is **permanently deleted** and only the crushed result
-remains.
-
----
-
-## Keep Normals
-
-**Checkbox** — default **on**
-
-Bakes per-loop split normals from the source onto the decimated mesh. The C++
-binary samples the original surface with a BVH nearest-face lookup, so the
-crushed mesh still shades like the original even when the topology has changed
-dramatically.
-
-!!! tip
-    Leave this on in almost all cases. Disabling it results in flat, faceted
-    shading on the decimated mesh — especially noticeable on smooth-shaded
-    scans and sculpts.
-
----
-
-## Keep UVs
-
-**Checkbox** — default **off**
-
-Transfers the source mesh's UV map onto the decimated result so texture
-mapping survives the crush. Useful when the crushed mesh needs to keep its
-original textures or material assignments.
-
-!!! note
-    UV transfer quality scales with how much the topology changed. Moderate
-    reductions give the cleanest results; very aggressive reductions can
-    stretch or distort UV seams along edges where many triangles collapsed.
+- **+** — save the current values as a new preset. You type a name. Saving
+  under the name of one of your own presets replaces it. You cannot use a
+  built-in preset name.
+- **−** — delete the selected preset. It is only enabled for presets you saved,
+  and it asks you to confirm. Built-in presets cannot be deleted.
+- Your presets are kept in the add-on preferences, so they stay after you
+  restart Blender.
+- **Custom** means no preset is selected. If you change Reduction, Keep
+  Normals, Keep UVs, a Preserve option or Sharp Angle by hand, the dropdown
+  goes back to **Custom**.
 
 ---
 
 ## Statistics (sub-panel)
 
-Collapsed by default. When opened, shows per-phase timings for the most recent
-crush of whichever crushed object is currently selected:
+Collapsed by default. It shows the most recent crush of the **active** crushed
+object:
+
+- **Object** — the crushed object's name.
+- **Triangles** — before → after.
+- **Passes** — how many passes the engine made.
+- **Phase timings:**
 
 | Phase | What it measures |
 |-------|------------------|
-| **Extract** | Reading the source mesh into NumPy via `foreach_get` |
-| **Write** | Serialising the input mesh for the C++ binary |
-| **Crush (C++)** | Subprocess invocation of the native simplifier |
-| **Read** | Parsing the binary's output |
-| **Build** | Creating the new Blender mesh + object, copying the transform |
-| **Bake Normals** | Sampling and applying custom split normals |
+| **Extract** | Reading the source mesh |
+| **Write** | Writing the input for the native binary |
+| **Crush (C++)** | The native simplifier |
+| **Read** | Reading the binary's output |
+| **Build** | Creating the new Blender mesh and object |
+| **Bake Normals** | Transferring the original's normals (Keep Normals) |
 | **Total** | Per-object total |
 
-When multiple objects are selected, subprocesses run concurrently with
-main-thread I/O, so the summed phase timings will exceed wall-clock — that's
-expected and is a good signal that concurrency is doing its job.
+"Bake Normals" here is the Keep Normals transfer. It is not the normal map
+bake.
+
+When several objects are selected, their crushes run at the same time, so the
+phase timings can add up to more than the wall-clock time. That is expected.
+
+The numbers are only kept for the current Blender session. If you select an
+object that was not crushed in this session, the panel says there are no
+stats for it.

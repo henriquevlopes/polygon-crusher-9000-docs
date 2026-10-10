@@ -3,30 +3,36 @@
 ## What is Polygon Crusher 9000?
 
 Polygon Crusher 9000 is a Blender addon for fast, high-quality mesh decimation.
-It crushes multi-million-triangle meshes down to whatever budget your scene
-needs while preserving the qualities that matter — surface shading, silhouette,
-and UV mapping.
+It crushes dense meshes down to the triangle budget your scene needs while
+keeping what matters: surface shading, silhouette, UV mapping, and the hard
+edges of CAD and hard-surface parts.
 
 Unlike Blender's built-in Decimate, the simplifier runs as a worker subprocess,
-so the UI stays responsive and large meshes finish in seconds. It's
-modifier-aware, parallelizes across CPU cores for multi-object selections, and
-includes a **Keep UVs** option that keeps the original UV map intact — handy
-for textured photogrammetry scans where re-baking would otherwise be required.
+so the UI stays responsive. It is modifier-aware and runs several objects at
+the same time. You choose the target as a percentage, a triangle count per
+object, or one triangle budget for the whole selection.
 
-Built for: 3D scans, sculpts, remeshed highpoly models, LOD generation.
+Built for: 3D scans, sculpts, AI-generated meshes, hard-surface and CAD parts,
+LOD generation.
 
-[Get Started](getting-started/installation.md) · [Settings Reference](settings.md)
+[Get Started](getting-started/installation.md) · [Settings Reference](settings.md) · [Limits](limits.md)
 
 ---
 
 ## Features
 
-- **Smart Decimation** — high-quality mesh reduction that preserves shape and silhouette at any reduction level.
-- **Normal Preservation** — transfers original surface normals onto the result, so smooth shading survives even aggressive crushing.
-- **Modifier-Aware** — crushes the *evaluated* mesh; boolean, subdivision, and the rest of the modifier stack are baked in automatically. Originals stay untouched.
-- **Tunable Aggressiveness** — dial how hard the simplifier pushes. Lower values keep fine features (eyes, hair, creases); higher values converge faster on lower-detail meshes.
-- **Live Progress** — Blender stays responsive during long crushes — heavy work runs on a worker thread. Press **ESC** at any time to abort.
-- **Session Stats** — per-object triangle counts and timing displayed after each crush, directly in the panel.
+- **Exact targets** — ask for 80% and you get 80%. Ask for 5,000 triangles and you get 5,000. The engine removes the least visible detail first. Some options can stop a crush above the target, so check the report. See [Limits](limits.md).
+- **Three target modes** — **Percent**, **Count** (per object), or **Budget** (one total for the whole selection). See [Target Modes](features/target-modes.md).
+- **Normal Preservation** — copies the original's surface normals onto the result, so smooth shading survives heavy crushing.
+- **Hard Surface Preservation** — keep borders, material borders, UV seams and sharp edges exactly in place. See [Hard Surface Preservation](features/hard-surface.md).
+- **Protect Areas** — paint a vertex group to keep detail in faces, hands or text. See [Protect Areas](features/protect.md).
+- **Clean Mesh** — repair AI-generated and scanned meshes before crushing. See [Clean Mesh](features/clean-mesh.md).
+- **Bake Maps and Auto UVs** — bake normal and base color maps onto the crushed mesh. Meshes without UVs get UVs made for them. See [Bake Maps and Auto UVs](features/bake-maps.md).
+- **LODs in one click** — build a whole LOD chain from the original. See [LODs](features/lods.md).
+- **Revert** — delete a crushed object and bring back its original. See [Keep Original and Revert](features/revert.md).
+- **Modifier-Aware** — crushes the *evaluated* mesh; boolean, subdivision, and the rest of the modifier stack are applied automatically. The original's modifiers stay untouched.
+- **Live Progress** — Blender stays responsive during long crushes. Press **ESC** at any time to cancel.
+- **Session Stats** — per-object triangle counts and timing, directly in the panel.
 
 ---
 
@@ -34,8 +40,8 @@ Built for: 3D scans, sculpts, remeshed highpoly models, LOD generation.
 
 | | |
 |---|---|
-| **Blender** | 4.2 or later (tested on 5.1) |
-| **OS** | Windows, macOS, Linux |
+| **Blender** | 4.2 or later |
+| **OS** | Windows (x64), Linux (x64, ARM64), macOS (Apple Silicon) |
 
 ---
 
