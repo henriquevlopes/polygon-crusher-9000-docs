@@ -46,7 +46,7 @@ triangles.
 - The triangle readout is hidden. Use the LOD list instead.
 - Budget mode is not used. Each object gets its own chain.
 
-The Preserve, Protect and Cleanup settings still apply to every level.
+The Preserve, Protect Area and Cleanup settings still apply to every level.
 
 ## Revert
 

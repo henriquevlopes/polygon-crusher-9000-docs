@@ -4,15 +4,34 @@ All settings are in the **Polygon Crusher 9000** panel. Open the 3D Viewport
 sidebar (press **N**) and click the **9000 Toolkit** tab. The panel starts
 collapsed every time you open Blender or load a file.
 
+The panel has two levels:
+
+- **The main panel** shows a status line, the **Target** box, and the
+  **Crush** and **Revert** buttons. For most models this is all you need.
+- **Advanced** is a collapsed section under it. It holds **Preserve** (with
+  **Protect Area**), **Bake**, **Cleanup**, **LODs**, **Keep Original** and
+  the **Last Crush** results, all visible at once when you open it.
+
 Options that do not apply right now are greyed out instead of hidden. For
-example, **Strength** is grey until you pick a Protect group.
+example, **Strength** is grey until a Protect Area is set.
 
-The panel has these sections, from top to bottom: **Target**, **Preserve**,
-**Bake**, **Cleanup**, **LODs**, then the **Keep Original** checkbox with the
-**Crush** and **Revert** buttons. A collapsible **Statistics** sub-panel sits
-underneath.
+![The Polygon Crusher 9000 panel in Blender](assets/PolygonCrusher9000_UI_2.4.png){ .ui-panel }
 
-![The Polygon Crusher 9000 panel in Blender](assets/PolygonCrusher9000_UI_2.3.png){ .ui-panel }
+---
+
+## Status line
+
+The first line of the panel says what it is looking at: the number of
+selected meshes and their triangle total. With nothing selected it says
+"Select a mesh object to start".
+
+## What's on
+
+When anything inside **Advanced** is switched on, a line under **Crush**
+lists it, for example "On: Keep UVs · Hard Surface · Normal map". So a
+closed Advanced section never hides what the next crush will do. When
+**Keep Original** is off, a warning under Crush says the original will be
+deleted.
 
 ---
 
@@ -71,6 +90,11 @@ The "after" number is the target, not a promise. See [Limits](limits.md).
 
 ---
 
+## Advanced
+
+Everything below lives in the **Advanced** section. It starts collapsed;
+click its header to open it.
+
 ## Preserve
 
 ### Keep Normals
@@ -89,10 +113,12 @@ own smooth shading instead. See [Bake Maps and Auto UVs](features/bake-maps.md).
 
 ### Keep UVs
 
-**Toggle button** — default **on**
+**Toggle button** — default **off**
 
 Carries the active UV map through the crush, so textures still line up. If the
-mesh has no UVs, this does nothing.
+mesh has no UVs, this does nothing. Turn it on when the crushed mesh must keep
+its UV layout. With it off, baking makes new UVs for the crushed copy. See
+[Bake Maps and Auto UVs](features/bake-maps.md).
 
 ### Hard Surface
 
@@ -137,20 +163,41 @@ edges marked Sharp too.
 Edges where two faces meet at more than this angle count as sharp. Greyed out
 unless **Sharp Edges** is on.
 
-### Protect
+### Protect Area
 
-**Vertex group field** — default empty
+**Add** and **Remove** buttons, and a vertex group field — default empty
 
-Pick a vertex group. Its painted areas keep more detail. When the active
-object is a mesh, the field lists that object's vertex groups. See
+Marks areas that keep more detail. In Edit Mode, select faces, edges or
+vertices and click **Add**. They go into a vertex group named **Protected**
+(or the group already in the field), and the field fills in. **Remove**
+takes the selected parts back out. Both buttons only work in Edit Mode.
+
+You can also pick a vertex group you painted yourself in the field. When the
+active object is a mesh, the field lists that object's vertex groups. See
 [Protect Areas](features/protect.md).
 
-### Strength (Protect)
+### Strength
 
 **Slider** — 0% to 100% — default **50%**
 
-How strongly the Protect group resists crushing. Greyed out until a Protect
-group is set.
+How strongly the Protect Area resists crushing. Greyed out until a Protect
+Area is set.
+
+### Blur
+
+**Slider** — 0% to 100% — default **5%**
+
+How far the protection fades out from the marked area, as a share of the
+object's size. **0%** makes a hard edge. Dragging covers 0% to 25%; you can
+type up to 100%. Greyed out until a Protect Area is set.
+
+### Show Heatmap
+
+**Toggle button** — default **off**
+
+Colors the selected objects in the viewport by how strongly each part is
+protected, with the Blur fade included: blue is free to crush, red is fully
+protected. It is only a viewport overlay; nothing is added to the scene.
 
 ---
 
@@ -199,7 +246,7 @@ Where the baked maps are saved.
 
 - **Blend File Folder** — the same folder as the .blend file. If the file has
   never been saved, the maps are packed into the .blend instead. The panel
-  shows "Unsaved file: maps get packed".
+  shows "Unsaved: maps get packed".
 - **Custom Folder** — a folder you pick in the **Folder** field. Paths that
   start with `//` are relative to the .blend file. If the field is empty,
   Crush stops and asks you to pick a folder.
@@ -255,7 +302,7 @@ Levels and Ratio are greyed out until **Make LODs** is on.
 
 ## Keep Original
 
-**Checkbox** — default **on**
+**Checkbox** — default **on**, at the bottom of Advanced
 
 When on, the original object is **hidden** (eye icon off) after the crush, so
 you can compare or go back. When off, the original is **deleted** and only the
@@ -268,6 +315,8 @@ Revert only works when the original was kept. See
 ---
 
 ## Crush and Revert
+
+These sit in the main panel, under the Target box.
 
 **Crush** — the main button for every mode. It is available when at least one
 mesh object is selected. While a crush runs, the button turns into a progress
@@ -291,12 +340,13 @@ Presets work in **Percent** mode only. The preset row has a dropdown and
 
 | Preset | Reduction | Keep Normals | Keep UVs |
 |--------|-----------|--------------|----------|
-| Light Cleanup | 25% | on | on |
-| Quality | 50% | on | on |
-| Balanced | 75% | on | on |
-| Heavy | 85% | on | on |
-| Maximum | 95% | on | on |
-| Fast Preview | 80% | off | off |
+| Light · 25% | 25% | on | off |
+| Medium · 50% | 50% | on | off |
+| Heavy · 75% | 75% | on | off |
+| Extreme · 90% | 90% | on | off |
+
+A .blend saved with one of the older built-in presets (from before 2.4.0)
+opens with the dropdown on **Custom**. Its values are kept.
 
 Built-in presets turn all four Preserve options (Borders, Materials, UV Seams,
 Sharp Edges) off.
@@ -318,25 +368,26 @@ Clean Mesh, or LOD settings.
 
 ---
 
-## Statistics (sub-panel)
+## Last Crush
 
-Collapsed by default. It shows the most recent crush of the **active** crushed
-object:
+At the bottom of Advanced. It shows the most recent crush of the **active**
+crushed object:
 
 - **Object** — the crushed object's name.
 - **Triangles** — before → after.
+- **Total time** — the whole crush for this object.
 - **Passes** — how many passes the engine made.
-- **Phase timings:**
+
+Click **Details** to see the time of each phase:
 
 | Phase | What it measures |
 |-------|------------------|
 | **Extract** | Reading the source mesh |
 | **Write** | Writing the input for the native binary |
-| **Crush (C++)** | The native simplifier |
+| **Crush** | The native simplifier |
 | **Read** | Reading the binary's output |
 | **Build** | Creating the new Blender mesh and object |
 | **Bake Normals** | Transferring the original's normals (Keep Normals) |
-| **Total** | Per-object total |
 
 "Bake Normals" here is the Keep Normals transfer. It is not the normal map
 bake.
@@ -345,5 +396,5 @@ When several objects are selected, their crushes run at the same time, so the
 phase timings can add up to more than the wall-clock time. That is expected.
 
 The numbers are only kept for the current Blender session. If you select an
-object that was not crushed in this session, the panel says there are no
-stats for it.
+object that was not crushed in this session, it says there are no stats for
+it.

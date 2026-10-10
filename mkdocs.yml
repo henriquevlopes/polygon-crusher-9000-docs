@@ -29,6 +29,7 @@ nav:
     - LODs: features/lods.md
     - Keep Original and Revert: features/revert.md
   - Limits: limits.md
+  - Benchmark: benchmark.md
   - Troubleshooting: troubleshooting.md
 
 markdown_extensions:
