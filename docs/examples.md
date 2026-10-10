@@ -3,8 +3,10 @@
 ## High-poly sculpt — 8M → 450K triangles
 
 A photogrammetry-grade scan crushed to about 6% of its original triangle count.
-Polygon Crusher runs roughly 11× faster than Blender's built-in Decimate and
-avoids the artifacts and lost detail visible in the Decimate result.
+The timings in this image come from an older test (version 2.1, machine not
+recorded). Our current, repeatable test measures about 3× faster than
+Blender's built-in Decimate on meshes of 1–7.5 million triangles; see the
+[Benchmark](benchmark.md) page.
 
 ![Polygon Crusher vs Blender Decimate — 8M to 450K triangles, 10s vs 1m49s](assets/PolygonCrusher9000_example01.jpg)
 
