@@ -32,7 +32,7 @@ for the full list. The usual causes:
   again.
 - **"it can't be reduced further without breaking the shape"** — Clean Mesh was
   already on. The mesh is at its limit for this shape.
-- **Protect** with a high Strength on a large area can leave the result above
+- **Protect Area** with a high Strength on a large area can leave the result above
   the target. Lower the Strength.
 
 ---
@@ -123,9 +123,9 @@ It is also greyed out while a crush is running. See
 
 ---
 
-## Statistics panel says "(No run yet)"
+## Last Crush says "(No run yet)"
 
-The Statistics sub-panel only shows timings for the active **crushed** object,
+**Last Crush** (in Advanced) only shows results for the active **crushed** object,
 from the current Blender session. If you select the original (or anything
 else), it says "No stats for" that object. Click a crushed object in the
 Crushed collection to see its timings.

@@ -5,12 +5,14 @@
 Once the addon is installed, open the **N-panel → 9000 Toolkit tab** in the 3D
 Viewport and open the **Polygon Crusher 9000** panel. It starts collapsed.
 
-The panel has a **Target** section, **Preserve**, **Bake**, **Cleanup** and
-**LODs** sections, a **Keep Original** checkbox, the **Crush** and **Revert**
-buttons, and a collapsible **Statistics** sub-panel. The
+The main panel holds what you need for most models: a status line, the
+**Target** box, and the **Crush** and **Revert** buttons. Everything else
+(Preserve, Protect Area, Bake, Cleanup, LODs, Keep Original and the Last
+Crush results) is in the collapsed **Advanced** section below it. When
+something in Advanced is switched on, a line under Crush lists it. The
 [Settings Reference](../settings.md) describes every control.
 
-![The Polygon Crusher 9000 panel in Blender](../assets/PolygonCrusher9000_UI_2.3.png){ .ui-panel }
+![The Polygon Crusher 9000 panel in Blender](../assets/PolygonCrusher9000_UI_2.4_basic.png){ .ui-panel }
 
 
 ---
@@ -19,7 +21,9 @@ buttons, and a collapsible **Statistics** sub-panel. The
 
 1. **Select** one or more mesh objects in the 3D Viewport
 2. Open the **Polygon Crusher 9000** panel (press **N** → 9000 Toolkit tab)
-3. Pick a target mode: **Percent**, **Count** or **Budget**, and set the value
+3. Pick a target mode: **Percent**, **Count** or **Budget**, and set the value.
+   In Percent mode you can also pick a preset: **Light · 25%**, **Medium ·
+   50%**, **Heavy · 75%** or **Extreme · 90%**
 4. Click **Crush**
 
 The addon will:
@@ -64,7 +68,8 @@ In Percent mode, these are common values:
 
 ### For 3D Scans and Photogrammetry
 
-Leave **Keep Normals** and **Keep UVs** on. If the scan has vertex colors and
+Leave **Keep Normals** on. Turn on **Keep UVs** (in Advanced) only if the
+scan has a texture that must keep fitting. If the scan has vertex colors and
 no UVs, turn on **Normal Map** and **Base Color** under **Bake** to put the
 detail into maps. See [Bake Maps and Auto UVs](../features/bake-maps.md). If
 the scan or AI model crushes into fragments, turn on
@@ -72,18 +77,18 @@ the scan or AI model crushes into fragments, turn on
 
 ### For Hard-Surface and CAD Parts
 
-Click **Hard Surface** in the Preserve section. It keeps borders, material
+Open **Advanced** and click **Hard Surface** in the Preserve section. It keeps borders, material
 borders, UV seams and sharp edges exactly in place. See
 [Hard Surface Preservation](../features/hard-surface.md).
 
 ### Keeping Detail in One Area
 
-Paint a vertex group and pick it under **Protect**. See
-[Protect Areas](../features/protect.md).
+In Edit Mode, select the faces to keep and click **Add** under **Protect
+Area** in Advanced. See [Protect Areas](../features/protect.md).
 
 ### Making LODs
 
-Tick **Make LODs** and click **Crush LODs**. See [LODs](../features/lods.md).
+Tick **Make LODs** in Advanced and click **Crush LODs**. See [LODs](../features/lods.md).
 
 ### Working with Modifiers
 
@@ -109,6 +114,6 @@ Original** to be on. See [Keep Original and Revert](../features/revert.md).
 
 ## After Crushing
 
-Open the collapsible **Statistics** sub-panel under the Polygon Crusher 9000
-panel to see triangle counts and per-phase timings for the active crushed
-object.
+**Last Crush**, at the bottom of Advanced, shows the triangle counts, total
+time and passes for the active crushed object. Click **Details** for the time
+of each phase.

@@ -25,7 +25,7 @@ LOD generation.
 - **Three target modes** — **Percent**, **Count** (per object), or **Budget** (one total for the whole selection). See [Target Modes](features/target-modes.md).
 - **Normal Preservation** — copies the original's surface normals onto the result, so smooth shading survives heavy crushing.
 - **Hard Surface Preservation** — keep borders, material borders, UV seams and sharp edges exactly in place. See [Hard Surface Preservation](features/hard-surface.md).
-- **Protect Areas** — paint a vertex group to keep detail in faces, hands or text. See [Protect Areas](features/protect.md).
+- **Protect Areas** — select faces in Edit Mode (or paint a vertex group) to keep detail in faces, hands or text. See [Protect Areas](features/protect.md).
 - **Clean Mesh** — repair AI-generated and scanned meshes before crushing. See [Clean Mesh](features/clean-mesh.md).
 - **Bake Maps and Auto UVs** — bake normal and base color maps onto the crushed mesh. Meshes without UVs get UVs made for them. See [Bake Maps and Auto UVs](features/bake-maps.md).
 - **LODs in one click** — build a whole LOD chain from the original. See [LODs](features/lods.md).

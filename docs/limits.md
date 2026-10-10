@@ -18,8 +18,8 @@ The crush aims for your target, but some things stop it early:
   the target.
 - **Low-poly CAD parts.** Every crease corner stays fixed when Sharp Edges is
   on. A part with many creases can stop above a very low target.
-- **Protect.** Strong Protect on large areas can leave the result above the
-  target.
+- **Protect Area.** Strong protection on large areas can leave the result
+  above the target.
 - **Broken geometry.** Duplicate or zero-area faces block collapses. With no
   preserve options on, the report says the mesh may be broken and suggests
   [Clean Mesh](features/clean-mesh.md). If Clean Mesh is already on, it says
@@ -78,7 +78,8 @@ If that matters for your export or for baking, raise the target.
 
 ## Keep UVs
 
-UV transfer quality depends on how much the topology changed. Moderate
+Keep UVs is off by default. Turn it on only when the crushed mesh must keep
+its UV layout. UV transfer quality depends on how much the topology changed. Moderate
 reductions give the cleanest results. Very heavy reductions can stretch UVs
 near seams. Turn on **UV Seams** to hold the seam lines in place.
 

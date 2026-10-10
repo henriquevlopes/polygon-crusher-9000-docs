@@ -60,6 +60,15 @@ normal map bakes without visible seams.
 If the original already has UVs and **Keep UVs** is on, those UVs are used for
 the bake.
 
+### Overlapping UVs
+
+A bake writes each pixel of the map once. If two faces share the same UV
+space (stacked or mirrored islands, common in game assets), they fight over
+those pixels and the map is wrong there. With Keep UVs on, Crush checks for
+this and the report says so: it names the objects and how much of their map
+overlaps, and suggests turning **Keep UVs** off so the crushed copy is baked
+onto new UVs.
+
 ---
 
 ## Where the maps go
@@ -68,7 +77,7 @@ the bake.
 
 - **Blend File Folder** (default) — maps are saved as PNG files in the same
   folder as the .blend file. If the file is unsaved, the maps are packed into
-  the .blend instead. The panel shows "Unsaved file: maps get packed".
+  the .blend instead. The panel shows "Unsaved: maps get packed".
 - **Custom Folder** — maps are saved as PNG files in the folder you pick. A
   path that starts with `//` is relative to the .blend file.
 
