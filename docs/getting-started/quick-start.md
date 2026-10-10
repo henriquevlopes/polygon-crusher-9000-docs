@@ -10,12 +10,8 @@ The panel has a **Target** section, **Preserve**, **Bake**, **Cleanup** and
 buttons, and a collapsible **Statistics** sub-panel. The
 [Settings Reference](../settings.md) describes every control.
 
-![The Polygon Crusher 9000 panel in Blender](../assets/PolygonCrusher9000_UI.png){ .ui-panel }
+![The Polygon Crusher 9000 panel in Blender](../assets/PolygonCrusher9000_UI_2.3.png){ .ui-panel }
 
-!!! note
-    This screenshot shows an older version of the panel. It has the
-    Reduction slider and the Keep options, but not the newer sections
-    (Target modes, Preserve, Bake, Cleanup, LODs).
 
 ---
 

@@ -12,10 +12,7 @@ The panel has these sections, from top to bottom: **Target**, **Preserve**,
 **Crush** and **Revert** buttons. A collapsible **Statistics** sub-panel sits
 underneath.
 
-!!! note "Screenshot"
-    The panel screenshot on the [Quick Start](getting-started/quick-start.md)
-    page shows an older version of the panel. This page describes the current
-    one.
+![The Polygon Crusher 9000 panel in Blender](assets/PolygonCrusher9000_UI_2.3.png){ .ui-panel }
 
 ---
 
