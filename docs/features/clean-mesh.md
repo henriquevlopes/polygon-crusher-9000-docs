@@ -27,6 +27,22 @@ get deleted. It is a share of the mesh's triangles.
 Raise it when a scan has lots of floating bits. Keep it low for models that
 really are made of separate parts, like a set of small screws.
 
+## Runs on its own when a mesh needs it
+
+You don't always have to switch it on. Clean Mesh runs by itself on an
+object (and the report says so) when:
+
+- **2% or more of its vertices are duplicates.** Scans from glTF, FBX and OBJ
+  are often split along UV seams; crushing them without welding opens cracks
+  along the seams.
+- **2% or more of its triangles have no area.** This is typical of an OBJ
+  saved with too few decimals, or a scan snapped to a coarse grid. Without
+  cleaning, the crush would stop with "Unable to reduce mesh".
+
+Welded meshes (most CAD parts and sculpts) score 0% and are left alone.
+Turn the checkbox on yourself for other broken meshes, for example flipped
+faces or floating debris.
+
 ---
 
 ## Only the copy changes

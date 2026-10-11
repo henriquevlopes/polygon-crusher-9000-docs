@@ -3,9 +3,11 @@
 Measured on 2026-10-10 with Polygon Crusher 2.3.2. This page shows how the
 speed figure on the store page was measured, so you can judge it yourself.
 
-These numbers still apply to 2.4.x: the crush engine has not changed since
-2.3.2. 2.4 changed the panel, the bake, and a Keep Normals correction that
-only runs on CAD and hard-surface parts; that correction was not re-timed.
+These numbers still apply to 2.4.x. 2.4 changed the panel, the bake, and a
+Keep Normals correction that only runs on CAD and hard-surface parts. 2.4.2
+added two small engine checks (no stray spike vertices, better detail in
+protected areas) that leave scan, sculpt and CAD results unchanged. None of
+these were re-timed.
 
 ## Summary
 

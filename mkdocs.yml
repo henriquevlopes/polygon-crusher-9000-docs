@@ -28,6 +28,7 @@ nav:
     - Bake Maps and Auto UVs: features/bake-maps.md
     - LODs: features/lods.md
     - Keep Original and Revert: features/revert.md
+    - Rigs, Shape Keys and Vertex Colors: features/carry-over.md
   - Limits: limits.md
   - Benchmark: benchmark.md
   - Troubleshooting: troubleshooting.md

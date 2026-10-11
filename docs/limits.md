@@ -20,8 +20,9 @@ The crush aims for your target, but some things stop it early:
   on. A part with many creases can stop above a very low target.
 - **Protect Area.** Strong protection on large areas can leave the result
   above the target.
-- **Broken geometry.** Duplicate or zero-area faces block collapses. With no
-  preserve options on, the report says the mesh may be broken and suggests
+- **Broken geometry.** Duplicate or zero-area faces block collapses. Clean
+  Mesh runs by itself on meshes with many duplicate vertices or zero-area
+  triangles. Otherwise, with no preserve options on, the report says the mesh may be broken and suggests
   [Clean Mesh](features/clean-mesh.md). If Clean Mesh is already on, it says
   the mesh cannot be reduced further without breaking its shape.
 
@@ -75,6 +76,14 @@ If that matters for your export or for baking, raise the target.
   already connected there, the old link is replaced.
 - The bake happens after the crush. A failed bake is listed in the report as
   a note and the crushed mesh is kept.
+
+## Rigs, shape keys and vertex colors
+
+Skin weights, the Armature modifier, shape keys and vertex colors carry over
+to the crushed copy, with a few limits: shape keys are dropped when a
+modifier changes the vertex count, and vertex colors are skipped on sources
+over 3 million triangles. See
+[Rigs, Shape Keys and Vertex Colors](features/carry-over.md).
 
 ## Keep UVs
 
