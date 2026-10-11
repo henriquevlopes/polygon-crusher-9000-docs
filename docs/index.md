@@ -29,6 +29,7 @@ LOD generation.
 - **Clean Mesh** — repair AI-generated and scanned meshes before crushing. See [Clean Mesh](features/clean-mesh.md).
 - **Bake Maps and Auto UVs** — bake normal and base color maps onto the crushed mesh. Meshes without UVs get UVs made for them. See [Bake Maps and Auto UVs](features/bake-maps.md).
 - **LODs in one click** — build a whole LOD chain from the original. See [LODs](features/lods.md).
+- **Rigs, shape keys and vertex colors carry over** — the crushed copy keeps skin weights, the Armature modifier, shape keys and vertex colors, so a rigged character still poses. See [Rigs, Shape Keys and Vertex Colors](features/carry-over.md).
 - **Revert** — delete a crushed object and bring back its original. See [Keep Original and Revert](features/revert.md).
 - **Modifier-Aware** — crushes the *evaluated* mesh; boolean, subdivision, and the rest of the modifier stack are applied automatically. The original's modifiers stay untouched.
 - **Live Progress** — Blender stays responsive during long crushes. Press **ESC** at any time to cancel.

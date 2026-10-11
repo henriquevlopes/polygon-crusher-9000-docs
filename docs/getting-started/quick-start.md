@@ -69,11 +69,12 @@ In Percent mode, these are common values:
 ### For 3D Scans and Photogrammetry
 
 Leave **Keep Normals** on. Turn on **Keep UVs** (in Advanced) only if the
-scan has a texture that must keep fitting. If the scan has vertex colors and
-no UVs, turn on **Normal Map** and **Base Color** under **Bake** to put the
-detail into maps. See [Bake Maps and Auto UVs](../features/bake-maps.md). If
+scan has a texture that must keep fitting. Vertex colors carry over to the
+crushed mesh by themselves. To put the detail into texture maps instead, turn
+on **Normal Map** and **Base Color** under **Bake**. See [Bake Maps and Auto UVs](../features/bake-maps.md). If
 the scan or AI model crushes into fragments, turn on
-[Clean Mesh](../features/clean-mesh.md).
+[Clean Mesh](../features/clean-mesh.md) (scans split along their seams get it
+automatically).
 
 ### For Hard-Surface and CAD Parts
 
