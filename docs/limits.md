@@ -112,6 +112,10 @@ Original** on, or with Make LODs. See
   read.
 - Faces with more than four corners are split as fans. A concave n-gon can
   come out wrong; scans do not have those.
+- Memory: the engine needs about 1 GB of RAM per 3 million triangles in
+  the file. A 32 million triangle OBJ (2.5 GB on disk) peaked at 10 GB and
+  crushed to 200,000 triangles in 72 seconds. On a 16 GB machine, stay under
+  about 40 million triangles.
 
 ## Platform
 
