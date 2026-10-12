@@ -280,6 +280,20 @@ Repairs the mesh before crushing. See [Clean Mesh](features/clean-mesh.md).
 Deletes loose pieces that are smaller than this share of the mesh's
 triangles. **0%** keeps every piece. Greyed out unless **Clean Mesh** is on.
 
+### Scan Repair
+
+Three switches under Clean Mesh, greyed out unless it is on. See
+[Scan Repair](features/clean-mesh.md#scan-repair).
+
+- **Cut Floor** (checkbox, default off) with **Height** (0% to 50%,
+  default **0%** = find the floor by itself): removes the table or ground
+  captured under the model.
+- **Remove Spikes** (checkbox, default off): pulls points shot out of the
+  surface back in and drops long stretched faces.
+- **Fill Holes** (checkbox, default off) with **Size** (0.1% to 50%,
+  default **5%**): closes holes whose outline is up to this share of the
+  model's size.
+
 ---
 
 ## LODs

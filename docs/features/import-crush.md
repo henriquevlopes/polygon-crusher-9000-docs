@@ -15,8 +15,8 @@ in **File > Import > Polygon Crusher: Import and Crush**.
 
 1. Click **Import and Crush...** and pick an **.obj**, **.ply** or **.stl** file.
 2. In the file browser's side panel, set the target (Percent or Count, same
-   as in the panel), **Keep UVs**, **Clean Mesh** and, for OBJ files, whether
-   the file is Y up.
+   as in the panel), **Keep UVs**, **Clean Mesh** with its Scan Repair
+   switches and, for OBJ files, whether the file is Y up.
 3. Click **Import and Crush**. The progress bar under the panel shows
    "Reading" while the file loads and the crush percentage after that.
 
@@ -45,7 +45,8 @@ wrong. Scans do not have those.
 ## Settings that apply
 
 From the panel: the **Target**, **Keep UVs**, **Clean Mesh** with **Remove
-Small Pieces**, and the four **Hard Surface** options (Borders, Materials,
+Small Pieces** and the three **Scan Repair** switches, and the four
+**Hard Surface** options (Borders, Materials,
 UV Seams and Sharp Edges with its angle). **Keep Normals**, **Protect Area**,
 **Bake** and **LODs** do not apply, because there is no original mesh in
 Blender to read them from. Crush the result again from the panel if you
