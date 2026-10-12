@@ -44,6 +44,11 @@ wrong. Scans do not have those.
 
 ## Settings that apply
 
+The file browser has the same **Mode** menu as the panel. In **Auto** the
+engine reads the file once to look at it and once to crush it, and the
+report says which mode it picked and what it found. See
+[Modes](modes.md).
+
 From the panel: the **Target**, **Keep UVs** with **Low Distortion**, **Clean Mesh** with **Remove
 Small Pieces** and the three **Scan Repair** switches, and the four
 **Hard Surface** options (Borders, Materials,
