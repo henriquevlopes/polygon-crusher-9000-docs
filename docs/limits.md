@@ -66,10 +66,11 @@ If that matters for your export or for baking, raise the target.
 
 ## Baking
 
-- **Base Color** is baked from **vertex colors** only. An object with no vertex
-  colors is skipped for Base Color. An object whose color comes from image
-  textures only gets the normal map. The report says when objects have no
-  vertex colors.
+- **Base Color** is baked from the image textures feeding each material's
+  Base Color, or from vertex colors when a material has none. Colors made by
+  procedural nodes (Noise, Gradient, a plain color value) are not baked. An
+  object with neither textures nor vertex colors is skipped for Base Color,
+  and the report says so.
 - A bake needs UVs on the crushed mesh. Meshes without UVs are unwrapped
   automatically. See [Bake Maps and Auto UVs](features/bake-maps.md).
 - The baked maps are connected in copies of the materials. If an input was

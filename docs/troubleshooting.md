@@ -69,9 +69,11 @@ and the viewport is in Material Preview or Rendered mode.
 - Workbench cannot show textures or normal maps. Crush switches a Workbench
   scene to EEVEE for you and tells you in the report. If you changed it back,
   switch the viewport to Material Preview.
-- **Base Color** is baked from vertex colors only. If the report says an object
-  has no vertex colors, no base color was baked for it. See
-  [Bake Maps and Auto UVs](features/bake-maps.md).
+- **Base Color** comes from the image textures feeding Base Color in the
+  original's materials, or from vertex colors. If the report says an object
+  has "no image texture or vertex colors", no base color was baked for it. A
+  texture reported as "not loaded" is missing on disk: fix its path on the
+  original and crush again. See [Bake Maps and Auto UVs](features/bake-maps.md).
 - Look in the folder you chose under **Save To**. For an unsaved .blend, the
   maps are packed into the file instead of saved as PNG files.
 

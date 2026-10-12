@@ -7,7 +7,7 @@ straight away.
 The **Bake** section of the panel has two toggle buttons:
 
 - **Normal Map** — bakes the original's surface detail.
-- **Base Color** — bakes the original's vertex colors.
+- **Base Color** — bakes the original's color: its image textures, or its vertex colors.
 
 You can turn on one or both. Then click **Crush** as usual. After the crush,
 the progress bar shows "Baking" while the maps are made.
@@ -29,12 +29,21 @@ UVs.
 
 ## Base Color
 
-Bakes the original's **vertex colors** (its active color attribute) into a
-base color map. Scans and ZBrush polypaint keep their color this way.
+Bakes the original's color into a base color map on the crushed mesh's
+UVs, so a textured scan crushed to a fraction of its triangles still looks
+like the scan.
 
-- Objects without vertex colors are skipped, and the report says so.
-- An object whose color lives in image textures, with no vertex colors,
-  only gets the normal map. Base Color is not baked from textures.
+- **Image textures first.** For each material, the image feeding **Base
+  Color** (directly, or through color nodes such as Mix or Hue/Saturation)
+  is sampled through the original's own UVs. Materials with several
+  textures are handled one by one, so a multi-material object gets one map
+  with all of them in place.
+- **Vertex colors otherwise.** A material with no image uses the object's
+  active color attribute instead. Scans and ZBrush polypaint keep their
+  color this way.
+- Objects with neither are skipped, and the report says "no image texture
+  or vertex colors". A texture whose file is missing is reported as "not
+  loaded" and skipped.
 
 ---
 

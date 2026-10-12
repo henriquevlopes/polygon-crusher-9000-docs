@@ -217,9 +217,10 @@ of the crushed mesh's materials.
 
 **Toggle button** — default **off**
 
-Bakes the original's vertex colors (its active color attribute) into a base
-color map and connects it in copies of the crushed mesh's materials. Objects
-without vertex colors are skipped.
+Bakes the original's color into a base color map and connects it in copies
+of the crushed mesh's materials: the image textures feeding Base Color in its
+materials, or its vertex colors (active color attribute) where a material has
+no image. Objects with neither are skipped.
 
 ### Size
 
