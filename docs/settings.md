@@ -6,11 +6,14 @@ collapsed every time you open Blender or load a file.
 
 The panel has two levels:
 
-- **The main panel** shows a status line, the **Target** box, and the
-  **Crush** and **Revert** buttons. For most models this is all you need.
-- **Advanced** is a collapsed section under it. It holds **Preserve** (with
-  **Protect Area**), **Bake**, **Cleanup**, **LODs**, **Keep Original** and
-  the **Last Crush** results, all visible at once when you open it.
+- **The main panel** shows a status line, the **Mode** menu, the
+  **Target** box, and the **Crush** and **Revert** buttons. For most
+  models this is all you need.
+- **Advanced** is a collapsed section under it. It holds **Preserve**,
+  **Protect Area**, **Bake**, **Clean Mesh**, **LODs** and **Output**
+  (Keep Original and the Last Crush results) as groups that fold on their
+  own, each with a line saying what it is for. A mode opens the groups it
+  uses and folds the rest; nothing is hidden.
 
 Options that do not apply right now are greyed out instead of hidden. For
 example, **Strength** is grey until a Protect Area is set.
@@ -25,12 +28,29 @@ The first line of the panel says what it is looking at: the number of
 selected meshes and their triangle total. With nothing selected it says
 "Select a mesh object to start".
 
+## Mode
+
+**Dropdown** — default **Auto**
+
+What kind of model this is. A mode sets the Preserve and Clean Mesh values
+for you; see [Modes](features/modes.md).
+
+- **Auto** looks at the selected mesh and shows what it found under the
+  menu ("Looks like a scan: rough surface all over. Found: 120 spikes, 11
+  small holes"), then applies Scan, Sculpt or Hard Surface. Meshes over
+  600,000 triangles show a **Detect** button instead of looking by
+  themselves.
+- **Scan**, **Sculpt**, **Hard Surface** apply that mode's values.
+- **Custom** is your own settings. Changing a mode-controlled value by
+  hand shows **Custom (from Scan)** and a **Reset to Scan defaults**
+  button.
+
 ## What's on
 
 When anything inside **Advanced** is switched on, a line under **Crush**
-lists it, for example "On: Keep UVs · Hard Surface · Normal map". So a
-closed Advanced section never hides what the next crush will do. When
-**Keep Original** is off, a warning under Crush says the original will be
+lists it, for example "On: Keep UVs · Clean mesh · Spikes · Holes". So a
+folded group never hides what the next crush will do. When **Keep
+Original** is off, a warning under Crush says the original will be
 deleted.
 
 ---
@@ -104,7 +124,9 @@ browser's side panel shows the Target, **Keep UVs**, **Clean Mesh** and an
 ## Advanced
 
 Everything below lives in the **Advanced** section. It starts collapsed;
-click its header to open it.
+click its header to open it. Inside, each group (**Preserve**, **Protect
+Area**, **Bake**, **Clean Mesh**, **LODs**, **Output**) has its own fold
+arrow and a line under its title saying what it is for.
 
 ## Preserve
 
@@ -141,13 +163,11 @@ scan. Costs a few percent of crush time. Turn it off for the plain crush
 (the 2.5.x behaviour), for example if a mesh with already-broken UVs will
 not reach its target.
 
-### Hard Surface
+### Keep in place
 
-**Button** — turns on **Borders**, **Materials**, **UV Seams** and **Sharp
-Edges** together, and sets **Sharp Angle** to **30°**
-
-The button shows as pressed when all four are on. Click it again to turn all
-four off. See [Hard Surface Preservation](features/hard-surface.md).
+The four options below keep edges exactly where they are. **Hard Surface**
+mode turns them all on and sets **Sharp Angle** to **30°**. See
+[Hard Surface Preservation](features/hard-surface.md).
 
 ### Borders
 
@@ -275,7 +295,7 @@ Where the baked maps are saved.
 
 ---
 
-## Cleanup
+## Clean Mesh
 
 ### Clean Mesh
 
@@ -292,7 +312,8 @@ triangles. **0%** keeps every piece. Greyed out unless **Clean Mesh** is on.
 
 ### Scan Repair
 
-Three switches under Clean Mesh, greyed out unless it is on. See
+Three switches under Clean Mesh, greyed out unless it is on. **Scan** mode
+and **Auto** tick them from what the engine finds. See
 [Scan Repair](features/clean-mesh.md#scan-repair).
 
 - **Cut Floor** (checkbox, default off) with **Height** (0% to 50%,
@@ -372,23 +393,17 @@ and Crush refuses to run. See [Troubleshooting](troubleshooting.md).
 Presets work in **Percent** mode only. The preset row has a dropdown and
 **+** and **−** buttons.
 
-**Built-in presets:**
-
-| Preset | Reduction | Keep Normals | Keep UVs |
-|--------|-----------|--------------|----------|
-| Light · 25% | 25% | on | off |
-| Medium · 50% | 50% | on | off |
-| Heavy · 75% | 75% | on | off |
-| Extreme · 90% | 90% | on | off |
+**Built-in presets** set the amount only: **Light · 25%**, **Medium ·
+50%**, **Heavy · 75%**, **Extreme · 90%**. What to keep is the
+[Mode](features/modes.md)'s job, so picking one leaves Keep UVs and the
+Preserve options alone (before 2.7.0 they switched Keep UVs off).
 
 A .blend saved with one of the older built-in presets (from before 2.4.0)
 opens with the dropdown on **Custom**. Its values are kept.
 
-Built-in presets turn all four Preserve options (Borders, Materials, UV Seams,
-Sharp Edges) off.
-
-A preset stores: Reduction, Keep Normals, Keep UVs, the four Preserve
-options, and Sharp Angle. It does not store the target count, Protect, Bake,
+A preset you save stores: Reduction, Keep Normals, Keep UVs, the four
+Preserve options, and Sharp Angle, and applies all of them (the Mode then
+shows **Custom**). It does not store the target count, Protect, Bake,
 Clean Mesh, or LOD settings.
 
 - **+** — save the current values as a new preset. You type a name. Saving

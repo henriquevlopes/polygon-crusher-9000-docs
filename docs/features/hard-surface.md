@@ -23,9 +23,9 @@ those sharp edges marked Sharp.
 
 ## One-click setup
 
-The **Hard Surface** button turns on all four options and sets **Sharp Angle**
-to 30°. Click it again to turn all four off. The button shows as pressed
-when all four are on.
+**Hard Surface** in the **Mode** menu turns on all four options and sets
+**Sharp Angle** to 30°. **Auto** picks it by itself on a mesh with flat
+faces and sharp edges. See [Modes](modes.md).
 
 You can also switch options on one at a time. For example, turn on only
 **Materials** to keep material borders on an organic mesh.

@@ -21,6 +21,7 @@ nav:
   - Examples: examples.md
   - Settings Reference: settings.md
   - Features:
+    - Modes (Auto, Scan, Sculpt, Hard Surface): features/modes.md
     - Target Modes: features/target-modes.md
     - Hard Surface Preservation: features/hard-surface.md
     - Protect Areas: features/protect.md
