@@ -90,6 +90,17 @@ The "after" number is the target, not a promise. See [Limits](limits.md).
 
 ---
 
+## Import and Crush...
+
+**Button** under Crush
+
+Opens a file browser for an **.obj**, **.ply** or **.stl** file. The engine reads
+the file and crushes it; only the result is built in Blender. The file
+browser's side panel shows the Target, **Keep UVs**, **Clean Mesh** and an
+**OBJ is Y up** switch. See [Import and Crush](features/import-crush.md).
+
+---
+
 ## Advanced
 
 Everything below lives in the **Advanced** section. It starts collapsed;

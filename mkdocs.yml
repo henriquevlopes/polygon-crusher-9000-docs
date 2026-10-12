@@ -25,6 +25,7 @@ nav:
     - Hard Surface Preservation: features/hard-surface.md
     - Protect Areas: features/protect.md
     - Clean Mesh: features/clean-mesh.md
+    - Import and Crush: features/import-crush.md
     - Bake Maps and Auto UVs: features/bake-maps.md
     - LODs: features/lods.md
     - Keep Original and Revert: features/revert.md

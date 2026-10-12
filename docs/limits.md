@@ -101,6 +101,18 @@ Original** on, or with Make LODs. See
 
 ---
 
+## Import and Crush
+
+- Reads **.obj**, **.ply** (ascii and binary) and **.stl** (ascii and binary).
+  Other formats (glTF, FBX, USD) have to go through Blender's own importer.
+- Normals in the file are ignored; the result is shaded smooth. Keep
+  Normals, Protect Area, Bake and LODs do not apply to an imported file.
+- A texture is only connected when the image is next to the model and
+  **Keep UVs** is on. Textures other than the base color (`map_Kd`) are not
+  read.
+- Faces with more than four corners are split as fans. A concave n-gon can
+  come out wrong; scans do not have those.
+
 ## Platform
 
 - **Blender 4.2 or later.**

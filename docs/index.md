@@ -27,6 +27,7 @@ LOD generation.
 - **Hard Surface Preservation** — keep borders, material borders, UV seams and sharp edges exactly in place. See [Hard Surface Preservation](features/hard-surface.md).
 - **Protect Areas** — select faces in Edit Mode (or paint a vertex group) to keep detail in faces, hands or text. See [Protect Areas](features/protect.md).
 - **Clean Mesh** — repair AI-generated and scanned meshes before crushing. See [Clean Mesh](features/clean-mesh.md).
+- **Import and Crush** — crush an OBJ, PLY or STL file straight from disk, for scans too big for Blender's importers. The engine reads the file; only the crushed result, with its UVs, textures, materials and vertex colors, is built in Blender. See [Import and Crush](features/import-crush.md).
 - **Bake Maps and Auto UVs** — bake normal and base color maps onto the crushed mesh, with the base color taken from the original's image textures or vertex colors. Meshes without UVs get UVs made for them. See [Bake Maps and Auto UVs](features/bake-maps.md).
 - **LODs in one click** — build a whole LOD chain from the original. See [LODs](features/lods.md).
 - **Rigs, shape keys and vertex colors carry over** — the crushed copy keeps skin weights, the Armature modifier, shape keys and vertex colors, so a rigged character still poses. See [Rigs, Shape Keys and Vertex Colors](features/carry-over.md).
