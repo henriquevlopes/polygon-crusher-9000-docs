@@ -44,7 +44,7 @@ wrong. Scans do not have those.
 
 ## Settings that apply
 
-From the panel: the **Target**, **Keep UVs**, **Clean Mesh** with **Remove
+From the panel: the **Target**, **Keep UVs** with **Low Distortion**, **Clean Mesh** with **Remove
 Small Pieces** and the three **Scan Repair** switches, and the four
 **Hard Surface** options (Borders, Materials,
 UV Seams and Sharp Edges with its angle). **Keep Normals**, **Protect Area**,

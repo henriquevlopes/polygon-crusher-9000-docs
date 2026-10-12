@@ -131,6 +131,16 @@ mesh has no UVs, this does nothing. Turn it on when the crushed mesh must keep
 its UV layout. With it off, baking makes new UVs for the crushed copy. See
 [Bake Maps and Auto UVs](features/bake-maps.md).
 
+### Low Distortion
+
+Checkbox under Keep UVs, default **on**, greyed out unless Keep UVs is
+on. A collapse that would fold a face's texture mapping over itself, or
+flatten it to a line, is refused and the crush picks another edge. This
+is what leaves smeared or mirrored texture patches on a heavily crushed
+scan. Costs a few percent of crush time. Turn it off for the plain crush
+(the 2.5.x behaviour), for example if a mesh with already-broken UVs will
+not reach its target.
+
 ### Hard Surface
 
 **Button** — turns on **Borders**, **Materials**, **UV Seams** and **Sharp
