@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Henri Lopes" /><link rel="canonical" href="https://henriquevlopes.github.io/polygon-crusher-9000-docs/benchmark/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Benchmark - Polygon Crusher 9000</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link href="../stylesheets/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Benchmark";
+        var mkdocs_page_input_path = "benchmark.md";
+        var mkdocs_page_url = "/polygon-crusher-9000-docs/benchmark/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]--> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../assets/logo.svg" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+    <ul>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../getting-started/installation/">Installation</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/installation/#download">Download</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/installation/#install-in-blender">Install in Blender</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/installation/#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/installation/#open-the-panel">Open the Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/installation/#updating">Updating</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../getting-started/quick-start/">Quick Start</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/quick-start/#the-polygon-crusher-panel">The Polygon Crusher Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/quick-start/#basic-workflow">Basic Workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/quick-start/#choosing-a-target">Choosing a Target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/quick-start/#tips">Tips</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#for-3d-scans-and-photogrammetry">For 3D Scans and Photogrammetry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#for-hard-surface-and-cad-parts">For Hard-Surface and CAD Parts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#keeping-detail-in-one-area">Keeping Detail in One Area</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#making-lods">Making LODs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#working-with-modifiers">Working with Modifiers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#processing-multiple-objects">Processing Multiple Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#going-back">Going Back</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/quick-start/#after-crushing">After Crushing</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../examples/">Examples</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../examples/#high-poly-sculpt-8m-450k-triangles">High-poly sculpt — 8M → 450K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../examples/#hard-surface-mesh-70k-2k-triangles">Hard-surface mesh — 70K → 2K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../examples/#textured-photogrammetry-scan-764k-118k-triangles-uvs-preserved">Textured photogrammetry scan — 764K → 118K triangles, UVs preserved</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../settings/">Settings Reference</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#status-line">Status line</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#mode">Mode</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#whats-on">What's on</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#target">Target</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#target-mode">Target Mode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#preset-percent-mode-only">Preset (Percent mode only)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#reduction-percent-mode">Reduction (Percent mode)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#target-triangles-count-mode">Target Triangles (Count mode)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#total-triangles-budget-mode">Total Triangles (Budget mode)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#triangle-readout">Triangle readout</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#import-and-crush">Import and Crush...</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#advanced">Advanced</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#preserve">Preserve</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#keep-normals">Keep Normals</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#keep-uvs">Keep UVs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#low-distortion">Low Distortion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#keep-in-place">Keep in place</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#borders">Borders</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#materials">Materials</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#uv-seams">UV Seams</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#sharp-edges">Sharp Edges</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#sharp-angle">Sharp Angle</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#protect-area">Protect Area</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#strength">Strength</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#blur">Blur</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#show-heatmap">Show Heatmap</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#bake">Bake</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#normal-map">Normal Map</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#base-color">Base Color</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#size">Size</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#normal-y">Normal Y</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#save-to">Save To</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#clean-mesh">Clean Mesh</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#clean-mesh_1">Clean Mesh</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#remove-small-pieces">Remove Small Pieces</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#scan-repair">Scan Repair</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#lods">LODs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#make-lods">Make LODs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#levels">Levels</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#ratio">Ratio</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#output">Output</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#keep-original">Keep Original</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#crush-and-revert">Crush and Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../settings/#presets">Presets</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../settings/#last-crush">Last Crush</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/modes/">Modes (Auto, Scan, Sculpt, Hard Surface)</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#auto">Auto</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#scan">Scan</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#sculpt">Sculpt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#hard-surface">Hard Surface</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#custom">Custom</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#import-and-crush">Import and Crush</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/target-modes/">Target Modes</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/target-modes/#percent">Percent</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/target-modes/#count">Count</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/target-modes/#budget">Budget</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/target-modes/#what-happens-to-the-result">What happens to the result</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/hard-surface/">Hard Surface Preservation</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#the-options">The options</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#one-click-setup">One-click setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#how-kept-edges-behave-271">How kept edges behave (2.7.1)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#sharp-edges-and-sharp-angle">Sharp Edges and Sharp Angle</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#uv-seams">UV Seams</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#what-a-very-low-target-costs">What a very low target costs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#presets">Presets</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/protect/">Protect Areas</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/protect/#how-to-use-it">How to use it</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../features/protect/#using-your-own-vertex-group">Using your own vertex group</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/protect/#strength">Strength</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/protect/#blur">Blur</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/protect/#show-heatmap">Show Heatmap</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/protect/#good-to-know">Good to know</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/clean-mesh/">Clean Mesh</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#what-it-does">What it does</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#remove-small-pieces">Remove Small Pieces</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#runs-on-its-own-when-a-mesh-needs-it">Runs on its own when a mesh needs it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#scan-repair">Scan Repair</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../features/clean-mesh/#cut-floor">Cut Floor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../features/clean-mesh/#remove-spikes">Remove Spikes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../features/clean-mesh/#fill-holes">Fill Holes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../features/clean-mesh/#order">Order</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#only-the-copy-changes">Only the copy changes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#when-to-use-it">When to use it</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/import-crush/">Import and Crush</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/import-crush/#how-to-use-it">How to use it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/import-crush/#what-comes-along">What comes along</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/import-crush/#settings-that-apply">Settings that apply</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/import-crush/#clean-mesh-runs-by-itself-when-needed">Clean Mesh runs by itself when needed</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/import-crush/#textures">Textures</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/bake-maps/">Bake Maps and Auto UVs</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#normal-map">Normal Map</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#base-color">Base Color</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#auto-uvs">Auto UVs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../features/bake-maps/#overlapping-uvs">Overlapping UVs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#where-the-maps-go">Where the maps go</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#how-the-maps-are-connected">How the maps are connected</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#viewport">Viewport</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/lods/">LODs</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/lods/#how-to-use-it">How to use it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/lods/#what-you-get">What you get</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/lods/#what-changes-while-make-lods-is-on">What changes while Make LODs is on</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/lods/#revert">Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/lods/#limits">Limits</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/revert/">Keep Original and Revert</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/revert/#keep-original">Keep Original</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/revert/#revert">Revert</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../features/revert/#where-the-link-is-kept">Where the link is kept</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/carry-over/">Rigs, Shape Keys and Vertex Colors</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/carry-over/#what-carries-over">What carries over</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/carry-over/#crushing-a-posed-character">Crushing a posed character</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/carry-over/#limits">Limits</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../limits/">Limits</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#the-result-can-stop-above-the-target">The result can stop above the target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#small-pieces-at-heavy-reductions">Small pieces at heavy reductions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#objects-can-be-skipped">Objects can be skipped</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#scans-and-noisy-meshes-sharp-edges">Scans and noisy meshes: Sharp Edges</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#very-low-targets-on-dense-cad">Very low targets on dense CAD</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#baking">Baking</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#rigs-shape-keys-and-vertex-colors">Rigs, shape keys and vertex colors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#keep-uvs">Keep UVs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#revert">Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#import-and-crush">Import and Crush</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#platform">Platform</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Benchmark</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#where-it-stands">Where it stands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#against-blender-decimate">Against Blender Decimate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#method">Method</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#speed-and-exact-counts">Speed and exact counts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#shape-at-the-same-triangle-count">Shape at the same triangle count</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limits-of-this-test">Limits of this test</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#against-meshoptimizer">Against meshoptimizer</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#method_1">Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scans-sculpts-and-smooth-cad-the-same-error">Scans, sculpts and smooth CAD: the same error</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-multi-part-pole-what-271-fixed">The multi-part pole: what 2.7.1 fixed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#speed">Speed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#limits-of-this-test_1">Limits of this test</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#against-meshlab-early-readings">Against MeshLab: early readings</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#native-binary-not-found">"Native binary not found"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#the-result-has-more-triangles-than-my-target">The result has more triangles than my target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#a-hole-came-out-as-a-pentagon-or-a-crease-flattened">A hole came out as a pentagon, or a crease flattened</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#small-parts-disappeared">Small parts disappeared</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#sharp-edges-kept-almost-nothing-on-my-scan">Sharp Edges kept almost nothing on my scan</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#the-report-warns-about-non-manifold-edges">The report warns about non-manifold edges</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#crushed-mesh-looks-faceted">Crushed mesh looks faceted</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#my-baked-maps-do-not-show">My baked maps do not show</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#crusher-ignored-my-modifiers">Crusher ignored my modifiers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#blender-freezes-during-crush">Blender freezes during crush</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#where-did-my-crushed-object-go">Where did my crushed object go?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#the-revert-button-is-greyed-out">The Revert button is greyed out</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#last-crush-says-no-run-yet">Last Crush says "(No run yet)"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#contact-support">Contact Support</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Polygon Crusher 9000</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Benchmark</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="benchmarks-against-blender-decimate-and-meshoptimizer">Benchmarks: against Blender Decimate and meshoptimizer</h1>
+<h2 id="where-it-stands">Where it stands</h2>
+<p>Two comparisons have been measured in full, both with the repo's own test
+harnesses, plus a first look at MeshLab on two small meshes. Nothing else
+has been, so this page makes no claims about Simplygon, InstaLOD, ZBrush
+Decimation Master or any other reducer.</p>
+<p><strong>Against Blender Decimate</strong> (2026-10-10, engine 2.3.2):</p>
+<ul>
+<li>2.2–3.0× faster on meshes of 1–7.5 million triangles, about even at
+  100k, slower (0.6×) on a scene of 103 small parts.</li>
+<li>The same shape at the same triangle count. Decimate also reaches its
+  target, so exact counts are not what sets the two apart.</li>
+<li>Ahead on CAD with Hard Surface on (creases stay where they are), and on
+  everything Decimate does not do: Keep Normals, UV-aware collapses, scan
+  repair, Import and Crush, bakes, LOD chains, rigs and shape keys carried
+  over.</li>
+<li>Behind with Keep UVs on a part cut into many small UV islands at a very
+  low target, because seam vertices stay on their islands.</li>
+</ul>
+<p><strong>Against meshoptimizer</strong> (2026-10-13, engine 2.7.1):</p>
+<ul>
+<li>The same surface error, within measurement noise, on scans, sculpts and
+  smooth CAD at keep 10% and keep 2%; slightly lower on a small CAD block.</li>
+<li>On a hard-surface model of many parts the picture is mixed. Both tools'
+  default settings stop short of the target on it; 2.7.1 fixed that for
+  Polygon Crusher, and meshoptimizer's attribute setting still has the
+  lower error at keep 10%. At keep 2% they are close.</li>
+<li>meshoptimizer is about three times faster, on one core; Polygon Crusher
+  uses all cores. On a single core the gap would be wider.</li>
+</ul>
+<p><strong>Against MeshLab</strong> (early readings, two meshes, see below): about the
+same at keep 10%; MeshLab's plain decimation is better on the small CAD
+block at keep 2%, and its UV-keeping variant is much worse there.</p>
+<p>In short: a match for the best open-source simplifier on surface error,
+slower per core, better integrated for Blender work, and since 2.7.1 no
+longer the tool that falls over on multi-part hard-surface models, without
+being the best one on those either. The sections below show the numbers.</p>
+<hr />
+<h2 id="against-blender-decimate">Against Blender Decimate</h2>
+<p>Measured on 2026-10-10 with Polygon Crusher 2.3.2. This section shows how the
+speed figure on the store page was measured, so you can judge it yourself.</p>
+<p>These numbers still apply to 2.4.x. 2.4 changed the panel, the bake, and a
+Keep Normals correction that only runs on CAD and hard-surface parts. 2.4.2
+added two small engine checks (no stray spike vertices, better detail in
+protected areas) that leave scan, sculpt and CAD results unchanged. 2.5.0
+changed only the bake (base color from image textures, fewer tiny UV islands
+on scans); the crush itself is the same. 2.6.0 added Low Distortion under
+Keep UVs, which costs a few percent of crush time. 2.7.1 changed how kept
+edges and small pieces are handled; scans, sculpts and smooth CAD parts
+measure the same as before, hard-surface models with many parts do not (see
+<a href="#against-meshoptimizer">Against meshoptimizer</a> below). None of these were
+re-timed against Decimate.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Speed:</strong> 2.2–3.0× faster than Blender's Decimate on meshes of 1–7.5
+  million triangles. About the same at 100k. Slower on many small parts.</li>
+<li><strong>Shape:</strong> about the same as Decimate at the same triangle count. On CAD
+  parts with <strong>Hard Surface</strong> on, creases stay exactly in place. With
+  <strong>Keep UVs</strong> on, very low targets on parts cut into many small UV islands
+  keep less shape, because seam vertices stay on their islands.</li>
+<li><strong>Imported scans:</strong> meshes imported from glTF or FBX are often split into
+  separate pieces along their UV seams. Turn on <strong>Clean Mesh</strong> for these, or
+  open edges can shrink and leave gaps.</li>
+</ul>
+<h2 id="method">Method</h2>
+<ul>
+<li>Blender 5.2.2 LTS, run headless. Windows 11, Intel i7-12700H (20 threads),
+  64 GB RAM.</li>
+<li>Test meshes: a CC0 Poly Haven rock scan (1.26M triangles), a smaller
+  boulder scan (98k), a 1.0M-triangle synthetic sculpt, a 7.56M-triangle
+  subdivided scan, a CAD part (5.1k), and a set of 103 hard-surface parts
+  (200k total).</li>
+<li><strong>Blender:</strong> Decimate modifier in Collapse mode, ratio = target ÷ input,
+  applied to a new mesh.</li>
+<li><strong>Polygon Crusher:</strong> the add-on's own pipeline (read the mesh with UVs and
+  normals, run the native engine with an exact target, build the result with
+  UVs and custom normals). No bake.</li>
+<li><strong>Time:</strong> end to end, median of 3 runs.</li>
+<li><strong>Shape loss:</strong> distance from the original surface to the result, as % of
+  the bounding-box diagonal (mean / max).</li>
+</ul>
+<h2 id="speed-and-exact-counts">Speed and exact counts</h2>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Decimate</th>
+<th>Polygon Crusher</th>
+<th>Speed-up</th>
+<th>Result triangles (Decimate / PC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rock scan 1.26M → 20k</td>
+<td>5.40 s</td>
+<td>2.42 s</td>
+<td>2.2×</td>
+<td>20,000 / 19,999</td>
+</tr>
+<tr>
+<td>Sculpt 1.0M → 20k</td>
+<td>3.68 s</td>
+<td>1.44 s</td>
+<td>2.6×</td>
+<td>19,999 / 20,000</td>
+</tr>
+<tr>
+<td>Subdivided scan 7.56M → 450k</td>
+<td>45.0 s</td>
+<td>14.9 s</td>
+<td>3.0×</td>
+<td>449,999 / 450,000</td>
+</tr>
+<tr>
+<td>Scan 98k → 5k</td>
+<td>0.27 s</td>
+<td>0.21 s</td>
+<td>1.2×</td>
+<td>5,000 / 5,000</td>
+</tr>
+<tr>
+<td>103 hard-surface parts, 25% each</td>
+<td>0.45 s</td>
+<td>0.71 s</td>
+<td>0.6× (slower)</td>
+<td>50,119 / 50,134</td>
+</tr>
+</tbody>
+</table>
+<h2 id="shape-at-the-same-triangle-count">Shape at the same triangle count</h2>
+<p>Polygon Crusher with <strong>Clean Mesh</strong> on (these test meshes are glTF imports,
+split along UV seams), with <strong>Keep UVs</strong> on and off. With Keep UVs on, a
+vertex on a UV island border only slides along that border, so textures
+stay clean but the shape has less freedom.</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Decimate (mean / max)</th>
+<th>PC, Keep UVs on</th>
+<th>PC, Keep UVs off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rock scan 1.26M → 20k</td>
+<td>0.025 / 0.42</td>
+<td>0.024 / 0.81</td>
+<td>0.023 / 0.79</td>
+</tr>
+<tr>
+<td>Rock scan 1.26M → 2k</td>
+<td>0.085 / 1.07</td>
+<td>0.092 / 1.56</td>
+<td>0.079 / 1.38</td>
+</tr>
+<tr>
+<td>Boulder scan 98k → 5k</td>
+<td>0.086 / 0.79</td>
+<td>0.084 / 1.67</td>
+<td>0.083 / 1.61</td>
+</tr>
+<tr>
+<td>Hard-surface part 13.8k → 3.4k</td>
+<td>0.098 / 4.48</td>
+<td>0.213 / 9.06</td>
+<td>0.106 / 1.88</td>
+</tr>
+<tr>
+<td>CAD part 5.1k → 1k, Hard Surface on</td>
+<td>0.0026 / 0.071</td>
+<td>0.0000 / 0.0001</td>
+<td>0.0000 / 0.0001</td>
+</tr>
+</tbody>
+</table>
+<p>The hard-surface part has many small UV islands, so with Keep UVs on its
+thin cables lose the most. Turn Keep UVs off when you don't need the
+texture.</p>
+<h2 id="limits-of-this-test">Limits of this test</h2>
+<ul>
+<li>One machine, Windows only. Your times will differ.</li>
+<li>The 7.56M mesh is a subdivided scan, not a raw capture.</li>
+<li>Shape numbers are measurements, not renders. They don't capture
+  everything you see in shading.</li>
+<li>Some add-on steps (scan-noise detection for Sharp Edges, crease normal
+  checks, the report) and the UI/undo overhead are not included, for either
+  tool.</li>
+</ul>
+<hr />
+<h2 id="against-meshoptimizer">Against meshoptimizer</h2>
+<p>Measured on 2026-10-13, engine 2.7.0 and then 2.7.1, against
+<a href="https://github.com/zeux/meshoptimizer">meshoptimizer</a> v1.3 (the open-source
+simplifier behind Godot and the glTF tools), built from source. One Windows
+machine. This is the test that found the two 2.7.1 fixes, so it is shown
+here with both results.</p>
+<h3 id="method_1">Method</h3>
+<ul>
+<li>The engine binary alone, not the add-on, on OBJ files: the 1.26M rock scan
+  and the 98k boulder scan from above, a 60k noisy scan, the 1.0M sculpt, a
+  5k sculpt, the 5.1k CAD block, an 83k smooth CAD part, and an electricity
+  pole of 103 parts (13.4k triangles).</li>
+<li>Targets: keep 10% and keep 2% of the triangles.</li>
+<li>Polygon Crusher runs with the flags its mode would use (Hard Surface for
+  the CAD parts and the pole, Scan and Sculpt for the rest). meshoptimizer
+  runs with its defaults and, where it does better, with its attribute
+  settings (normals and UVs, permissive).</li>
+<li><strong>Error:</strong> distance between the original surface and the result, as % of
+  the bounding-box diagonal, 200,000 sample points each way. "Mean" is the
+  average; "worst" is the 99th percentile, so a few stray points do not set
+  it.</li>
+<li><strong>Time:</strong> the engine only. meshoptimizer runs on one core; Polygon Crusher
+  uses all of them.</li>
+</ul>
+<h3 id="scans-sculpts-and-smooth-cad-the-same-error">Scans, sculpts and smooth CAD: the same error</h3>
+<p>At keep 10%, mean error of the two tools, Polygon Crusher / meshoptimizer:</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Mean error (PC / mo)</th>
+<th>Worst (PC / mo)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rock scan 1.26M → 126k</td>
+<td>0.069 / 0.069</td>
+<td>0.16 / 0.16</td>
+</tr>
+<tr>
+<td>Boulder scan 98k → 9.8k</td>
+<td>0.123 / 0.127</td>
+<td>0.28 / 0.28</td>
+</tr>
+<tr>
+<td>Noisy scan 60k → 6k</td>
+<td>0.173 / 0.182</td>
+<td>0.58 / 0.48</td>
+</tr>
+<tr>
+<td>Sculpt 1.0M → 101k</td>
+<td>0.101 / 0.101</td>
+<td>0.24 / 0.24</td>
+</tr>
+<tr>
+<td>Smooth CAD part 83k → 8.3k</td>
+<td>0.163 / 0.163</td>
+<td>0.40 / 0.39</td>
+</tr>
+<tr>
+<td>CAD block 5.1k → 512</td>
+<td>0.163 / 0.188</td>
+<td>0.38 / 0.52</td>
+</tr>
+</tbody>
+</table>
+<p>Keep 2% looks the same: the two tools are within measurement noise of each
+other on every one of these, before and after 2.7.1. (The 1.26M scan and the
+1.0M sculpt were only run with the 2.7.0 engine; 2.7.1 did not change the
+scan or sculpt path.)</p>
+<h3 id="the-multi-part-pole-what-271-fixed">The multi-part pole: what 2.7.1 fixed</h3>
+<p>The pole has borders, material edges, seams and sharp edges everywhere, and
+103 separate pieces. It is where the old engine failed.</p>
+<table>
+<thead>
+<tr>
+<th>Pole 13.4k, keep 2%</th>
+<th>Triangles</th>
+<th>Mean error</th>
+<th>Worst error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PC 2.7.0, plain crush</td>
+<td>268</td>
+<td>2.48</td>
+<td><strong>20.7</strong></td>
+</tr>
+<tr>
+<td>PC 2.7.0, Hard Surface mode</td>
+<td>7,081 (stalled at 53%)</td>
+<td>0.21</td>
+<td>3.3</td>
+</tr>
+<tr>
+<td>PC 2.7.1, plain crush</td>
+<td>266</td>
+<td>0.75</td>
+<td>5.2</td>
+</tr>
+<tr>
+<td>PC 2.7.1, Hard Surface mode</td>
+<td>266</td>
+<td>0.42</td>
+<td>4.2</td>
+</tr>
+<tr>
+<td>meshoptimizer, defaults</td>
+<td>2,788 (stopped at 21%)</td>
+<td>0.27</td>
+<td>5.9</td>
+</tr>
+<tr>
+<td>meshoptimizer, attributes</td>
+<td>260</td>
+<td>0.39</td>
+<td>5.7</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>At keep 2% the 2.7.0 plain crush disintegrated: whole beams went while
+  small insulators stayed, hence a worst-case error of 20.7% of the model's
+  size. In 2.7.1 every piece keeps a minimum until the budget is spent, and
+  the worst case is 5.2%.</li>
+<li>Hard Surface mode on 2.7.0 stalled at about half the triangles at both
+  targets (7,091 at keep 10%, 7,081 at keep 2%), because the kept edges
+  were a hard lock. In 2.7.1 it reaches 1,337 and 266.</li>
+<li>meshoptimizer with its defaults also stops short on this model, at 2,816
+  triangles whatever you ask; with its attribute settings it reaches the
+  count. At keep 10% that setting has the lowest error of all the runs
+  (mean 0.17, worst 0.84, against 0.23 and 1.30 for Hard Surface mode).
+  At keep 2% the two are close: lower mean for meshoptimizer, lower worst
+  case for Polygon Crusher.</li>
+</ul>
+<p>On the 5.1k CAD block, Hard Surface mode at keep 10% halved its error
+(mean 0.31 → 0.16, worst 1.23 → 0.38) because the hole rims are no longer
+locked. At keep 2% it now reaches 102 triangles where 2.7.0 stopped at 272,
+and that costs shape: mean error 1.98 against 1.13 at the old, higher count.
+Reaching a very low count on a small part is a trade you choose by picking
+the target.</p>
+<h3 id="speed">Speed</h3>
+<p>meshoptimizer is about three times faster: 0.8 s against 2.3 s on the 1.26M
+scan at keep 10%, 0.5 s against 1.3 s on the 1.0M sculpt. It gets there on
+one core; Polygon Crusher spreads its work over all of them. Both are well
+under the time Blender needs to build the result mesh.</p>
+<h3 id="limits-of-this-test_1">Limits of this test</h3>
+<ul>
+<li>Engine against library, both run from Python on one Windows machine. The
+  add-on's own read, build and bake steps are not included, and neither is
+  any glTF or game-engine pipeline around meshoptimizer.</li>
+<li>meshoptimizer has more settings than the two tried here; a tuned run may
+  do better on the pole.</li>
+<li>Error is a surface-distance measurement. It does not see shading, UV
+  stretch or whether a hole is still round; look at the result.</li>
+</ul>
+<hr />
+<h2 id="against-meshlab-early-readings">Against MeshLab: early readings</h2>
+<p>MeshLab's <strong>Quadric Edge Collapse Decimation</strong> (through pymeshlab
+2025.7) is the reducer most people run on scans outside game studios. It
+was added to the bake-off harness on 2026-10-13 and has so far been run on
+two of the eight fixtures, on Linux, with the 2.7.1 engine. Two small
+meshes are not a verdict; the full set, on the Windows machine used above,
+is still to come. Same error measure as the meshoptimizer section;
+Polygon Crusher with its mode's flags, MeshLab with the filter's defaults
+("plain") and with the with-texture variant that keeps the UV layout
+("UVs").</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Polygon Crusher (mean / worst)</th>
+<th>MeshLab plain</th>
+<th>MeshLab UVs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAD block 5.1k → 512</td>
+<td>0.163 / 0.38</td>
+<td>0.169 / 0.41</td>
+<td>0.50 / 4.0</td>
+</tr>
+<tr>
+<td>CAD block 5.1k → 102</td>
+<td>1.98 / 12.1</td>
+<td><strong>0.99 / 5.4</strong></td>
+<td>3.5 / 21.8</td>
+</tr>
+<tr>
+<td>Sculpt 5.1k → 514</td>
+<td>0.114 / 0.23</td>
+<td>0.120 / 0.27</td>
+<td>0.130 / 0.27</td>
+</tr>
+<tr>
+<td>Sculpt 5.1k → 102</td>
+<td>0.364 / 0.85</td>
+<td>0.437 / 1.87</td>
+<td>0.59 / 2.3</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>At keep 10% the two are within a few percent of each other on both
+  meshes.</li>
+<li>At keep 2% on the CAD block MeshLab's plain decimation is clearly better:
+  half the mean error, half the worst case. Polygon Crusher's Hard Surface
+  mode is paying there for reaching 102 triangles while still favouring the
+  kept edges; the plain crush (no edges kept) scores 1.63 / 10.2, also
+  behind MeshLab. This is the one case so far where another tool is ahead
+  on a plain surface-error measure, and it will be checked on the full set.
+  Part of the gap is the 2.7.1 decision to always reach the count: the
+  2.7.0 engine stopped at 272 triangles on this block with a lower error
+  than 2.7.1 gets at 102. Keep 2% of a 5,000-triangle part is 102
+  triangles, which is below where either tool keeps the shape; on a part
+  this small, pick the target by looking at the result, not the percentage.</li>
+<li>MeshLab's UV-keeping variant is far worse on the CAD block at both
+  targets: the seams constrain it the way Keep UVs constrains any
+  simplifier, and this block has many of them.</li>
+<li>On the sculpt Polygon Crusher is ahead at both targets, more so at keep 2%.</li>
+<li>Times are not comparable yet: a different machine from the rest of this
+  page, and meshes this small finish in a few hundredths of a second
+  either way.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../limits/" class="btn btn-neutral float-left" title="Limits"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../troubleshooting/" class="btn btn-neutral float-right" title="Troubleshooting">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../limits/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../troubleshooting/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
