@@ -1,5 +1,42 @@
 # Benchmarks: against Blender Decimate and meshoptimizer
 
+## Where it stands
+
+Two comparisons have been measured, both with the repo's own test
+harnesses. Nothing else has been, so this page makes no claims about
+Simplygon, InstaLOD, ZBrush Decimation Master or any other reducer.
+
+**Against Blender Decimate** (2026-10-10, engine 2.3.2):
+
+- 2.2–3.0× faster on meshes of 1–7.5 million triangles, about even at
+  100k, slower (0.6×) on a scene of 103 small parts.
+- The same shape at the same triangle count. Decimate also reaches its
+  target, so exact counts are not what sets the two apart.
+- Ahead on CAD with Hard Surface on (creases stay where they are), and on
+  everything Decimate does not do: Keep Normals, UV-aware collapses, scan
+  repair, Import and Crush, bakes, LOD chains, rigs and shape keys carried
+  over.
+- Behind with Keep UVs on a part cut into many small UV islands at a very
+  low target, because seam vertices stay on their islands.
+
+**Against meshoptimizer** (2026-10-13, engine 2.7.1):
+
+- The same surface error, within measurement noise, on scans, sculpts and
+  smooth CAD at keep 10% and keep 2%; slightly lower on a small CAD block.
+- On a hard-surface model of many parts the picture is mixed. Both tools'
+  default settings stop short of the target on it; 2.7.1 fixed that for
+  Polygon Crusher, and meshoptimizer's attribute setting still has the
+  lower error at keep 10%. At keep 2% they are close.
+- meshoptimizer is about three times faster, on one core; Polygon Crusher
+  uses all cores. On a single core the gap would be wider.
+
+In short: a match for the best open-source simplifier on surface error,
+slower per core, better integrated for Blender work, and since 2.7.1 no
+longer the tool that falls over on multi-part hard-surface models, without
+being the best one on those either. The sections below show the numbers.
+
+---
+
 ## Against Blender Decimate
 
 Measured on 2026-10-10 with Polygon Crusher 2.3.2. This section shows how the
