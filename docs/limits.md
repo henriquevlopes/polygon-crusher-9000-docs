@@ -12,12 +12,6 @@ after, time taken, and any warnings. **Always check the "after" count.**
 
 The crush aims for your target, but some things stop it early:
 
-- **Preserve options.** Borders, Materials, UV Seams and Sharp Edges lock
-  geometry in place. If they lock a lot, the crush cannot remove enough
-  triangles. The report says the preserve options kept N triangles and shows
-  the target.
-- **Low-poly CAD parts.** Every crease corner stays fixed when Sharp Edges is
-  on. A part with many creases can stop above a very low target.
 - **Protect Area.** Strong protection on large areas can leave the result
   above the target.
 - **Broken geometry.** Duplicate or zero-area faces block collapses. Clean
@@ -28,6 +22,24 @@ The crush aims for your target, but some things stop it early:
 
 The report only raises this warning when the result is clearly above the
 target (more than 20% over), so small differences do not show up as warnings.
+
+Up to 2.7.0 the **Preserve** options (Borders, Materials, UV Seams, Sharp
+Edges) could stop a crush too, because a kept edge was a hard lock. Since
+2.7.1 a kept edge is a cost instead, and the crush reaches the count you
+asked for. What a very low target costs on such a model is shape, not
+triangles: see
+[What a very low target costs](features/hard-surface.md#what-a-very-low-target-costs).
+
+## Small pieces at heavy reductions
+
+A model made of many separate pieces (a pole with its insulators, a set of
+screws) loses whole pieces when the target is a small fraction of its
+triangles. Since 2.7.1 every connected piece keeps a minimum number of
+triangles until the error budget is truly spent, and then pieces go in order
+of how little they matter, smallest first. At an extreme target pieces still
+disappear; raise the target, or put a [Protect Area](features/protect.md) on
+the ones that must stay. **Remove Small Pieces** under Clean Mesh is a
+different thing: it deletes loose bits before the crush, on purpose.
 
 ## Objects can be skipped
 
@@ -66,10 +78,11 @@ If that matters for your export or for baking, raise the target.
 
 ## Baking
 
-- **Base Color** is baked from **vertex colors** only. An object with no vertex
-  colors is skipped for Base Color. An object whose color comes from image
-  textures only gets the normal map. The report says when objects have no
-  vertex colors.
+- **Base Color** is baked from the image textures feeding each material's
+  Base Color, or from vertex colors when a material has none. Colors made by
+  procedural nodes (Noise, Gradient, a plain color value) are not baked. An
+  object with neither textures nor vertex colors is skipped for Base Color,
+  and the report says so.
 - A bake needs UVs on the crushed mesh. Meshes without UVs are unwrapped
   automatically. See [Bake Maps and Auto UVs](features/bake-maps.md).
 - The baked maps are connected in copies of the materials. If an input was
@@ -87,10 +100,17 @@ over 3 million triangles. See
 
 ## Keep UVs
 
-Keep UVs is off by default. Turn it on only when the crushed mesh must keep
+Keep UVs is off by default (the Scan, Sculpt and Hard Surface modes turn it
+on when the mesh has UVs). Turn it on only when the crushed mesh must keep
 its UV layout. UV transfer quality depends on how much the topology changed. Moderate
 reductions give the cleanest results. Very heavy reductions can stretch UVs
 near seams. Turn on **UV Seams** to hold the seam lines in place.
+
+**Low Distortion** refuses collapses that would fold or flatten a face's
+texture mapping. Up to 2.7.0 that could leave the result about 12% above the
+target on a mesh with many seams. Since 2.7.1 the crush relaxes the UV rules
+in stages once it runs out of safe collapses, so the target is reached; the
+last few percent of a very low target can then show some stretch near seams.
 
 ## Revert
 
@@ -100,9 +120,26 @@ Original** on, or with Make LODs. See
 
 ---
 
+## Import and Crush
+
+- Reads **.obj**, **.ply** (ascii and binary) and **.stl** (ascii and binary).
+  Other formats (glTF, FBX, USD) have to go through Blender's own importer.
+- Normals in the file are ignored; the result is shaded smooth. Keep
+  Normals, Protect Area, Bake and LODs do not apply to an imported file.
+- A texture is only connected when the image is next to the model and
+  **Keep UVs** is on. Textures other than the base color (`map_Kd`) are not
+  read.
+- Faces with more than four corners are split as fans. A concave n-gon can
+  come out wrong; scans do not have those.
+- Memory: the engine needs about 1 GB of RAM per 3 million triangles in
+  the file. A 32 million triangle OBJ (2.5 GB on disk) peaked at 10 GB and
+  crushed to 200,000 triangles in 72 seconds. On a 16 GB machine, stay under
+  about 40 million triangles.
+
 ## Platform
 
-- **Blender 4.2 or later.**
+- **Blender 4.2 or later.** 4.2 is the lowest version the extension accepts
+  and has not been tested; the add-on is tested on Blender 5.2.
 - **Windows x64, Linux x64, Linux ARM64 and macOS Apple Silicon** have bundled
   native binaries. Intel Macs have no bundled binary.
 - The add-on needs its native binary. There is no Python fallback. If the

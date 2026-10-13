@@ -24,9 +24,11 @@ This is the most common question. Read the report in Blender's status bar. It
 shows the actual triangle count and usually says why. See [Limits](limits.md)
 for the full list. The usual causes:
 
-- **"preserve options kept N tris"** — Borders, Materials, UV Seams or Sharp
-  Edges locked too much geometry. Turn off the ones you do not need, raise
-  **Sharp Angle**, or raise the target.
+- **"preserve options kept N tris"** — only from versions before 2.7.1,
+  where Borders, Materials, UV Seams and Sharp Edges were a hard lock. Since
+  2.7.1 a kept edge is a cost instead and the crush reaches the target. If
+  you still see this on an old version, turn off the options you do not
+  need, raise **Sharp Angle**, or raise the target.
 - **"the mesh may be broken: try Clean Mesh"** — duplicate or zero-area faces
   blocked the crush. Turn on [Clean Mesh](features/clean-mesh.md) and crush
   again.
@@ -34,6 +36,30 @@ for the full list. The usual causes:
   already on. The mesh is at its limit for this shape.
 - **Protect Area** with a high Strength on a large area can leave the result above
   the target. Lower the Strength.
+
+---
+
+## A hole came out as a pentagon, or a crease flattened
+
+The target was too low for the number of edges you asked to keep. Since
+2.7.1 the crush reaches the count you asked for even in Hard Surface mode,
+so at a very low count some kept lines have to give way. It picks the ones
+that change the shape least. Raise the target, turn off the Preserve options
+you do not need, or put a [Protect Area](features/protect.md) on the part
+that must stay. See
+[Hard Surface Preservation](features/hard-surface.md#what-a-very-low-target-costs).
+
+---
+
+## Small parts disappeared
+
+At a heavy reduction the budget runs out and whole pieces go. Since 2.7.1
+every separate piece keeps a minimum number of triangles until nothing else
+is left to remove, and then the smallest pieces go first; before, pieces
+went in whatever order they happened to collapse. Raise the target, or
+protect the pieces that must stay. If pieces are missing right after
+**Clean Mesh**, lower **Remove Small Pieces**: it deletes loose bits on
+purpose. See [Limits](limits.md#small-pieces-at-heavy-reductions).
 
 ---
 
@@ -69,9 +95,11 @@ and the viewport is in Material Preview or Rendered mode.
 - Workbench cannot show textures or normal maps. Crush switches a Workbench
   scene to EEVEE for you and tells you in the report. If you changed it back,
   switch the viewport to Material Preview.
-- **Base Color** is baked from vertex colors only. If the report says an object
-  has no vertex colors, no base color was baked for it. See
-  [Bake Maps and Auto UVs](features/bake-maps.md).
+- **Base Color** comes from the image textures feeding Base Color in the
+  original's materials, or from vertex colors. If the report says an object
+  has "no image texture or vertex colors", no base color was baked for it. A
+  texture reported as "not loaded" is missing on disk: fix its path on the
+  original and crush again. See [Bake Maps and Auto UVs](features/bake-maps.md).
 - Look in the folder you chose under **Save To**. For an unsaved .blend, the
   maps are packed into the file instead of saved as PNG files.
 

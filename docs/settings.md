@@ -6,16 +6,20 @@ collapsed every time you open Blender or load a file.
 
 The panel has two levels:
 
-- **The main panel** shows a status line, the **Target** box, and the
-  **Crush** and **Revert** buttons. For most models this is all you need.
-- **Advanced** is a collapsed section under it. It holds **Preserve** (with
-  **Protect Area**), **Bake**, **Cleanup**, **LODs**, **Keep Original** and
-  the **Last Crush** results, all visible at once when you open it.
+- **The main panel** shows a status line, the **Mode** menu, the
+  **Target** box, and the **Crush** and **Revert** buttons. For most
+  models this is all you need.
+- **Advanced** is a collapsed section under it. It holds **Preserve**,
+  **Protect Area**, **Bake**, **Clean Mesh**, **LODs** and **Output**
+  (Keep Original and the Last Crush results) as groups that fold on their
+  own, each with a line saying what it is for. A mode opens the groups it
+  uses and folds the rest; nothing is hidden.
 
 Options that do not apply right now are greyed out instead of hidden. For
 example, **Strength** is grey until a Protect Area is set.
 
 ![The Polygon Crusher 9000 panel in Blender](assets/PolygonCrusher9000_UI_2.4.png){ .ui-panel }
+<!-- TODO screenshot: replace PolygonCrusher9000_UI_2.4.png with the 2.7 panel, Advanced open, showing the Mode menu with Auto's finding lines and the six folding groups (Preserve, Protect Area, Bake, Clean Mesh, LODs, Output) -->
 
 ---
 
@@ -25,12 +29,29 @@ The first line of the panel says what it is looking at: the number of
 selected meshes and their triangle total. With nothing selected it says
 "Select a mesh object to start".
 
+## Mode
+
+**Dropdown** — default **Auto**
+
+What kind of model this is. A mode sets the Preserve and Clean Mesh values
+for you; see [Modes](features/modes.md).
+
+- **Auto** looks at the selected mesh and shows what it found under the
+  menu ("Looks like a scan: rough surface all over. Found: 120 spikes, 11
+  small holes"), then applies Scan, Sculpt or Hard Surface. Meshes over
+  600,000 triangles show a **Detect** button instead of looking by
+  themselves.
+- **Scan**, **Sculpt**, **Hard Surface** apply that mode's values.
+- **Custom** is your own settings. Changing a mode-controlled value by
+  hand shows **Custom (from Scan)** and a **Reset to Scan defaults**
+  button.
+
 ## What's on
 
 When anything inside **Advanced** is switched on, a line under **Crush**
-lists it, for example "On: Keep UVs · Hard Surface · Normal map". So a
-closed Advanced section never hides what the next crush will do. When
-**Keep Original** is off, a warning under Crush says the original will be
+lists it, for example "On: Keep UVs · Clean mesh · Spikes · Holes". So a
+folded group never hides what the next crush will do. When **Keep
+Original** is off, a warning under Crush says the original will be
 deleted.
 
 ---
@@ -90,10 +111,25 @@ The "after" number is the target, not a promise. See [Limits](limits.md).
 
 ---
 
+## Import and Crush...
+
+**Button** under Crush
+
+Opens a file browser for an **.obj**, **.ply** or **.stl** file. The engine reads
+the file and crushes it; only the result is built in Blender. The file
+browser's side panel shows the Target, the **Mode** menu, **Keep UVs (and
+textures)** with **Low Distortion**, **Clean Mesh** with the three Scan
+Repair switches, and an **OBJ is Y up** switch. See
+[Import and Crush](features/import-crush.md).
+
+---
+
 ## Advanced
 
 Everything below lives in the **Advanced** section. It starts collapsed;
-click its header to open it.
+click its header to open it. Inside, each group (**Preserve**, **Protect
+Area**, **Bake**, **Clean Mesh**, **LODs**, **Output**) has its own fold
+arrow and a line under its title saying what it is for.
 
 ## Preserve
 
@@ -120,31 +156,42 @@ mesh has no UVs, this does nothing. Turn it on when the crushed mesh must keep
 its UV layout. With it off, baking makes new UVs for the crushed copy. See
 [Bake Maps and Auto UVs](features/bake-maps.md).
 
-### Hard Surface
+### Low Distortion
 
-**Button** — turns on **Borders**, **Materials**, **UV Seams** and **Sharp
-Edges** together, and sets **Sharp Angle** to **30°**
+Checkbox under Keep UVs, default **on**, greyed out unless Keep UVs is
+on. A collapse that would fold a face's texture mapping over itself, or
+flatten it to a line, is refused and the crush picks another edge. This
+is what leaves smeared or mirrored texture patches on a heavily crushed
+scan. Costs a few percent of crush time. Since 2.7.1 the crush still
+reaches the target with it on (it relaxes the rule in stages once it runs
+out of safe collapses). Turn it off for the plain crush (the 2.5.x
+behaviour).
 
-The button shows as pressed when all four are on. Click it again to turn all
-four off. See [Hard Surface Preservation](features/hard-surface.md).
+### Keep in place
+
+The four options below keep edges where they are. Since 2.7.1 a kept edge
+is a cost rather than a lock: the crush touches it last and still reaches
+the count you asked for. **Hard Surface** mode turns them all on and sets
+**Sharp Angle** to **30°**. See
+[Hard Surface Preservation](features/hard-surface.md).
 
 ### Borders
 
 **Toggle button** — default **off**
 
-Keeps open borders (holes and cut edges) exactly in place.
+Keeps open borders (holes and cut edges) in place.
 
 ### Materials
 
 **Toggle button** — default **off**
 
-Keeps the borders between materials exactly in place.
+Keeps the borders between materials in place.
 
 ### UV Seams
 
 **Toggle button** — default **off**
 
-Keeps UV seams exactly in place, so textures do not smear across them. Needs
+Keeps UV seams in place, so textures do not smear across them. Needs
 **Keep UVs**. The button is greyed out when Keep UVs is off.
 
 ### Sharp Edges
@@ -163,9 +210,12 @@ edges marked Sharp too.
 Edges where two faces meet at more than this angle count as sharp. Greyed out
 unless **Sharp Edges** is on.
 
-### Protect Area
+---
 
-**Add** and **Remove** buttons, and a vertex group field — default empty
+## Protect Area
+
+Its own group in Advanced. **Add** and **Remove** buttons, and a vertex
+group field — default empty
 
 Marks areas that keep more detail. In Edit Mode, select faces, edges or
 vertices and click **Add**. They go into a vertex group named **Protected**
@@ -217,9 +267,10 @@ of the crushed mesh's materials.
 
 **Toggle button** — default **off**
 
-Bakes the original's vertex colors (its active color attribute) into a base
-color map and connects it in copies of the crushed mesh's materials. Objects
-without vertex colors are skipped.
+Bakes the original's color into a base color map and connects it in copies
+of the crushed mesh's materials: the image textures feeding Base Color in its
+materials, or its vertex colors (active color attribute) where a material has
+no image. Objects with neither are skipped.
 
 ### Size
 
@@ -253,7 +304,7 @@ Where the baked maps are saved.
 
 ---
 
-## Cleanup
+## Clean Mesh
 
 ### Clean Mesh
 
@@ -263,10 +314,25 @@ Repairs the mesh before crushing. See [Clean Mesh](features/clean-mesh.md).
 
 ### Remove Small Pieces
 
-**Slider** — 0% to 5% — default **0.1%**
+**Slider** (labelled **Small Pieces** in the panel) — 0% to 5% — default **0.1%**
 
 Deletes loose pieces that are smaller than this share of the mesh's
 triangles. **0%** keeps every piece. Greyed out unless **Clean Mesh** is on.
+
+### Scan Repair
+
+Three switches under Clean Mesh, greyed out unless it is on. **Scan** mode
+and **Auto** tick them from what the engine finds. See
+[Scan Repair](features/clean-mesh.md#scan-repair).
+
+- **Cut Floor** (checkbox, default off) with **Height** (0% to 50%,
+  default **0%** = find the floor by itself): removes the table or ground
+  captured under the model.
+- **Remove Spikes** (checkbox, default off): pulls points shot out of the
+  surface back in and drops long stretched faces.
+- **Fill Holes** (checkbox, default off) with **Size** (0.1% to 50%,
+  default **5%**): closes holes whose outline is up to this share of the
+  model's size.
 
 ---
 
@@ -300,9 +366,13 @@ Levels and Ratio are greyed out until **Make LODs** is on.
 
 ---
 
-## Keep Original
+## Output
 
-**Checkbox** — default **on**, at the bottom of Advanced
+The last group in Advanced: where the result goes, and the last crush.
+
+### Keep Original
+
+**Checkbox** — default **on**
 
 When on, the original object is **hidden** (eye icon off) after the crush, so
 you can compare or go back. When off, the original is **deleted** and only the
@@ -336,23 +406,17 @@ and Crush refuses to run. See [Troubleshooting](troubleshooting.md).
 Presets work in **Percent** mode only. The preset row has a dropdown and
 **+** and **−** buttons.
 
-**Built-in presets:**
-
-| Preset | Reduction | Keep Normals | Keep UVs |
-|--------|-----------|--------------|----------|
-| Light · 25% | 25% | on | off |
-| Medium · 50% | 50% | on | off |
-| Heavy · 75% | 75% | on | off |
-| Extreme · 90% | 90% | on | off |
+**Built-in presets** set the amount only: **Light · 25%**, **Medium ·
+50%**, **Heavy · 75%**, **Extreme · 90%**. What to keep is the
+[Mode](features/modes.md)'s job, so picking one leaves Keep UVs and the
+Preserve options alone (before 2.7.0 they switched Keep UVs off).
 
 A .blend saved with one of the older built-in presets (from before 2.4.0)
 opens with the dropdown on **Custom**. Its values are kept.
 
-Built-in presets turn all four Preserve options (Borders, Materials, UV Seams,
-Sharp Edges) off.
-
-A preset stores: Reduction, Keep Normals, Keep UVs, the four Preserve
-options, and Sharp Angle. It does not store the target count, Protect, Bake,
+A preset you save stores: Reduction, Keep Normals, Keep UVs, the four
+Preserve options, and Sharp Angle, and applies all of them (the Mode then
+shows **Custom**). It does not store the target count, Protect, Bake,
 Clean Mesh, or LOD settings.
 
 - **+** — save the current values as a new preset. You type a name. Saving
@@ -368,10 +432,10 @@ Clean Mesh, or LOD settings.
 
 ---
 
-## Last Crush
+### Last Crush
 
-At the bottom of Advanced. It shows the most recent crush of the **active**
-crushed object:
+Under Keep Original in the **Output** group. It shows the most recent crush
+of the **active** crushed object:
 
 - **Object** — the crushed object's name.
 - **Triangles** — before → after.

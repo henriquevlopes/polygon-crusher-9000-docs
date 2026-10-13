@@ -1,7 +1,7 @@
 # Target Modes
 
-The **Target Mode** buttons at the top of the panel choose how you ask for a
-triangle count. There are three modes: **Percent**, **Count** and **Budget**.
+The **Target Mode** buttons in the **Target** box, under the Mode menu,
+choose how you ask for a triangle count. There are three modes: **Percent**, **Count** and **Budget**.
 
 Triangle counts are measured on the evaluated mesh. That is the mesh you see
 in the viewport, with all modifiers applied.

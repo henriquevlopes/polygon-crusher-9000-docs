@@ -2,7 +2,7 @@
 
 Some parts of a mesh matter more than the rest: a face, hands, text on a
 label. **Protect Area** keeps their detail while the rest gets crushed. It is
-in the **Preserve** box inside **Advanced**.
+its own group inside **Advanced**; **Sculpt** mode opens it.
 
 ---
 

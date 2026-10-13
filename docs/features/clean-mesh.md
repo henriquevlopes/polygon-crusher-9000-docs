@@ -4,7 +4,9 @@ AI-generated and scanned meshes often have broken geometry. When you crush
 them, they fall apart into fragments or stop far above the target. **Clean
 Mesh** repairs the mesh before the crush.
 
-Turn it on with the **Clean Mesh** checkbox in the **Cleanup** section.
+Turn it on with the **Clean Mesh** checkbox in the **Clean Mesh** group of
+**Advanced**. **Scan** mode turns it on for you, and **Auto** turns it on
+when it finds something to repair.
 
 ---
 
@@ -17,8 +19,9 @@ Turn it on with the **Clean Mesh** checkbox in the **Cleanup** section.
 
 ## Remove Small Pieces
 
-The **Remove Small Pieces** slider sets how small a loose piece has to be to
-get deleted. It is a share of the mesh's triangles.
+The **Remove Small Pieces** slider (labelled **Small Pieces** in the panel)
+sets how small a loose piece has to be to get deleted. It is a share of the
+mesh's triangles.
 
 - Default: **0.1%**. Range: 0% to 5%.
 - **0%** keeps every piece.
@@ -42,6 +45,50 @@ object (and the report says so) when:
 Welded meshes (most CAD parts and sculpts) score 0% and are left alone.
 Turn the checkbox on yourself for other broken meshes, for example flipped
 faces or floating debris.
+
+---
+
+## Scan Repair
+
+Scans bring their own kind of damage that welding does not touch. Under
+**Clean Mesh** there are three switches for it. They need Clean Mesh on,
+work with a crush from the panel and with
+[Import and Crush](import-crush.md), and the report says what they did.
+
+### Cut Floor
+
+The table, turntable or ground captured under the model is removed. With
+**Height** at **0%** the floor is found by itself: it is the dense, flat
+layer at the very bottom of the model. If the scan has no such layer,
+nothing is cut and the report says *no floor found*. Set **Height** to cut
+at a share of the model's height instead (everything below that goes).
+
+A ground scan (a patch of terrain) has a dense flat top of its own. That
+is not mistaken for a floor: only the lowest dense layer counts.
+
+### Remove Spikes
+
+Two fixes in one switch:
+
+- A point shot far out of the surface (farther than twice the size of its
+  neighbour ring) is pulled back to the centre of that ring.
+- A long stretched face, with an edge more than ten times the typical edge
+  of the mesh, is deleted. Scanners make these where two surfaces got
+  bridged. The small hole left behind is closed by Fill Holes.
+
+### Fill Holes
+
+Small missing patches are closed with a fan of faces around a new centre
+point. **Size** is the longest outline a hole may have to be filled, as a
+share of the model's size (default 5%). Bigger openings stay open: the
+bottom of a bust, the back of a relief, the edge of a ground scan. The
+report counts the holes filled and the openings left open.
+
+### Order
+
+Floor, spikes and stretched faces are handled first, then small floating
+pieces are removed, then holes are filled, then the winding is fixed so the
+new faces point the right way. The crush runs on the repaired mesh.
 
 ---
 

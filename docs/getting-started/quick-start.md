@@ -6,13 +6,15 @@ Once the addon is installed, open the **N-panel → 9000 Toolkit tab** in the 3D
 Viewport and open the **Polygon Crusher 9000** panel. It starts collapsed.
 
 The main panel holds what you need for most models: a status line, the
-**Target** box, and the **Crush** and **Revert** buttons. Everything else
-(Preserve, Protect Area, Bake, Cleanup, LODs, Keep Original and the Last
-Crush results) is in the collapsed **Advanced** section below it. When
-something in Advanced is switched on, a line under Crush lists it. The
-[Settings Reference](../settings.md) describes every control.
+**Mode** menu, the **Target** box, and the **Crush** and **Revert**
+buttons. Everything else (Preserve, Protect Area, Bake, Clean Mesh, LODs
+and Output) is in the collapsed **Advanced** section below it, in groups
+that fold on their own. When something in Advanced is switched on, a line
+under Crush lists it. The [Settings Reference](../settings.md) describes
+every control.
 
 ![The Polygon Crusher 9000 panel in Blender](../assets/PolygonCrusher9000_UI_2.4_basic.png){ .ui-panel }
+<!-- TODO screenshot: replace PolygonCrusher9000_UI_2.4_basic.png with the 2.7 main panel: status line, Mode menu (Auto, with its finding lines), Target box, Crush / Revert, Import and Crush..., the "On:" line -->
 
 
 ---
@@ -21,10 +23,14 @@ something in Advanced is switched on, a line under Crush lists it. The
 
 1. **Select** one or more mesh objects in the 3D Viewport
 2. Open the **Polygon Crusher 9000** panel (press **N** → 9000 Toolkit tab)
-3. Pick a target mode: **Percent**, **Count** or **Budget**, and set the value.
+3. Leave **Mode** on **Auto**. It looks at the mesh, says what it sees
+   ("Looks like a scan: rough surface all over. Found: 120 spikes, 11
+   small holes") and sets the switches to match. Or pick **Scan**,
+   **Sculpt** or **Hard Surface** yourself. See [Modes](../features/modes.md)
+4. Pick a target mode: **Percent**, **Count** or **Budget**, and set the value.
    In Percent mode you can also pick a preset: **Light · 25%**, **Medium ·
    50%**, **Heavy · 75%** or **Extreme · 90%**
-4. Click **Crush**
+5. Click **Crush**
 
 The addon will:
 
@@ -68,18 +74,20 @@ In Percent mode, these are common values:
 
 ### For 3D Scans and Photogrammetry
 
-Leave **Keep Normals** on. Turn on **Keep UVs** (in Advanced) only if the
-scan has a texture that must keep fitting. Vertex colors carry over to the
-crushed mesh by themselves. To put the detail into texture maps instead, turn
-on **Normal Map** and **Base Color** under **Bake**. See [Bake Maps and Auto UVs](../features/bake-maps.md). If
-the scan or AI model crushes into fragments, turn on
-[Clean Mesh](../features/clean-mesh.md) (scans split along their seams get it
-automatically).
+**Auto** recognises a scan and switches on Clean Mesh with the repairs it
+found (table, spikes, small holes) and Keep UVs with Low Distortion; or
+pick **Scan** mode. Vertex colors carry over to the crushed mesh by
+themselves. To put the detail into texture maps instead, turn on **Normal
+Map** and **Base Color** under **Bake**. See
+[Bake Maps and Auto UVs](../features/bake-maps.md) and
+[Clean Mesh](../features/clean-mesh.md).
 
 ### For Hard-Surface and CAD Parts
 
-Open **Advanced** and click **Hard Surface** in the Preserve section. It keeps borders, material
-borders, UV seams and sharp edges exactly in place. See
+**Auto** recognises flat faces and sharp edges and picks **Hard Surface**,
+which keeps borders, material borders, UV seams and sharp edges in place
+while still reaching the count you asked for; or pick it from the Mode
+menu. See
 [Hard Surface Preservation](../features/hard-surface.md).
 
 ### Keeping Detail in One Area
