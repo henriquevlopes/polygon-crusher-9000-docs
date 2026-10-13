@@ -4,7 +4,9 @@ AI-generated and scanned meshes often have broken geometry. When you crush
 them, they fall apart into fragments or stop far above the target. **Clean
 Mesh** repairs the mesh before the crush.
 
-Turn it on with the **Clean Mesh** checkbox in the **Cleanup** section.
+Turn it on with the **Clean Mesh** checkbox in the **Clean Mesh** group of
+**Advanced**. **Scan** mode turns it on for you, and **Auto** turns it on
+when it finds something to repair.
 
 ---
 
@@ -17,8 +19,9 @@ Turn it on with the **Clean Mesh** checkbox in the **Cleanup** section.
 
 ## Remove Small Pieces
 
-The **Remove Small Pieces** slider sets how small a loose piece has to be to
-get deleted. It is a share of the mesh's triangles.
+The **Remove Small Pieces** slider (labelled **Small Pieces** in the panel)
+sets how small a loose piece has to be to get deleted. It is a share of the
+mesh's triangles.
 
 - Default: **0.1%**. Range: 0% to 5%.
 - **0%** keeps every piece.

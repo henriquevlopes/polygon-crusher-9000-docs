@@ -14,9 +14,11 @@ in **File > Import > Polygon Crusher: Import and Crush**.
 ## How to use it
 
 1. Click **Import and Crush...** and pick an **.obj**, **.ply** or **.stl** file.
-2. In the file browser's side panel, set the target (Percent or Count, same
-   as in the panel), **Keep UVs**, **Clean Mesh** with its Scan Repair
-   switches and, for OBJ files, whether the file is Y up.
+2. In the file browser's side panel, set the target (same as in the
+   panel), the **Mode**, **Keep UVs (and textures)** with **Low
+   Distortion**, **Clean Mesh** with its Scan Repair switches and, for OBJ
+   files, whether the file is Y up. In **Auto** the switches are greyed
+   out: the engine sets them from what it finds in the file.
 3. Click **Import and Crush**. The progress bar under the panel shows
    "Reading" while the file loads and the crush percentage after that.
 
@@ -45,9 +47,11 @@ wrong. Scans do not have those.
 ## Settings that apply
 
 The file browser has the same **Mode** menu as the panel. In **Auto** the
-engine reads the file once to look at it and once to crush it, and the
-report says which mode it picked and what it found. See
+engine looks at the file before it crushes it (which adds about the read
+time), and the report says which mode it picked and what it found. See
 [Modes](modes.md).
+
+<!-- TODO screenshot: the Import and Crush file browser with its side panel (Target, Mode, Keep UVs (and textures), Low Distortion, Clean Mesh, Scan Repair, OBJ is Y up) -->
 
 From the panel: the **Target**, **Keep UVs** with **Low Distortion**, **Clean Mesh** with **Remove
 Small Pieces** and the three **Scan Repair** switches, and the four

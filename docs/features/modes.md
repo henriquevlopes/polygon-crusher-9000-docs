@@ -6,6 +6,8 @@ neither. The **Mode** menu at the top of the panel picks them for you.
 
 ---
 
+<!-- TODO screenshot: the Mode menu on Auto with a scan selected, showing the two finding lines under it ("Looks like a scan: rough surface all over" / "Found: ...") -->
+
 ## Auto
 
 **Auto** is the default. When a mesh is selected, Auto asks the engine for
@@ -82,6 +84,6 @@ by a mode.
 ## Import and Crush
 
 The file browser has the same **Mode** menu. In **Auto**, the engine
-reads the file once to look at it and once to crush it, so the import
-takes about twice as long as a fixed mode; the report says which mode it
-picked and what it found. See [Import and Crush](import-crush.md).
+looks at the file before it crushes it, which adds about the time it takes
+to read the file (a second or so for a 500 MB OBJ); the report says which
+mode it picked and what it found. See [Import and Crush](import-crush.md).

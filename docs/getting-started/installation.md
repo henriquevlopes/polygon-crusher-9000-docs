@@ -17,7 +17,8 @@ Purchase and download the latest `.zip` file from the [Superhive store](#).
 
 ## Requirements
 
-- **Blender 4.2 or later**
+- **Blender 4.2 or later.** 4.2 is the lowest version the extension accepts
+  and has not been tested; the add-on is tested on Blender 5.2.
 - Windows (x64), Linux (x64 or ARM64), or macOS (Apple Silicon). Intel Macs have no bundled binary.
 
 ## Open the Panel

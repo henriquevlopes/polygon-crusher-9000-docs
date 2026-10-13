@@ -19,6 +19,7 @@ Options that do not apply right now are greyed out instead of hidden. For
 example, **Strength** is grey until a Protect Area is set.
 
 ![The Polygon Crusher 9000 panel in Blender](assets/PolygonCrusher9000_UI_2.4.png){ .ui-panel }
+<!-- TODO screenshot: replace PolygonCrusher9000_UI_2.4.png with the 2.7 panel, Advanced open, showing the Mode menu with Auto's finding lines and the six folding groups (Preserve, Protect Area, Bake, Clean Mesh, LODs, Output) -->
 
 ---
 
@@ -116,8 +117,10 @@ The "after" number is the target, not a promise. See [Limits](limits.md).
 
 Opens a file browser for an **.obj**, **.ply** or **.stl** file. The engine reads
 the file and crushes it; only the result is built in Blender. The file
-browser's side panel shows the Target, **Keep UVs**, **Clean Mesh** and an
-**OBJ is Y up** switch. See [Import and Crush](features/import-crush.md).
+browser's side panel shows the Target, the **Mode** menu, **Keep UVs (and
+textures)** with **Low Distortion**, **Clean Mesh** with the three Scan
+Repair switches, and an **OBJ is Y up** switch. See
+[Import and Crush](features/import-crush.md).
 
 ---
 
@@ -207,9 +210,12 @@ edges marked Sharp too.
 Edges where two faces meet at more than this angle count as sharp. Greyed out
 unless **Sharp Edges** is on.
 
-### Protect Area
+---
 
-**Add** and **Remove** buttons, and a vertex group field — default empty
+## Protect Area
+
+Its own group in Advanced. **Add** and **Remove** buttons, and a vertex
+group field — default empty
 
 Marks areas that keep more detail. In Edit Mode, select faces, edges or
 vertices and click **Add**. They go into a vertex group named **Protected**
@@ -308,7 +314,7 @@ Repairs the mesh before crushing. See [Clean Mesh](features/clean-mesh.md).
 
 ### Remove Small Pieces
 
-**Slider** — 0% to 5% — default **0.1%**
+**Slider** (labelled **Small Pieces** in the panel) — 0% to 5% — default **0.1%**
 
 Deletes loose pieces that are smaller than this share of the mesh's
 triangles. **0%** keeps every piece. Greyed out unless **Clean Mesh** is on.
@@ -360,9 +366,13 @@ Levels and Ratio are greyed out until **Make LODs** is on.
 
 ---
 
-## Keep Original
+## Output
 
-**Checkbox** — default **on**, at the bottom of Advanced
+The last group in Advanced: where the result goes, and the last crush.
+
+### Keep Original
+
+**Checkbox** — default **on**
 
 When on, the original object is **hidden** (eye icon off) after the crush, so
 you can compare or go back. When off, the original is **deleted** and only the
@@ -422,10 +432,10 @@ Clean Mesh, or LOD settings.
 
 ---
 
-## Last Crush
+### Last Crush
 
-At the bottom of Advanced. It shows the most recent crush of the **active**
-crushed object:
+Under Keep Original in the **Output** group. It shows the most recent crush
+of the **active** crushed object:
 
 - **Object** — the crushed object's name.
 - **Triangles** — before → after.

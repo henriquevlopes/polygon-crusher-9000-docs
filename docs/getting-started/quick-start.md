@@ -14,6 +14,7 @@ under Crush lists it. The [Settings Reference](../settings.md) describes
 every control.
 
 ![The Polygon Crusher 9000 panel in Blender](../assets/PolygonCrusher9000_UI_2.4_basic.png){ .ui-panel }
+<!-- TODO screenshot: replace PolygonCrusher9000_UI_2.4_basic.png with the 2.7 main panel: status line, Mode menu (Auto, with its finding lines), Target box, Crush / Revert, Import and Crush..., the "On:" line -->
 
 
 ---

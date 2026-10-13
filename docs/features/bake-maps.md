@@ -4,7 +4,8 @@ Crush can bake the original's detail onto the low-poly copy as texture maps.
 It connects the maps in the copy's materials, so the result looks right
 straight away.
 
-The **Bake** section of the panel has two toggle buttons:
+The **Bake** group in **Advanced** has two toggle buttons (**Sculpt** mode
+opens it):
 
 - **Normal Map** — bakes the original's surface detail.
 - **Base Color** — bakes the original's color: its image textures, or its vertex colors.

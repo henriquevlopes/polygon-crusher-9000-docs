@@ -1,6 +1,8 @@
-# Benchmark: Polygon Crusher vs Blender Decimate
+# Benchmarks: against Blender Decimate and meshoptimizer
 
-Measured on 2026-10-10 with Polygon Crusher 2.3.2. This page shows how the
+## Against Blender Decimate
+
+Measured on 2026-10-10 with Polygon Crusher 2.3.2. This section shows how the
 speed figure on the store page was measured, so you can judge it yourself.
 
 These numbers still apply to 2.4.x. 2.4 changed the panel, the bake, and a
@@ -85,7 +87,7 @@ texture.
 
 ---
 
-# Against meshoptimizer
+## Against meshoptimizer
 
 Measured on 2026-10-13, engine 2.7.0 and then 2.7.1, against
 [meshoptimizer](https://github.com/zeux/meshoptimizer) v1.3 (the open-source
@@ -93,7 +95,7 @@ simplifier behind Godot and the glTF tools), built from source. One Windows
 machine. This is the test that found the two 2.7.1 fixes, so it is shown
 here with both results.
 
-## Method
+### Method
 
 - The engine binary alone, not the add-on, on OBJ files: the 1.26M rock scan
   and the 98k boulder scan from above, a 60k noisy scan, the 1.0M sculpt, a
@@ -111,7 +113,7 @@ here with both results.
 - **Time:** the engine only. meshoptimizer runs on one core; Polygon Crusher
   uses all of them.
 
-## Scans, sculpts and smooth CAD: the same error
+### Scans, sculpts and smooth CAD: the same error
 
 At keep 10%, mean error of the two tools, Polygon Crusher / meshoptimizer:
 
@@ -129,7 +131,7 @@ other on every one of these, before and after 2.7.1. (The 1.26M scan and the
 1.0M sculpt were only run with the 2.7.0 engine; 2.7.1 did not change the
 scan or sculpt path.)
 
-## The multi-part pole: what 2.7.1 fixed
+### The multi-part pole: what 2.7.1 fixed
 
 The pole has borders, material edges, seams and sharp edges everywhere, and
 103 separate pieces. It is where the old engine failed.
@@ -164,14 +166,14 @@ and that costs shape: mean error 1.98 against 1.13 at the old, higher count.
 Reaching a very low count on a small part is a trade you choose by picking
 the target.
 
-## Speed
+### Speed
 
 meshoptimizer is about three times faster: 0.8 s against 2.3 s on the 1.26M
 scan at keep 10%, 0.5 s against 1.3 s on the 1.0M sculpt. It gets there on
 one core; Polygon Crusher spreads its work over all of them. Both are well
 under the time Blender needs to build the result mesh.
 
-## Limits of this test
+### Limits of this test
 
 - Engine against library, both run from Python on one Windows machine. The
   add-on's own read, build and bake steps are not included, and neither is

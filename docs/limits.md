@@ -138,7 +138,8 @@ Original** on, or with Make LODs. See
 
 ## Platform
 
-- **Blender 4.2 or later.**
+- **Blender 4.2 or later.** 4.2 is the lowest version the extension accepts
+  and has not been tested; the add-on is tested on Blender 5.2.
 - **Windows x64, Linux x64, Linux ARM64 and macOS Apple Silicon** have bundled
   native binaries. Intel Macs have no bundled binary.
 - The add-on needs its native binary. There is no Python fallback. If the
