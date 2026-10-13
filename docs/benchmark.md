@@ -2,9 +2,9 @@
 
 ## Where it stands
 
-Two comparisons have been measured in full, both with the repo's own test
-harnesses, plus a first look at MeshLab on two small meshes. Nothing else
-has been, so this page makes no claims about Simplygon, InstaLOD, ZBrush
+Three comparisons have been measured, all with the repo's own test
+harnesses: Blender Decimate, meshoptimizer and MeshLab. Nothing else has
+been, so this page makes no claims about Simplygon, InstaLOD, ZBrush
 Decimation Master or any other reducer.
 
 **Against Blender Decimate** (2026-10-10, engine 2.3.2):
@@ -31,14 +31,26 @@ Decimation Master or any other reducer.
 - meshoptimizer is about three times faster, on one core; Polygon Crusher
   uses all cores. On a single core the gap would be wider.
 
-**Against MeshLab** (early readings, two meshes, see below): about the
-same at keep 10%; MeshLab's plain decimation is better on the small CAD
-block at keep 2%, and its UV-keeping variant is much worse there.
+**Against MeshLab** (2026-10-13, engine 2.7.1, six meshes, see below):
 
-In short: a match for the best open-source simplifier on surface error,
-slower per core, better integrated for Blender work, and since 2.7.1 no
-longer the tool that falls over on multi-part hard-surface models, without
-being the best one on those either. The sections below show the numbers.
+- About the same at keep 10% on everything; Polygon Crusher a little ahead
+  on the sculpt and the CAD block, MeshLab a little ahead on worst case on
+  the noisy scan.
+- At keep 2% it splits: Polygon Crusher is clearly better on the sculpt,
+  MeshLab clearly better on the small CAD block, and on the noisy scan
+  both meshoptimizer and MeshLab have a lower worst case.
+- MeshLab's UV-keeping variant stops short of the target on the pole and
+  is far worse on the CAD block; its plain decimation reaches every
+  target.
+- On the same machine MeshLab is about three times slower than Polygon
+  Crusher, which is about six times slower than meshoptimizer.
+
+In short: a match for the open-source simplifiers on surface error at
+normal targets, ahead on sculpts, behind on a small CAD part and on the
+worst case of a noisy scan at extreme targets, between the two on speed,
+better integrated for Blender work, and since 2.7.1 no longer the tool
+that falls over on multi-part hard-surface models, without being the best
+one on those either. The sections below show the numbers.
 
 ---
 
@@ -227,42 +239,70 @@ under the time Blender needs to build the result mesh.
 
 ---
 
-## Against MeshLab: early readings
+## Against MeshLab
 
-MeshLab's **Quadric Edge Collapse Decimation** (through pymeshlab
-2025.7) is the reducer most people run on scans outside game studios. It
-was added to the bake-off harness on 2026-10-13 and has so far been run on
-two of the eight fixtures, on Linux, with the 2.7.1 engine. Two small
-meshes are not a verdict; the full set, on the Windows machine used above,
-is still to come. Same error measure as the meshoptimizer section;
-Polygon Crusher with its mode's flags, MeshLab with the filter's defaults
-("plain") and with the with-texture variant that keeps the UV layout
-("UVs").
+MeshLab's **Quadric Edge Collapse Decimation** (through pymeshlab 2025.7)
+is the reducer most people run on scans outside game studios. Measured on
+2026-10-13 with the 2.7.1 engine on the six fixtures that ship in the
+repository (the 1.26M scan and 1.0M sculpt above are not among them), on
+one Linux machine, with meshoptimizer v1.3 run again in the same session so
+all three tools are on the same hardware. Same error measure as the
+meshoptimizer section. Polygon Crusher runs with its mode's flags; MeshLab
+with the filter's defaults ("plain") and with the with-texture variant that
+keeps the UV layout ("UVs"); meshoptimizer's better of its two settings.
 
-| Case | Polygon Crusher (mean / worst) | MeshLab plain | MeshLab UVs |
-|---|---|---|---|
-| CAD block 5.1k → 512 | 0.163 / 0.38 | 0.169 / 0.41 | 0.50 / 4.0 |
-| CAD block 5.1k → 102 | 1.98 / 12.1 | **0.99 / 5.4** | 3.5 / 21.8 |
-| Sculpt 5.1k → 514 | 0.114 / 0.23 | 0.120 / 0.27 | 0.130 / 0.27 |
-| Sculpt 5.1k → 102 | 0.364 / 0.85 | 0.437 / 1.87 | 0.59 / 2.3 |
+Mean / worst error, % of the model's size:
 
-- At keep 10% the two are within a few percent of each other on both
-  meshes.
-- At keep 2% on the CAD block MeshLab's plain decimation is clearly better:
-  half the mean error, half the worst case. Polygon Crusher's Hard Surface
-  mode is paying there for reaching 102 triangles while still favouring the
-  kept edges; the plain crush (no edges kept) scores 1.63 / 10.2, also
-  behind MeshLab. This is the one case so far where another tool is ahead
-  on a plain surface-error measure, and it will be checked on the full set.
-  Part of the gap is the 2.7.1 decision to always reach the count: the
-  2.7.0 engine stopped at 272 triangles on this block with a lower error
-  than 2.7.1 gets at 102. Keep 2% of a 5,000-triangle part is 102
-  triangles, which is below where either tool keeps the shape; on a part
-  this small, pick the target by looking at the result, not the percentage.
-- MeshLab's UV-keeping variant is far worse on the CAD block at both
-  targets: the seams constrain it the way Keep UVs constrains any
-  simplifier, and this block has many of them.
-- On the sculpt Polygon Crusher is ahead at both targets, more so at keep 2%.
-- Times are not comparable yet: a different machine from the rest of this
-  page, and meshes this small finish in a few hundredths of a second
-  either way.
+| Case | keep | Polygon Crusher | MeshLab plain | MeshLab UVs | meshoptimizer |
+|---|---|---|---|---|---|
+| CAD block 5.1k | 10% | 0.163 / 0.38 | 0.169 / 0.41 | 0.50 / 4.0 | 0.188 / 0.52 |
+| CAD block 5.1k | 2% | 1.98 / 12.1 | **0.99 / 5.4** | 3.5 / 21.8 | 1.38 / 8.0 |
+| Smooth CAD part 83k | 10% | 0.163 / 0.39 | 0.163 / 0.40 | 0.163 / 0.40 | 0.163 / 0.39 |
+| Smooth CAD part 83k | 2% | 0.163 / 0.40 | 0.163 / 0.39 | 0.187 / 1.69 | 0.164 / 0.39 |
+| Sculpt 5.1k | 10% | **0.114 / 0.23** | 0.119 / 0.27 | 0.129 / 0.27 | 0.209 / 0.47 |
+| Sculpt 5.1k | 2% | **0.364 / 0.86** | 0.436 / 1.87 | 0.59 / 2.3 | 0.92 / 1.9 |
+| Pole 13.4k, 103 parts | 10% | 0.233 / 1.40 | 0.241 / 4.1 | stopped at 14% | **0.170 / 0.85** |
+| Pole 13.4k, 103 parts | 2% | 0.424 / 4.2 | 0.470 / 6.9 | stopped at 14% | 0.393 / 5.7 |
+| Noisy scan 60k | 10% | 0.173 / 0.58 | 0.181 / 0.50 | 0.167 / 0.45 | 0.182 / 0.48 |
+| Noisy scan 60k | 2% | 0.322 / 1.69 | 0.326 / 1.30 | 0.268 / 1.19 | **0.264 / 0.88** |
+| Boulder scan 98k | 10% | 0.123 / 0.28 | 0.129 / 0.30 | 0.124 / 0.29 | 0.127 / 0.28 |
+| Boulder scan 98k | 2% | 0.181 / 0.70 | 0.244 / 0.81 | 0.182 / 0.73 | 0.186 / 0.51 |
+
+What it says:
+
+- **Keep 10%: the three tools are within a few percent of each other on
+  every mesh.** Polygon Crusher is a little ahead on the sculpt and the
+  CAD block; on the noisy scan its worst case is the highest of the three
+  (0.58 against 0.45–0.50); on the pole meshoptimizer's attribute setting
+  is ahead, as the section above says.
+- **Keep 2% is where they differ.** Polygon Crusher is clearly better on
+  the sculpt (worst case 0.86 against 1.9). MeshLab's plain decimation is
+  clearly better on the small CAD block (half the mean, half the worst
+  case). On the noisy scan both others beat Polygon Crusher on worst case
+  (0.88 and 1.19 against 1.69), and on the boulder scan meshoptimizer does
+  (0.51 against 0.70) while the means are equal. Part of the CAD-block gap
+  is the 2.7.1 decision to always reach the count: the 2.7.0 engine stopped
+  at 272 triangles on this block with a lower error than 2.7.1 gets at
+  102. Keep 2% of a 5,000-triangle part is 102 triangles, which is below
+  where any of the three keeps the shape; on a part this small, pick the
+  target by looking at the result, not the percentage.
+- **MeshLab's UV-keeping variant** stops at 1,816 triangles on the pole
+  whatever you ask (14% of the input, at both targets) and is far worse on
+  the CAD block, for the same reason meshoptimizer's defaults stop on the
+  pole: seams and borders it will not cross. On scans it is MeshLab's
+  better setting. Polygon Crusher keeps UVs on the scans too (Scan mode
+  has Keep UVs and Low Distortion on) and still reaches every target.
+- **Speed, same machine:** on the 83k and 98k meshes Polygon Crusher takes
+  about 0.3 s, meshoptimizer about 0.05 s, MeshLab about 1.0–1.4 s. So
+  MeshLab is about three times slower than Polygon Crusher, which is about
+  six times slower than meshoptimizer here. The Polygon Crusher time
+  includes starting the engine process and reading and writing the mesh
+  files, which the two library calls do not pay; on meshes this small that
+  is a real share of its 0.3 s, so its true gap to meshoptimizer is
+  smaller than six times and the 1.26M-scan figure in the section above
+  (three times) is the fairer one.
+
+Limits: one Linux machine, not the Windows one used for the rest of this
+page; the two large meshes were not run; MeshLab and meshoptimizer each
+have settings beyond the two tried; error is a surface-distance measure and
+does not see shading, UV stretch or whether a hole is still round.
