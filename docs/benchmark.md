@@ -8,7 +8,12 @@ Keep Normals correction that only runs on CAD and hard-surface parts. 2.4.2
 added two small engine checks (no stray spike vertices, better detail in
 protected areas) that leave scan, sculpt and CAD results unchanged. 2.5.0
 changed only the bake (base color from image textures, fewer tiny UV islands
-on scans); the crush itself is the same. None of these were re-timed.
+on scans); the crush itself is the same. 2.6.0 added Low Distortion under
+Keep UVs, which costs a few percent of crush time. 2.7.1 changed how kept
+edges and small pieces are handled; scans, sculpts and smooth CAD parts
+measure the same as before, hard-surface models with many parts do not (see
+[Against meshoptimizer](#against-meshoptimizer) below). None of these were
+re-timed against Decimate.
 
 ## Summary
 
@@ -77,3 +82,101 @@ texture.
 - Some add-on steps (scan-noise detection for Sharp Edges, crease normal
   checks, the report) and the UI/undo overhead are not included, for either
   tool.
+
+---
+
+# Against meshoptimizer
+
+Measured on 2026-10-13, engine 2.7.0 and then 2.7.1, against
+[meshoptimizer](https://github.com/zeux/meshoptimizer) v1.3 (the open-source
+simplifier behind Godot and the glTF tools), built from source. One Windows
+machine. This is the test that found the two 2.7.1 fixes, so it is shown
+here with both results.
+
+## Method
+
+- The engine binary alone, not the add-on, on OBJ files: the 1.26M rock scan
+  and the 98k boulder scan from above, a 60k noisy scan, the 1.0M sculpt, a
+  5k sculpt, the 5.1k CAD block, an 83k smooth CAD part, and an electricity
+  pole of 103 parts (13.4k triangles).
+- Targets: keep 10% and keep 2% of the triangles.
+- Polygon Crusher runs with the flags its mode would use (Hard Surface for
+  the CAD parts and the pole, Scan and Sculpt for the rest). meshoptimizer
+  runs with its defaults and, where it does better, with its attribute
+  settings (normals and UVs, permissive).
+- **Error:** distance between the original surface and the result, as % of
+  the bounding-box diagonal, 200,000 sample points each way. "Mean" is the
+  average; "worst" is the 99th percentile, so a few stray points do not set
+  it.
+- **Time:** the engine only. meshoptimizer runs on one core; Polygon Crusher
+  uses all of them.
+
+## Scans, sculpts and smooth CAD: the same error
+
+At keep 10%, mean error of the two tools, Polygon Crusher / meshoptimizer:
+
+| Case | Mean error (PC / mo) | Worst (PC / mo) |
+|---|---|---|
+| Rock scan 1.26M → 126k | 0.069 / 0.069 | 0.16 / 0.16 |
+| Boulder scan 98k → 9.8k | 0.123 / 0.127 | 0.28 / 0.28 |
+| Noisy scan 60k → 6k | 0.173 / 0.182 | 0.58 / 0.48 |
+| Sculpt 1.0M → 101k | 0.101 / 0.101 | 0.24 / 0.24 |
+| Smooth CAD part 83k → 8.3k | 0.163 / 0.163 | 0.40 / 0.39 |
+| CAD block 5.1k → 512 | 0.163 / 0.188 | 0.38 / 0.52 |
+
+Keep 2% looks the same: the two tools are within measurement noise of each
+other on every one of these, before and after 2.7.1. (The 1.26M scan and the
+1.0M sculpt were only run with the 2.7.0 engine; 2.7.1 did not change the
+scan or sculpt path.)
+
+## The multi-part pole: what 2.7.1 fixed
+
+The pole has borders, material edges, seams and sharp edges everywhere, and
+103 separate pieces. It is where the old engine failed.
+
+| Pole 13.4k, keep 2% | Triangles | Mean error | Worst error |
+|---|---|---|---|
+| PC 2.7.0, plain crush | 268 | 2.48 | **20.7** |
+| PC 2.7.0, Hard Surface mode | 7,081 (stalled at 53%) | 0.21 | 3.3 |
+| PC 2.7.1, plain crush | 266 | 0.75 | 5.2 |
+| PC 2.7.1, Hard Surface mode | 266 | 0.42 | 4.2 |
+| meshoptimizer, defaults | 2,788 (stopped at 21%) | 0.27 | 5.9 |
+| meshoptimizer, attributes | 260 | 0.39 | 5.7 |
+
+- At keep 2% the 2.7.0 plain crush disintegrated: whole beams went while
+  small insulators stayed, hence a worst-case error of 20.7% of the model's
+  size. In 2.7.1 every piece keeps a minimum until the budget is spent, and
+  the worst case is 5.2%.
+- Hard Surface mode on 2.7.0 stalled at about half the triangles at both
+  targets (7,091 at keep 10%, 7,081 at keep 2%), because the kept edges
+  were a hard lock. In 2.7.1 it reaches 1,337 and 266.
+- meshoptimizer with its defaults also stops short on this model, at 2,816
+  triangles whatever you ask; with its attribute settings it reaches the
+  count. At keep 10% that setting has the lowest error of all the runs
+  (mean 0.17, worst 0.84, against 0.23 and 1.30 for Hard Surface mode).
+  At keep 2% the two are close: lower mean for meshoptimizer, lower worst
+  case for Polygon Crusher.
+
+On the 5.1k CAD block, Hard Surface mode at keep 10% halved its error
+(mean 0.31 → 0.16, worst 1.23 → 0.38) because the hole rims are no longer
+locked. At keep 2% it now reaches 102 triangles where 2.7.0 stopped at 272,
+and that costs shape: mean error 1.98 against 1.13 at the old, higher count.
+Reaching a very low count on a small part is a trade you choose by picking
+the target.
+
+## Speed
+
+meshoptimizer is about three times faster: 0.8 s against 2.3 s on the 1.26M
+scan at keep 10%, 0.5 s against 1.3 s on the 1.0M sculpt. It gets there on
+one core; Polygon Crusher spreads its work over all of them. Both are well
+under the time Blender needs to build the result mesh.
+
+## Limits of this test
+
+- Engine against library, both run from Python on one Windows machine. The
+  add-on's own read, build and bake steps are not included, and neither is
+  any glTF or game-engine pipeline around meshoptimizer.
+- meshoptimizer has more settings than the two tried here; a tuned run may
+  do better on the pole.
+- Error is a surface-distance measurement. It does not see shading, UV
+  stretch or whether a hole is still round; look at the result.
