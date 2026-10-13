@@ -254,6 +254,11 @@ Polygon Crusher with its mode's flags, MeshLab with the filter's defaults
   kept edges; the plain crush (no edges kept) scores 1.63 / 10.2, also
   behind MeshLab. This is the one case so far where another tool is ahead
   on a plain surface-error measure, and it will be checked on the full set.
+  Part of the gap is the 2.7.1 decision to always reach the count: the
+  2.7.0 engine stopped at 272 triangles on this block with a lower error
+  than 2.7.1 gets at 102. Keep 2% of a 5,000-triangle part is 102
+  triangles, which is below where either tool keeps the shape; on a part
+  this small, pick the target by looking at the result, not the percentage.
 - MeshLab's UV-keeping variant is far worse on the CAD block at both
   targets: the seams constrain it the way Keep UVs constrains any
   simplifier, and this block has many of them.
