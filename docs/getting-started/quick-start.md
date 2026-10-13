@@ -84,8 +84,9 @@ Map** and **Base Color** under **Bake**. See
 ### For Hard-Surface and CAD Parts
 
 **Auto** recognises flat faces and sharp edges and picks **Hard Surface**,
-which keeps borders, material borders, UV seams and sharp edges exactly in
-place; or pick it from the Mode menu. See
+which keeps borders, material borders, UV seams and sharp edges in place
+while still reaching the count you asked for; or pick it from the Mode
+menu. See
 [Hard Surface Preservation](../features/hard-surface.md).
 
 ### Keeping Detail in One Area

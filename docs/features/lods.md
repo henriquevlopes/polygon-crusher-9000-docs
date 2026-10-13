@@ -57,5 +57,5 @@ See [Keep Original and Revert](revert.md).
 
 ## Limits
 
-- Preserve options can stop a level above its triangle count. Check the report,
-  especially for the lowest levels. See [Limits](../limits.md).
+- The lowest levels of a hard-surface chain are where kept edges give way
+  and small pieces go. Check them. See [Limits](../limits.md).

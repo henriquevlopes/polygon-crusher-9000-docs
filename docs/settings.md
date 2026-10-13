@@ -159,33 +159,36 @@ Checkbox under Keep UVs, default **on**, greyed out unless Keep UVs is
 on. A collapse that would fold a face's texture mapping over itself, or
 flatten it to a line, is refused and the crush picks another edge. This
 is what leaves smeared or mirrored texture patches on a heavily crushed
-scan. Costs a few percent of crush time. Turn it off for the plain crush
-(the 2.5.x behaviour), for example if a mesh with already-broken UVs will
-not reach its target.
+scan. Costs a few percent of crush time. Since 2.7.1 the crush still
+reaches the target with it on (it relaxes the rule in stages once it runs
+out of safe collapses). Turn it off for the plain crush (the 2.5.x
+behaviour).
 
 ### Keep in place
 
-The four options below keep edges exactly where they are. **Hard Surface**
-mode turns them all on and sets **Sharp Angle** to **30°**. See
+The four options below keep edges where they are. Since 2.7.1 a kept edge
+is a cost rather than a lock: the crush touches it last and still reaches
+the count you asked for. **Hard Surface** mode turns them all on and sets
+**Sharp Angle** to **30°**. See
 [Hard Surface Preservation](features/hard-surface.md).
 
 ### Borders
 
 **Toggle button** — default **off**
 
-Keeps open borders (holes and cut edges) exactly in place.
+Keeps open borders (holes and cut edges) in place.
 
 ### Materials
 
 **Toggle button** — default **off**
 
-Keeps the borders between materials exactly in place.
+Keeps the borders between materials in place.
 
 ### UV Seams
 
 **Toggle button** — default **off**
 
-Keeps UV seams exactly in place, so textures do not smear across them. Needs
+Keeps UV seams in place, so textures do not smear across them. Needs
 **Keep UVs**. The button is greyed out when Keep UVs is off.
 
 ### Sharp Edges

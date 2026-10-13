@@ -60,9 +60,11 @@ detail are what a sculpt usually needs.
 ## Hard Surface
 
 For CAD and mechanical models. **Borders**, **Materials**, **UV Seams**
-(when there are UVs) and **Sharp Edges** at **30°** stay exactly in place.
-See [Hard Surface Preservation](hard-surface.md). The **Preserve** group
-opens.
+(when there are UVs) and **Sharp Edges** at **30°** are kept in place,
+with Keep Normals and Keep UVs (when there are UVs). Since 2.7.1 the kept
+edges are a cost rather than a lock, so this mode reaches the count you
+asked for. See [Hard Surface Preservation](hard-surface.md). The
+**Preserve** group opens.
 
 ## Custom
 

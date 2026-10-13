@@ -24,7 +24,7 @@ LOD generation.
 - **Exact targets** — ask for 80% and you get 80%. Ask for 5,000 triangles and you get 5,000. The engine removes the least visible detail first. Some options can stop a crush above the target, so check the report. See [Limits](limits.md).
 - **Three target modes** — **Percent**, **Count** (per object), or **Budget** (one total for the whole selection). See [Target Modes](features/target-modes.md).
 - **Normal Preservation** — copies the original's surface normals onto the result, so smooth shading survives heavy crushing.
-- **Hard Surface Preservation** — keep borders, material borders, UV seams and sharp edges exactly in place. See [Hard Surface Preservation](features/hard-surface.md).
+- **Hard Surface Preservation** — keep borders, material borders, UV seams and sharp edges in place, and still reach the count you asked for. See [Hard Surface Preservation](features/hard-surface.md).
 - **Protect Areas** — select faces in Edit Mode (or paint a vertex group) to keep detail in faces, hands or text. See [Protect Areas](features/protect.md).
 - **Clean Mesh** — repair AI-generated and scanned meshes before crushing. See [Clean Mesh](features/clean-mesh.md).
 - **Import and Crush** — crush an OBJ, PLY or STL file straight from disk, for scans too big for Blender's importers. The engine reads the file; only the crushed result, with its UVs, textures, materials and vertex colors, is built in Blender. See [Import and Crush](features/import-crush.md).

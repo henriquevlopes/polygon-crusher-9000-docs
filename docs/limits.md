@@ -12,12 +12,6 @@ after, time taken, and any warnings. **Always check the "after" count.**
 
 The crush aims for your target, but some things stop it early:
 
-- **Preserve options.** Borders, Materials, UV Seams and Sharp Edges lock
-  geometry in place. If they lock a lot, the crush cannot remove enough
-  triangles. The report says the preserve options kept N triangles and shows
-  the target.
-- **Low-poly CAD parts.** Every crease corner stays fixed when Sharp Edges is
-  on. A part with many creases can stop above a very low target.
 - **Protect Area.** Strong protection on large areas can leave the result
   above the target.
 - **Broken geometry.** Duplicate or zero-area faces block collapses. Clean
@@ -28,6 +22,24 @@ The crush aims for your target, but some things stop it early:
 
 The report only raises this warning when the result is clearly above the
 target (more than 20% over), so small differences do not show up as warnings.
+
+Up to 2.7.0 the **Preserve** options (Borders, Materials, UV Seams, Sharp
+Edges) could stop a crush too, because a kept edge was a hard lock. Since
+2.7.1 a kept edge is a cost instead, and the crush reaches the count you
+asked for. What a very low target costs on such a model is shape, not
+triangles: see
+[What a very low target costs](features/hard-surface.md#what-a-very-low-target-costs).
+
+## Small pieces at heavy reductions
+
+A model made of many separate pieces (a pole with its insulators, a set of
+screws) loses whole pieces when the target is a small fraction of its
+triangles. Since 2.7.1 every connected piece keeps a minimum number of
+triangles until the error budget is truly spent, and then pieces go in order
+of how little they matter, smallest first. At an extreme target pieces still
+disappear; raise the target, or put a [Protect Area](features/protect.md) on
+the ones that must stay. **Remove Small Pieces** under Clean Mesh is a
+different thing: it deletes loose bits before the crush, on purpose.
 
 ## Objects can be skipped
 
@@ -88,10 +100,17 @@ over 3 million triangles. See
 
 ## Keep UVs
 
-Keep UVs is off by default. Turn it on only when the crushed mesh must keep
+Keep UVs is off by default (the Scan, Sculpt and Hard Surface modes turn it
+on when the mesh has UVs). Turn it on only when the crushed mesh must keep
 its UV layout. UV transfer quality depends on how much the topology changed. Moderate
 reductions give the cleanest results. Very heavy reductions can stretch UVs
 near seams. Turn on **UV Seams** to hold the seam lines in place.
+
+**Low Distortion** refuses collapses that would fold or flatten a face's
+texture mapping. Up to 2.7.0 that could leave the result about 12% above the
+target on a mesh with many seams. Since 2.7.1 the crush relaxes the UV rules
+in stages once it runs out of safe collapses, so the target is reached; the
+last few percent of a very low target can then show some stretch near seams.
 
 ## Revert
 
