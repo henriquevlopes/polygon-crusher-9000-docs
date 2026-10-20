@@ -26,6 +26,7 @@ LOD generation.
 - **Three target modes** — **Percent**, **Count** (per object), or **Budget** (one total for the whole selection). See [Target Modes](features/target-modes.md).
 - **Normal Preservation** — copies the original's surface normals onto the result, so smooth shading survives heavy crushing.
 - **Hard Surface Preservation** — keep borders, material borders, UV seams and sharp edges in place, and still reach the count you asked for. See [Hard Surface Preservation](features/hard-surface.md).
+- **Symmetry** — a mirrored model stays mirrored after the crush, on X, Y or Z or the axis of its Mirror modifier. See [Settings](settings.md#symmetry).
 - **Protect Areas** — select faces in Edit Mode (or paint a vertex group) to keep detail in faces, hands or text. See [Protect Areas](features/protect.md).
 - **Clean Mesh** — repair AI-generated and scanned meshes before crushing. See [Clean Mesh](features/clean-mesh.md).
 - **Import and Crush** — crush an OBJ, PLY or STL file straight from disk, for scans too big for Blender's importers. The engine reads the file; only the crushed result, with its UVs, textures, materials and vertex colors, is built in Blender. See [Import and Crush](features/import-crush.md).

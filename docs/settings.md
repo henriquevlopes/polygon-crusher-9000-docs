@@ -210,6 +210,18 @@ edges marked Sharp too.
 Edges where two faces meet at more than this angle count as sharp. Greyed out
 unless **Sharp Edges** is on.
 
+### Symmetry
+
+**Toggle button + X / Y / Z** — default **off**, axis **X**
+
+Keeps a mirrored model mirrored: both halves are crushed the same way and the
+center line stays straight and closed. The axis is the object's own X, Y or Z
+through its origin, the same as Blender's Mirror modifier and Decimate's
+Symmetry. If the object has an active **Mirror** modifier, its axis is used
+instead (also when it mirrors across another object) and the axis buttons are
+greyed out. If little of the model is actually mirrored on that axis, the
+report says so. Not used by **Budget** or **Import and Crush**.
+
 ---
 
 ## Protect Area
