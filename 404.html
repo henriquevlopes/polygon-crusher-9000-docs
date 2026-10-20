@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Henri Lopes" />
+      <link rel="shortcut icon" href="/polygon-crusher-9000-docs/img/favicon.ico" />
+    <title>Polygon Crusher 9000</title>
+    <link rel="stylesheet" href="/polygon-crusher-9000-docs/css/theme.css" />
+    <link rel="stylesheet" href="/polygon-crusher-9000-docs/css/theme_extra.css" />
+        <link href="/polygon-crusher-9000-docs/stylesheets/extra.css" rel="stylesheet" />
+    
+    <!--[if lt IE 9]>
+      <script src="/polygon-crusher-9000-docs/js/html5shiv.min.js"></script>
+    <![endif]--> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="/polygon-crusher-9000-docs/.">
+          <img src="/polygon-crusher-9000-docs/assets/logo.svg" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="/polygon-crusher-9000-docs//search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/.">Home</a>
+    <ul>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/installation/">Installation</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/installation/#download">Download</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/installation/#install-in-blender">Install in Blender</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/installation/#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/installation/#open-the-panel">Open the Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/installation/#updating">Updating</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/">Quick Start</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#the-polygon-crusher-panel">The Polygon Crusher Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#basic-workflow">Basic Workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#choosing-a-target">Choosing a Target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#tips">Tips</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#for-3d-scans-and-photogrammetry">For 3D Scans and Photogrammetry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#for-hard-surface-and-cad-parts">For Hard-Surface and CAD Parts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#keeping-detail-in-one-area">Keeping Detail in One Area</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#making-lods">Making LODs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#working-with-modifiers">Working with Modifiers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#processing-multiple-objects">Processing Multiple Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#going-back">Going Back</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/getting-started/quick-start/#after-crushing">After Crushing</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/examples/">Examples</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/examples/#high-poly-sculpt-8m-450k-triangles">High-poly sculpt — 8M → 450K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/examples/#hard-surface-mesh-70k-2k-triangles">Hard-surface mesh — 70K → 2K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/examples/#textured-photogrammetry-scan-764k-118k-triangles-uvs-preserved">Textured photogrammetry scan — 764K → 118K triangles, UVs preserved</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/">Settings Reference</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#status-line">Status line</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#mode">Mode</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#whats-on">What's on</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#target">Target</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#target-mode">Target Mode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#preset-percent-mode-only">Preset (Percent mode only)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#reduction-percent-mode">Reduction (Percent mode)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#target-triangles-count-mode">Target Triangles (Count mode)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#total-triangles-budget-mode">Total Triangles (Budget mode)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#triangle-readout">Triangle readout</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#import-and-crush">Import and Crush...</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#advanced">Advanced</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#preserve">Preserve</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#keep-normals">Keep Normals</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#keep-uvs">Keep UVs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#low-distortion">Low Distortion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#keep-in-place">Keep in place</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#borders">Borders</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#materials">Materials</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#uv-seams">UV Seams</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#sharp-edges">Sharp Edges</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#sharp-angle">Sharp Angle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#symmetry">Symmetry</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#protect-area">Protect Area</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#strength">Strength</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#blur">Blur</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#show-heatmap">Show Heatmap</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#bake">Bake</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#normal-map">Normal Map</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#base-color">Base Color</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#size">Size</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#normal-y">Normal Y</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#save-to">Save To</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#clean-mesh">Clean Mesh</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#clean-mesh_1">Clean Mesh</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#remove-small-pieces">Remove Small Pieces</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#scan-repair">Scan Repair</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#lods">LODs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#make-lods">Make LODs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#levels">Levels</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#ratio">Ratio</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#output">Output</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#keep-original">Keep Original</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#crush-and-revert">Crush and Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#presets">Presets</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/settings/#last-crush">Last Crush</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/features/modes/">Modes (Auto, Scan, Sculpt, Hard Surface)</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/modes/#auto">Auto</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/modes/#scan">Scan</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/modes/#sculpt">Sculpt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/modes/#hard-surface">Hard Surface</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/modes/#custom">Custom</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/modes/#import-and-crush">Import and Crush</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/features/target-modes/">Target Modes</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/target-modes/#percent">Percent</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/target-modes/#count">Count</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/target-modes/#budget">Budget</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/target-modes/#what-happens-to-the-result">What happens to the result</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/features/hard-surface/">Hard Surface Preservation</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/hard-surface/#the-options">The options</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/hard-surface/#one-click-setup">One-click setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/hard-surface/#how-kept-edges-behave-271">How kept edges behave (2.7.1)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/hard-surface/#sharp-edges-and-sharp-angle">Sharp Edges and Sharp Angle</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/hard-surface/#uv-seams">UV Seams</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/hard-surface/#what-a-very-low-target-costs">What a very low target costs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/hard-surface/#presets">Presets</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/features/protect/">Protect Areas</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/protect/#how-to-use-it">How to use it</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/features/protect/#using-your-own-vertex-group">Using your own vertex group</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/protect/#strength">Strength</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/protect/#blur">Blur</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/protect/#show-heatmap">Show Heatmap</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/protect/#good-to-know">Good to know</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/">Clean Mesh</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/#what-it-does">What it does</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/#remove-small-pieces">Remove Small Pieces</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/#runs-on-its-own-when-a-mesh-needs-it">Runs on its own when a mesh needs it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/#scan-repair">Scan Repair</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/#cut-floor">Cut Floor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/#remove-spikes">Remove Spikes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/#fill-holes">Fill Holes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/#order">Order</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/#only-the-copy-changes">Only the copy changes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/clean-mesh/#when-to-use-it">When to use it</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/features/import-crush/">Import and Crush</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/import-crush/#how-to-use-it">How to use it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/import-crush/#what-comes-along">What comes along</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/import-crush/#settings-that-apply">Settings that apply</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/import-crush/#clean-mesh-runs-by-itself-when-needed">Clean Mesh runs by itself when needed</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/import-crush/#textures">Textures</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/features/bake-maps/">Bake Maps and Auto UVs</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/bake-maps/#normal-map">Normal Map</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/bake-maps/#base-color">Base Color</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/bake-maps/#auto-uvs">Auto UVs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/features/bake-maps/#overlapping-uvs">Overlapping UVs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/bake-maps/#where-the-maps-go">Where the maps go</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/bake-maps/#how-the-maps-are-connected">How the maps are connected</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/bake-maps/#viewport">Viewport</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/features/lods/">LODs</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/lods/#how-to-use-it">How to use it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/lods/#what-you-get">What you get</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/lods/#what-changes-while-make-lods-is-on">What changes while Make LODs is on</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/lods/#revert">Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/lods/#limits">Limits</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/features/revert/">Keep Original and Revert</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/revert/#keep-original">Keep Original</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/revert/#revert">Revert</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/features/revert/#where-the-link-is-kept">Where the link is kept</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/features/carry-over/">Rigs, Shape Keys and Vertex Colors</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/carry-over/#what-carries-over">What carries over</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/carry-over/#crushing-a-posed-character">Crushing a posed character</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/features/carry-over/#limits">Limits</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/">Limits</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#the-result-can-stop-above-the-target">The result can stop above the target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#small-pieces-at-heavy-reductions">Small pieces at heavy reductions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#objects-can-be-skipped">Objects can be skipped</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#scans-and-noisy-meshes-sharp-edges">Scans and noisy meshes: Sharp Edges</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#very-low-targets-on-dense-cad">Very low targets on dense CAD</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#baking">Baking</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#rigs-shape-keys-and-vertex-colors">Rigs, shape keys and vertex colors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#keep-uvs">Keep UVs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#revert">Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#import-and-crush">Import and Crush</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/limits/#platform">Platform</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/">Benchmark</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#where-it-stands">Where it stands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#against-blender-decimate">Against Blender Decimate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#summary">Summary</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#method">Method</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#speed-and-exact-counts">Speed and exact counts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#shape-at-the-same-triangle-count">Shape at the same triangle count</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#limits-of-this-test">Limits of this test</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#against-meshoptimizer">Against meshoptimizer</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#method_1">Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#scans-sculpts-and-smooth-cad-the-same-error">Scans, sculpts and smooth CAD: the same error</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#the-multi-part-pole-what-271-fixed">The multi-part pole: what 2.7.1 fixed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#speed">Speed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#limits-of-this-test_1">Limits of this test</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/benchmark/#against-meshlab-early-readings">Against MeshLab: early readings</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/">Troubleshooting</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#native-binary-not-found">"Native binary not found"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#the-result-has-more-triangles-than-my-target">The result has more triangles than my target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#a-hole-came-out-as-a-pentagon-or-a-crease-flattened">A hole came out as a pentagon, or a crease flattened</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#small-parts-disappeared">Small parts disappeared</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#sharp-edges-kept-almost-nothing-on-my-scan">Sharp Edges kept almost nothing on my scan</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#the-report-warns-about-non-manifold-edges">The report warns about non-manifold edges</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#crushed-mesh-looks-faceted">Crushed mesh looks faceted</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#my-baked-maps-do-not-show">My baked maps do not show</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#crusher-ignored-my-modifiers">Crusher ignored my modifiers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#blender-freezes-during-crush">Blender freezes during crush</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#where-did-my-crushed-object-go">Where did my crushed object go?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#the-revert-button-is-greyed-out">The Revert button is greyed out</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#last-crush-says-no-run-yet">Last Crush says "(No run yet)"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/polygon-crusher-9000-docs/troubleshooting/#contact-support">Contact Support</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="/polygon-crusher-9000-docs/.">Polygon Crusher 9000</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="/polygon-crusher-9000-docs/." class="icon icon-home" aria-label="Docs"></a></li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+
+  <h1 id="404-page-not-found">404</h1>
+
+  <p><strong>Page not found</strong></p>
+
+
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="/polygon-crusher-9000-docs/js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "/polygon-crusher-9000-docs/";</script>
+    <script src="/polygon-crusher-9000-docs/js/theme_extra.js"></script>
+    <script src="/polygon-crusher-9000-docs/js/theme.js"></script>
+      <script src="/polygon-crusher-9000-docs/search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

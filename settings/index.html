@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Henri Lopes" /><link rel="canonical" href="https://henriquevlopes.github.io/polygon-crusher-9000-docs/settings/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Settings Reference - Polygon Crusher 9000</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link href="../stylesheets/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Settings Reference";
+        var mkdocs_page_input_path = "settings.md";
+        var mkdocs_page_url = "/polygon-crusher-9000-docs/settings/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]--> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../assets/logo.svg" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+    <ul>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../getting-started/installation/">Installation</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/installation/#download">Download</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/installation/#install-in-blender">Install in Blender</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/installation/#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/installation/#open-the-panel">Open the Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/installation/#updating">Updating</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../getting-started/quick-start/">Quick Start</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/quick-start/#the-polygon-crusher-panel">The Polygon Crusher Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/quick-start/#basic-workflow">Basic Workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/quick-start/#choosing-a-target">Choosing a Target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/quick-start/#tips">Tips</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#for-3d-scans-and-photogrammetry">For 3D Scans and Photogrammetry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#for-hard-surface-and-cad-parts">For Hard-Surface and CAD Parts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#keeping-detail-in-one-area">Keeping Detail in One Area</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#making-lods">Making LODs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#working-with-modifiers">Working with Modifiers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#processing-multiple-objects">Processing Multiple Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../getting-started/quick-start/#going-back">Going Back</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../getting-started/quick-start/#after-crushing">After Crushing</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../examples/">Examples</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../examples/#high-poly-sculpt-8m-450k-triangles">High-poly sculpt — 8M → 450K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../examples/#hard-surface-mesh-70k-2k-triangles">Hard-surface mesh — 70K → 2K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../examples/#textured-photogrammetry-scan-764k-118k-triangles-uvs-preserved">Textured photogrammetry scan — 764K → 118K triangles, UVs preserved</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Settings Reference</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#status-line">Status line</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mode">Mode</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#whats-on">What's on</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#target">Target</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#target-mode">Target Mode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#preset-percent-mode-only">Preset (Percent mode only)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reduction-percent-mode">Reduction (Percent mode)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#target-triangles-count-mode">Target Triangles (Count mode)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#total-triangles-budget-mode">Total Triangles (Budget mode)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#triangle-readout">Triangle readout</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#import-and-crush">Import and Crush...</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#advanced">Advanced</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preserve">Preserve</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#keep-normals">Keep Normals</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#keep-uvs">Keep UVs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#low-distortion">Low Distortion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#keep-in-place">Keep in place</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#borders">Borders</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#materials">Materials</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-seams">UV Seams</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sharp-edges">Sharp Edges</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sharp-angle">Sharp Angle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#symmetry">Symmetry</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#protect-area">Protect Area</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#strength">Strength</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#blur">Blur</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#show-heatmap">Show Heatmap</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bake">Bake</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#normal-map">Normal Map</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#base-color">Base Color</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#size">Size</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#normal-y">Normal Y</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#save-to">Save To</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#clean-mesh">Clean Mesh</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#clean-mesh_1">Clean Mesh</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#remove-small-pieces">Remove Small Pieces</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scan-repair">Scan Repair</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lods">LODs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#make-lods">Make LODs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#levels">Levels</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ratio">Ratio</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#output">Output</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#keep-original">Keep Original</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#crush-and-revert">Crush and Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#presets">Presets</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#last-crush">Last Crush</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Features</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/modes/">Modes (Auto, Scan, Sculpt, Hard Surface)</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#auto">Auto</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#scan">Scan</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#sculpt">Sculpt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#hard-surface">Hard Surface</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#custom">Custom</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/modes/#import-and-crush">Import and Crush</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/target-modes/">Target Modes</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/target-modes/#percent">Percent</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/target-modes/#count">Count</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/target-modes/#budget">Budget</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/target-modes/#what-happens-to-the-result">What happens to the result</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/hard-surface/">Hard Surface Preservation</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#the-options">The options</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#one-click-setup">One-click setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#how-kept-edges-behave-271">How kept edges behave (2.7.1)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#sharp-edges-and-sharp-angle">Sharp Edges and Sharp Angle</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#uv-seams">UV Seams</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#what-a-very-low-target-costs">What a very low target costs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/hard-surface/#presets">Presets</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/protect/">Protect Areas</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/protect/#how-to-use-it">How to use it</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../features/protect/#using-your-own-vertex-group">Using your own vertex group</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/protect/#strength">Strength</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/protect/#blur">Blur</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/protect/#show-heatmap">Show Heatmap</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/protect/#good-to-know">Good to know</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/clean-mesh/">Clean Mesh</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#what-it-does">What it does</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#remove-small-pieces">Remove Small Pieces</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#runs-on-its-own-when-a-mesh-needs-it">Runs on its own when a mesh needs it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#scan-repair">Scan Repair</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../features/clean-mesh/#cut-floor">Cut Floor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../features/clean-mesh/#remove-spikes">Remove Spikes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../features/clean-mesh/#fill-holes">Fill Holes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../features/clean-mesh/#order">Order</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#only-the-copy-changes">Only the copy changes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/clean-mesh/#when-to-use-it">When to use it</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/import-crush/">Import and Crush</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/import-crush/#how-to-use-it">How to use it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/import-crush/#what-comes-along">What comes along</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/import-crush/#settings-that-apply">Settings that apply</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/import-crush/#clean-mesh-runs-by-itself-when-needed">Clean Mesh runs by itself when needed</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/import-crush/#textures">Textures</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/bake-maps/">Bake Maps and Auto UVs</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#normal-map">Normal Map</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#base-color">Base Color</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#auto-uvs">Auto UVs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../features/bake-maps/#overlapping-uvs">Overlapping UVs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#where-the-maps-go">Where the maps go</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#how-the-maps-are-connected">How the maps are connected</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/bake-maps/#viewport">Viewport</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/lods/">LODs</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/lods/#how-to-use-it">How to use it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/lods/#what-you-get">What you get</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/lods/#what-changes-while-make-lods-is-on">What changes while Make LODs is on</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/lods/#revert">Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/lods/#limits">Limits</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/revert/">Keep Original and Revert</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/revert/#keep-original">Keep Original</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/revert/#revert">Revert</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../features/revert/#where-the-link-is-kept">Where the link is kept</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../features/carry-over/">Rigs, Shape Keys and Vertex Colors</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../features/carry-over/#what-carries-over">What carries over</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/carry-over/#crushing-a-posed-character">Crushing a posed character</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../features/carry-over/#limits">Limits</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../limits/">Limits</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#the-result-can-stop-above-the-target">The result can stop above the target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#small-pieces-at-heavy-reductions">Small pieces at heavy reductions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#objects-can-be-skipped">Objects can be skipped</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#scans-and-noisy-meshes-sharp-edges">Scans and noisy meshes: Sharp Edges</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#very-low-targets-on-dense-cad">Very low targets on dense CAD</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#baking">Baking</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#rigs-shape-keys-and-vertex-colors">Rigs, shape keys and vertex colors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#keep-uvs">Keep UVs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#revert">Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#import-and-crush">Import and Crush</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../limits/#platform">Platform</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../benchmark/#where-it-stands">Where it stands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../benchmark/#against-blender-decimate">Against Blender Decimate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../benchmark/#summary">Summary</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../benchmark/#method">Method</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../benchmark/#speed-and-exact-counts">Speed and exact counts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../benchmark/#shape-at-the-same-triangle-count">Shape at the same triangle count</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../benchmark/#limits-of-this-test">Limits of this test</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../benchmark/#against-meshoptimizer">Against meshoptimizer</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../benchmark/#method_1">Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../benchmark/#scans-sculpts-and-smooth-cad-the-same-error">Scans, sculpts and smooth CAD: the same error</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../benchmark/#the-multi-part-pole-what-271-fixed">The multi-part pole: what 2.7.1 fixed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../benchmark/#speed">Speed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../benchmark/#limits-of-this-test_1">Limits of this test</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../benchmark/#against-meshlab-early-readings">Against MeshLab: early readings</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#native-binary-not-found">"Native binary not found"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#the-result-has-more-triangles-than-my-target">The result has more triangles than my target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#a-hole-came-out-as-a-pentagon-or-a-crease-flattened">A hole came out as a pentagon, or a crease flattened</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#small-parts-disappeared">Small parts disappeared</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#sharp-edges-kept-almost-nothing-on-my-scan">Sharp Edges kept almost nothing on my scan</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#the-report-warns-about-non-manifold-edges">The report warns about non-manifold edges</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#crushed-mesh-looks-faceted">Crushed mesh looks faceted</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#my-baked-maps-do-not-show">My baked maps do not show</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#crusher-ignored-my-modifiers">Crusher ignored my modifiers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#blender-freezes-during-crush">Blender freezes during crush</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#where-did-my-crushed-object-go">Where did my crushed object go?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#the-revert-button-is-greyed-out">The Revert button is greyed out</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#last-crush-says-no-run-yet">Last Crush says "(No run yet)"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/#contact-support">Contact Support</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Polygon Crusher 9000</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Settings Reference</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="settings-reference">Settings Reference</h1>
+<p>All settings are in the <strong>Polygon Crusher 9000</strong> panel. Open the 3D Viewport
+sidebar (press <strong>N</strong>) and click the <strong>9000 Toolkit</strong> tab. The panel starts
+collapsed every time you open Blender or load a file.</p>
+<p>The panel has two levels:</p>
+<ul>
+<li><strong>The main panel</strong> shows a status line, the <strong>Mode</strong> menu, the
+  <strong>Target</strong> box, and the <strong>Crush</strong> and <strong>Revert</strong> buttons. For most
+  models this is all you need.</li>
+<li><strong>Advanced</strong> is a collapsed section under it. It holds <strong>Preserve</strong>,
+  <strong>Protect Area</strong>, <strong>Bake</strong>, <strong>Clean Mesh</strong>, <strong>LODs</strong> and <strong>Output</strong>
+  (Keep Original and the Last Crush results) as groups that fold on their
+  own, each with a line saying what it is for. A mode opens the groups it
+  uses and folds the rest; nothing is hidden.</li>
+</ul>
+<p>Options that do not apply right now are greyed out instead of hidden. For
+example, <strong>Strength</strong> is grey until a Protect Area is set.</p>
+<p><img alt="The Polygon Crusher 9000 panel in Blender" class="ui-panel" src="../assets/PolygonCrusher9000_UI_2.4.png" /></p>
+<!-- TODO screenshot: replace PolygonCrusher9000_UI_2.4.png with the 2.7 panel, Advanced open, showing the Mode menu with Auto's finding lines and the six folding groups (Preserve, Protect Area, Bake, Clean Mesh, LODs, Output) -->
+
+<hr />
+<h2 id="status-line">Status line</h2>
+<p>The first line of the panel says what it is looking at: the number of
+selected meshes and their triangle total. With nothing selected it says
+"Select a mesh object to start".</p>
+<h2 id="mode">Mode</h2>
+<p><strong>Dropdown</strong> — default <strong>Auto</strong></p>
+<p>What kind of model this is. A mode sets the Preserve and Clean Mesh values
+for you; see <a href="../features/modes/">Modes</a>.</p>
+<ul>
+<li><strong>Auto</strong> looks at the selected mesh and shows what it found under the
+  menu ("Looks like a scan: rough surface all over. Found: 120 spikes, 11
+  small holes"), then applies Scan, Sculpt or Hard Surface. Meshes over
+  600,000 triangles show a <strong>Detect</strong> button instead of looking by
+  themselves.</li>
+<li><strong>Scan</strong>, <strong>Sculpt</strong>, <strong>Hard Surface</strong> apply that mode's values.</li>
+<li><strong>Custom</strong> is your own settings. Changing a mode-controlled value by
+  hand shows <strong>Custom (from Scan)</strong> and a <strong>Reset to Scan defaults</strong>
+  button.</li>
+</ul>
+<h2 id="whats-on">What's on</h2>
+<p>When anything inside <strong>Advanced</strong> is switched on, a line under <strong>Crush</strong>
+lists it, for example "On: Keep UVs · Clean mesh · Spikes · Holes". So a
+folded group never hides what the next crush will do. When <strong>Keep
+Original</strong> is off, a warning under Crush says the original will be
+deleted.</p>
+<hr />
+<h2 id="target">Target</h2>
+<p>The Target section decides how many triangles you end up with. See
+<a href="../features/target-modes/">Target Modes</a> for how to choose between the three
+modes.</p>
+<h3 id="target-mode">Target Mode</h3>
+<p><strong>Three buttons:</strong> <strong>Percent</strong>, <strong>Count</strong>, <strong>Budget</strong> — default <strong>Percent</strong></p>
+<ul>
+<li><strong>Percent</strong> — remove a share of the triangles.</li>
+<li><strong>Count</strong> — crush each selected object to a triangle count.</li>
+<li><strong>Budget</strong> — one triangle total for the whole selection.</li>
+</ul>
+<p>The control below the buttons changes with the mode.</p>
+<h3 id="preset-percent-mode-only">Preset (Percent mode only)</h3>
+<p><strong>Dropdown</strong> with <strong>+</strong> and <strong>−</strong> buttons — default <strong>Custom</strong></p>
+<p>Presets save and recall a set of settings. See <a href="#presets">Presets</a> below.</p>
+<h3 id="reduction-percent-mode">Reduction (Percent mode)</h3>
+<p><strong>Slider</strong> — 1% to 99% — default <strong>50%</strong></p>
+<p>Percentage of triangles to remove. <strong>50%</strong> removes half of them. Dragging the
+slider covers 5% to 95%. You can type a value from 1% to 99%.</p>
+<p>The result never has fewer than 4 triangles.</p>
+<h3 id="target-triangles-count-mode">Target Triangles (Count mode)</h3>
+<p><strong>Number</strong> — minimum 4 — default <strong>5000</strong></p>
+<p>The triangle count each selected object is crushed to. If an object already has
+fewer triangles than this, it is not made bigger: the target is clamped to the
+object's own triangle count.</p>
+<h3 id="total-triangles-budget-mode">Total Triangles (Budget mode)</h3>
+<p><strong>Number</strong> — minimum 4 — default <strong>100,000</strong></p>
+<p>The triangle total for all selected objects together.</p>
+<h3 id="triangle-readout">Triangle readout</h3>
+<p>Under the target control, the panel shows <code>before → after triangles</code>, added
+up over the selected meshes. It uses the same rounding as the crush. The
+readout is hidden while <strong>Make LODs</strong> is on.</p>
+<p>The "after" number is the target, not a promise. See <a href="../limits/">Limits</a>.</p>
+<hr />
+<h2 id="import-and-crush">Import and Crush...</h2>
+<p><strong>Button</strong> under Crush</p>
+<p>Opens a file browser for an <strong>.obj</strong>, <strong>.ply</strong> or <strong>.stl</strong> file. The engine reads
+the file and crushes it; only the result is built in Blender. The file
+browser's side panel shows the Target, the <strong>Mode</strong> menu, <strong>Keep UVs (and
+textures)</strong> with <strong>Low Distortion</strong>, <strong>Clean Mesh</strong> with the three Scan
+Repair switches, and an <strong>OBJ is Y up</strong> switch. See
+<a href="../features/import-crush/">Import and Crush</a>.</p>
+<hr />
+<h2 id="advanced">Advanced</h2>
+<p>Everything below lives in the <strong>Advanced</strong> section. It starts collapsed;
+click its header to open it. Inside, each group (<strong>Preserve</strong>, <strong>Protect
+Area</strong>, <strong>Bake</strong>, <strong>Clean Mesh</strong>, <strong>LODs</strong>, <strong>Output</strong>) has its own fold
+arrow and a line under its title saying what it is for.</p>
+<h2 id="preserve">Preserve</h2>
+<h3 id="keep-normals">Keep Normals</h3>
+<p><strong>Toggle button</strong> — default <strong>on</strong></p>
+<p>Copies the original's surface normals onto the crushed mesh, so smooth
+shading survives even when the topology changes a lot. Crease corners keep
+their own normals.</p>
+<p>Leave this on in almost all cases. Turning it off gives flat, faceted shading
+on smooth surfaces.</p>
+<p>Greyed out while <strong>Normal Map</strong> baking is on. The bake uses the crushed mesh's
+own smooth shading instead. See <a href="../features/bake-maps/">Bake Maps and Auto UVs</a>.</p>
+<h3 id="keep-uvs">Keep UVs</h3>
+<p><strong>Toggle button</strong> — default <strong>off</strong></p>
+<p>Carries the active UV map through the crush, so textures still line up. If the
+mesh has no UVs, this does nothing. Turn it on when the crushed mesh must keep
+its UV layout. With it off, baking makes new UVs for the crushed copy. See
+<a href="../features/bake-maps/">Bake Maps and Auto UVs</a>.</p>
+<h3 id="low-distortion">Low Distortion</h3>
+<p>Checkbox under Keep UVs, default <strong>on</strong>, greyed out unless Keep UVs is
+on. A collapse that would fold a face's texture mapping over itself, or
+flatten it to a line, is refused and the crush picks another edge. This
+is what leaves smeared or mirrored texture patches on a heavily crushed
+scan. Costs a few percent of crush time. Since 2.7.1 the crush still
+reaches the target with it on (it relaxes the rule in stages once it runs
+out of safe collapses). Turn it off for the plain crush (the 2.5.x
+behaviour).</p>
+<h3 id="keep-in-place">Keep in place</h3>
+<p>The four options below keep edges where they are. Since 2.7.1 a kept edge
+is a cost rather than a lock: the crush touches it last and still reaches
+the count you asked for. <strong>Hard Surface</strong> mode turns them all on and sets
+<strong>Sharp Angle</strong> to <strong>30°</strong>. See
+<a href="../features/hard-surface/">Hard Surface Preservation</a>.</p>
+<h3 id="borders">Borders</h3>
+<p><strong>Toggle button</strong> — default <strong>off</strong></p>
+<p>Keeps open borders (holes and cut edges) in place.</p>
+<h3 id="materials">Materials</h3>
+<p><strong>Toggle button</strong> — default <strong>off</strong></p>
+<p>Keeps the borders between materials in place.</p>
+<h3 id="uv-seams">UV Seams</h3>
+<p><strong>Toggle button</strong> — default <strong>off</strong></p>
+<p>Keeps UV seams in place, so textures do not smear across them. Needs
+<strong>Keep UVs</strong>. The button is greyed out when Keep UVs is off.</p>
+<h3 id="sharp-edges">Sharp Edges</h3>
+<p><strong>Toggle button</strong> — default <strong>off</strong></p>
+<p>Keeps hard edges crisp: edges you marked Sharp, plus edges sharper than
+<strong>Sharp Angle</strong>. Bumps from scan noise are ignored. On a mesh that looks like
+a scan, only the edges you marked Sharp are kept. The crushed mesh gets these
+edges marked Sharp too.</p>
+<h3 id="sharp-angle">Sharp Angle</h3>
+<p><strong>Angle</strong> — 1° to 180° — default <strong>30°</strong></p>
+<p>Edges where two faces meet at more than this angle count as sharp. Greyed out
+unless <strong>Sharp Edges</strong> is on.</p>
+<h3 id="symmetry">Symmetry</h3>
+<p><strong>Toggle button + X / Y / Z</strong> — default <strong>off</strong>, axis <strong>X</strong></p>
+<p>Keeps a mirrored model mirrored: both halves are crushed the same way and the
+center line stays straight and closed. The axis is the object's own X, Y or Z
+through its origin, the same as Blender's Mirror modifier and Decimate's
+Symmetry. If the object has an active <strong>Mirror</strong> modifier, its axis is used
+instead (also when it mirrors across another object) and the axis buttons are
+greyed out. If little of the model is actually mirrored on that axis, the
+report says so. Not used by <strong>Budget</strong> or <strong>Import and Crush</strong>.</p>
+<hr />
+<h2 id="protect-area">Protect Area</h2>
+<p>Its own group in Advanced. <strong>Add</strong> and <strong>Remove</strong> buttons, and a vertex
+group field — default empty</p>
+<p>Marks areas that keep more detail. In Edit Mode, select faces, edges or
+vertices and click <strong>Add</strong>. They go into a vertex group named <strong>Protected</strong>
+(or the group already in the field), and the field fills in. <strong>Remove</strong>
+takes the selected parts back out. Both buttons only work in Edit Mode.</p>
+<p>You can also pick a vertex group you painted yourself in the field. When the
+active object is a mesh, the field lists that object's vertex groups. See
+<a href="../features/protect/">Protect Areas</a>.</p>
+<h3 id="strength">Strength</h3>
+<p><strong>Slider</strong> — 0% to 100% — default <strong>50%</strong></p>
+<p>How strongly the Protect Area resists crushing. Greyed out until a Protect
+Area is set.</p>
+<h3 id="blur">Blur</h3>
+<p><strong>Slider</strong> — 0% to 100% — default <strong>5%</strong></p>
+<p>How far the protection fades out from the marked area, as a share of the
+object's size. <strong>0%</strong> makes a hard edge. Dragging covers 0% to 25%; you can
+type up to 100%. Greyed out until a Protect Area is set.</p>
+<h3 id="show-heatmap">Show Heatmap</h3>
+<p><strong>Toggle button</strong> — default <strong>off</strong></p>
+<p>Colors the selected objects in the viewport by how strongly each part is
+protected, with the Blur fade included: blue is free to crush, red is fully
+protected. It is only a viewport overlay; nothing is added to the scene.</p>
+<hr />
+<h2 id="bake">Bake</h2>
+<p>Bakes the original's detail onto the crushed mesh as texture maps. See
+<a href="../features/bake-maps/">Bake Maps and Auto UVs</a>.</p>
+<h3 id="normal-map">Normal Map</h3>
+<p><strong>Toggle button</strong> — default <strong>off</strong></p>
+<p>Bakes the original's surface detail into a normal map and connects it in copies
+of the crushed mesh's materials.</p>
+<h3 id="base-color">Base Color</h3>
+<p><strong>Toggle button</strong> — default <strong>off</strong></p>
+<p>Bakes the original's color into a base color map and connects it in copies
+of the crushed mesh's materials: the image textures feeding Base Color in its
+materials, or its vertex colors (active color attribute) where a material has
+no image. Objects with neither are skipped.</p>
+<h3 id="size">Size</h3>
+<p><strong>Dropdown</strong> — <strong>512</strong>, <strong>1K</strong>, <strong>2K</strong>, <strong>4K</strong> — default <strong>2K</strong></p>
+<p>Resolution of the baked maps. Greyed out until Normal Map or Base Color is on.</p>
+<h3 id="normal-y">Normal Y</h3>
+<p><strong>Dropdown</strong> — <strong>OpenGL</strong> or <strong>DirectX</strong> — default <strong>OpenGL</strong></p>
+<p>Green channel convention of the saved normal map.</p>
+<ul>
+<li><strong>OpenGL</strong> (green up): Blender, Unity, Godot.</li>
+<li><strong>DirectX</strong> (green down): Unreal. It still looks correct in Blender.</li>
+</ul>
+<p>Greyed out unless <strong>Normal Map</strong> is on.</p>
+<h3 id="save-to">Save To</h3>
+<p><strong>Dropdown</strong> — <strong>Blend File Folder</strong> or <strong>Custom Folder</strong> — default <strong>Blend File Folder</strong></p>
+<p>Where the baked maps are saved.</p>
+<ul>
+<li><strong>Blend File Folder</strong> — the same folder as the .blend file. If the file has
+  never been saved, the maps are packed into the .blend instead. The panel
+  shows "Unsaved: maps get packed".</li>
+<li><strong>Custom Folder</strong> — a folder you pick in the <strong>Folder</strong> field. Paths that
+  start with <code>//</code> are relative to the .blend file. If the field is empty,
+  Crush stops and asks you to pick a folder.</li>
+</ul>
+<hr />
+<h2 id="clean-mesh">Clean Mesh</h2>
+<h3 id="clean-mesh_1">Clean Mesh</h3>
+<p><strong>Checkbox</strong> — default <strong>off</strong></p>
+<p>Repairs the mesh before crushing. See <a href="../features/clean-mesh/">Clean Mesh</a>.</p>
+<h3 id="remove-small-pieces">Remove Small Pieces</h3>
+<p><strong>Slider</strong> (labelled <strong>Small Pieces</strong> in the panel) — 0% to 5% — default <strong>0.1%</strong></p>
+<p>Deletes loose pieces that are smaller than this share of the mesh's
+triangles. <strong>0%</strong> keeps every piece. Greyed out unless <strong>Clean Mesh</strong> is on.</p>
+<h3 id="scan-repair">Scan Repair</h3>
+<p>Three switches under Clean Mesh, greyed out unless it is on. <strong>Scan</strong> mode
+and <strong>Auto</strong> tick them from what the engine finds. See
+<a href="../features/clean-mesh/#scan-repair">Scan Repair</a>.</p>
+<ul>
+<li><strong>Cut Floor</strong> (checkbox, default off) with <strong>Height</strong> (0% to 50%,
+  default <strong>0%</strong> = find the floor by itself): removes the table or ground
+  captured under the model.</li>
+<li><strong>Remove Spikes</strong> (checkbox, default off): pulls points shot out of the
+  surface back in and drops long stretched faces.</li>
+<li><strong>Fill Holes</strong> (checkbox, default off) with <strong>Size</strong> (0.1% to 50%,
+  default <strong>5%</strong>): closes holes whose outline is up to this share of the
+  model's size.</li>
+</ul>
+<hr />
+<h2 id="lods">LODs</h2>
+<h3 id="make-lods">Make LODs</h3>
+<p><strong>Checkbox</strong> — default <strong>off</strong></p>
+<p>Makes a chain of LODs instead of one crushed copy. While it is on, the Target
+section and <strong>Keep Original</strong> are greyed out, and the <strong>Crush</strong> button reads
+<strong>Crush LODs</strong>. See <a href="../features/lods/">LODs</a>.</p>
+<h3 id="levels">Levels</h3>
+<p><strong>Number</strong> — 1 to 8 — default <strong>3</strong></p>
+<p>How many LOD levels to make. The original stays as LOD0.</p>
+<h3 id="ratio">Ratio</h3>
+<p><strong>Slider</strong> — 5% to 95% — default <strong>50%</strong></p>
+<p>The share of triangles each level keeps compared to the level before it. With
+<strong>50%</strong>, the levels have 50%, 25%, 12.5% of the original, and so on.</p>
+<p>When an object is active, the panel lists the triangle count of every level
+under these two controls.</p>
+<p>Levels and Ratio are greyed out until <strong>Make LODs</strong> is on.</p>
+<hr />
+<h2 id="output">Output</h2>
+<p>The last group in Advanced: where the result goes, and the last crush.</p>
+<h3 id="keep-original">Keep Original</h3>
+<p><strong>Checkbox</strong> — default <strong>on</strong></p>
+<p>When on, the original object is <strong>hidden</strong> (eye icon off) after the crush, so
+you can compare or go back. When off, the original is <strong>deleted</strong> and only the
+crushed result remains.</p>
+<p>Greyed out while <strong>Make LODs</strong> is on, because LODs always keep the original.
+Revert only works when the original was kept. See
+<a href="../features/revert/">Keep Original and Revert</a>.</p>
+<hr />
+<h2 id="crush-and-revert">Crush and Revert</h2>
+<p>These sit in the main panel, under the Target box.</p>
+<p><strong>Crush</strong> — the main button for every mode. It is available when at least one
+mesh object is selected. While a crush runs, the button turns into a progress
+bar. Press <strong>ESC</strong> to cancel.</p>
+<p><strong>Revert</strong> — the small icon button next to Crush. Deletes the selected
+crushed object and brings back its original. Greyed out when there is nothing
+to revert. See <a href="../features/revert/">Keep Original and Revert</a>.</p>
+<p>When the native binary is missing, the panel shows "Native binary not found"
+and Crush refuses to run. See <a href="../troubleshooting/">Troubleshooting</a>.</p>
+<hr />
+<h2 id="presets">Presets</h2>
+<p>Presets work in <strong>Percent</strong> mode only. The preset row has a dropdown and
+<strong>+</strong> and <strong>−</strong> buttons.</p>
+<p><strong>Built-in presets</strong> set the amount only: <strong>Light · 25%</strong>, <strong>Medium ·
+50%</strong>, <strong>Heavy · 75%</strong>, <strong>Extreme · 90%</strong>. What to keep is the
+<a href="../features/modes/">Mode</a>'s job, so picking one leaves Keep UVs and the
+Preserve options alone (before 2.7.0 they switched Keep UVs off).</p>
+<p>A .blend saved with one of the older built-in presets (from before 2.4.0)
+opens with the dropdown on <strong>Custom</strong>. Its values are kept.</p>
+<p>A preset you save stores: Reduction, Keep Normals, Keep UVs, the four
+Preserve options, and Sharp Angle, and applies all of them (the Mode then
+shows <strong>Custom</strong>). It does not store the target count, Protect, Bake,
+Clean Mesh, or LOD settings.</p>
+<ul>
+<li><strong>+</strong> — save the current values as a new preset. You type a name. Saving
+  under the name of one of your own presets replaces it. You cannot use a
+  built-in preset name.</li>
+<li><strong>−</strong> — delete the selected preset. It is only enabled for presets you saved,
+  and it asks you to confirm. Built-in presets cannot be deleted.</li>
+<li>Your presets are kept in the add-on preferences, so they stay after you
+  restart Blender.</li>
+<li><strong>Custom</strong> means no preset is selected. If you change Reduction, Keep
+  Normals, Keep UVs, a Preserve option or Sharp Angle by hand, the dropdown
+  goes back to <strong>Custom</strong>.</li>
+</ul>
+<hr />
+<h3 id="last-crush">Last Crush</h3>
+<p>Under Keep Original in the <strong>Output</strong> group. It shows the most recent crush
+of the <strong>active</strong> crushed object:</p>
+<ul>
+<li><strong>Object</strong> — the crushed object's name.</li>
+<li><strong>Triangles</strong> — before → after.</li>
+<li><strong>Total time</strong> — the whole crush for this object.</li>
+<li><strong>Passes</strong> — how many passes the engine made.</li>
+</ul>
+<p>Click <strong>Details</strong> to see the time of each phase:</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>What it measures</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Extract</strong></td>
+<td>Reading the source mesh</td>
+</tr>
+<tr>
+<td><strong>Write</strong></td>
+<td>Writing the input for the native binary</td>
+</tr>
+<tr>
+<td><strong>Crush</strong></td>
+<td>The native simplifier</td>
+</tr>
+<tr>
+<td><strong>Read</strong></td>
+<td>Reading the binary's output</td>
+</tr>
+<tr>
+<td><strong>Build</strong></td>
+<td>Creating the new Blender mesh and object</td>
+</tr>
+<tr>
+<td><strong>Bake Normals</strong></td>
+<td>Transferring the original's normals (Keep Normals)</td>
+</tr>
+</tbody>
+</table>
+<p>"Bake Normals" here is the Keep Normals transfer. It is not the normal map
+bake.</p>
+<p>When several objects are selected, their crushes run at the same time, so the
+phase timings can add up to more than the wall-clock time. That is expected.</p>
+<p>The numbers are only kept for the current Blender session. If you select an
+object that was not crushed in this session, it says there are no stats for
+it.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../examples/" class="btn btn-neutral float-left" title="Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../features/modes/" class="btn btn-neutral float-right" title="Modes (Auto, Scan, Sculpt, Hard Surface)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../examples/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../features/modes/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
