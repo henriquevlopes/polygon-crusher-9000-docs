@@ -394,6 +394,20 @@ Greyed out while **Make LODs** is on, because LODs always keep the original.
 Revert only works when the original was kept. See
 [Keep Original and Revert](features/revert.md).
 
+### Flat Panels
+
+**Checkbox** — default **off**
+
+After the crush, merges the triangles of each flat area into one large face
+(an n-gon) and pairs up the remaining triangles into quads. No point moves,
+so the shape is exactly what the crush made. UV borders, seams, sharp
+edges, material borders and custom normals are kept as borders between
+faces.
+
+Good for hard-surface and CAD models when you want clean panels to keep
+editing instead of a sea of triangles. Leave it off when you need a
+triangle mesh, for example for a game export.
+
 ---
 
 ## Crush and Revert
@@ -474,3 +488,24 @@ phase timings can add up to more than the wall-clock time. That is expected.
 The numbers are only kept for the current Blender session. If you select an
 object that was not crushed in this session, it says there are no stats for
 it.
+
+---
+
+## Quadify
+
+The **Quadify** panel sits under the main panel and is closed by default. It
+has its own button. See [Quadify](features/quadify.md).
+
+| Setting | Default | What it does |
+|---|---|---|
+| **Quads** | 5000 | The quad count you want. Quadify searches for the setting that lands on it and reports the real count. |
+| **Auto Creases** | on | Tries creases off, a surface-smoothed flow and creases at 90°, and keeps the one closest to the original. Costs a little extra time. |
+| **Crease Angle** | 90° | Used when Auto Creases is off. Edges sharper than this are creases. 180 turns creases off. |
+| **Smoothing** | 2 | Smoothing passes (0 to 10). More is slower and sits closer to the original. |
+| **Repair Damage** | on | If the remesh tears a closed model, tries again with more quads until it is clean, and says what it spent. Turn off to always get exactly the count you asked for. |
+| **Keep Shading** | on | Copies the original's shading onto the quad mesh. |
+| **Keep Original** | on | Hides the source object so **Revert** can bring it back. |
+
+Quadify also handles thick cloth, closes small tears and chooses its
+flow automatically. See [Quadify](features/quadify.md).
+
