@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Henri Lopes" /><link rel="canonical" href="https://henriquevlopes.github.io/polygon-crusher-9000-docs/features/show-hard-edges/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Show Hard Edges - Polygon Crusher 9000</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link href="../../stylesheets/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Show Hard Edges";
+        var mkdocs_page_input_path = "features/show-hard-edges.md";
+        var mkdocs_page_url = "/polygon-crusher-9000-docs/features/show-hard-edges/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]--> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../assets/logo.svg" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+    <ul>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../whats-new/">What's New</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../whats-new/#a-new-panel-in-four-steps-293-to-21124">A new panel in four steps (2.9.3 to 2.11.24)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../whats-new/#remesh-clean-quads-at-the-count-you-ask-for-290-to-21219">Remesh: clean quads at the count you ask for (2.9.0 to 2.12.19)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../whats-new/#keeping-hard-edges-sharps-21216-to-21220">Keeping hard edges: Sharps (2.12.16 to 2.12.20)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../whats-new/#scans-cracks-and-holes-2119-to-21220">Scans, cracks and holes (2.11.9 to 2.12.20)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../whats-new/#cloth-21115-to-21220">Cloth (2.11.15 to 2.12.20)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../whats-new/#textures-and-baking-29x-to-211x">Textures and baking (2.9.x to 2.11.x)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../whats-new/#shading-and-quality-of-decimate-282-to-21220">Shading and quality of Decimate (2.8.2 to 2.12.20)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../whats-new/#speed-and-big-models-296-to-21122">Speed and big models (2.9.6 to 2.11.22)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../whats-new/#platforms-283-to-292">Platforms (2.8.3 to 2.9.2)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../whats-new/#retired">Retired</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/installation/">Installation</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../getting-started/installation/#download">Download</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../getting-started/installation/#install-in-blender">Install in Blender</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../getting-started/installation/#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../getting-started/installation/#open-the-panel">Open the Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../getting-started/installation/#updating">Updating</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/quick-start/">Quick Start</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../getting-started/quick-start/#the-polygon-crusher-panel">The Polygon Crusher Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../getting-started/quick-start/#basic-workflow">Basic Workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../getting-started/quick-start/#choosing-a-target">Choosing a Target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../getting-started/quick-start/#tips">Tips</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#for-3d-scans-and-photogrammetry">For 3D Scans and Photogrammetry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#for-ai-generated-models-meshy-tripo-and-others">For AI-Generated Models (Meshy, Tripo and others)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#for-cad-parts">For CAD Parts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#for-subdivided-high-poly-hard-surface">For Subdivided High-Poly Hard Surface</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#for-characters-creatures-and-sculpts">For Characters, Creatures and Sculpts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#for-clothing">For Clothing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#keeping-detail-in-one-area">Keeping Detail in One Area</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#making-lods">Making LODs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#working-with-modifiers">Working with Modifiers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#processing-multiple-objects">Processing Multiple Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../getting-started/quick-start/#going-back">Going Back</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../getting-started/quick-start/#after-crushing">After Crushing</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../examples/">Examples</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/#high-poly-sculpt-8m-450k-triangles">High-poly sculpt — 8M → 450K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/#hard-surface-mesh-70k-2k-triangles">Hard-surface mesh — 70K → 2K triangles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/#textured-photogrammetry-scan-764k-118k-triangles-textures-kept">Textured photogrammetry scan — 764K → 118K triangles, textures kept</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/#remesh-to-clean-quads">Remesh to clean quads</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../settings/">Settings Reference</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#status-line">Status line</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#1-source">1 Source</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#2-output">2 Output</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#decimate-remesh">Decimate / Remesh</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#percent-count-budget">Percent, Count, Budget</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#3-keep">3 Keep</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#shading">Shading</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#textures">Textures</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#sharps">Sharps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#shape-only">Shape only</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#rebuild-surface-remesh-only">Rebuild Surface (Remesh only)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#remesh-status">Remesh status</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#4-crush">4 Crush</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#symmetry">Symmetry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#crush">Crush</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#revert">Revert</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#import-and-crush">Import and Crush...</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#keep-original-warning">Keep Original warning</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#advanced">Advanced</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#result">Result</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#edges">Edges</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#extra-steps">Extra Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../settings/#last-crush">Last Crush</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../settings/#remembered-settings">Remembered settings</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Features</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../source-types/">Source Types</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../source-types/#the-seven-sources">The seven sources</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../source-types/#auto">Auto</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../source-types/#what-each-source-does">What each source does</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../target-modes/">Target Modes</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../target-modes/#percent">Percent</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../target-modes/#count">Count</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../target-modes/#budget">Budget</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../target-modes/#what-happens-to-the-result">What happens to the result</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../target-modes/#with-remesh">With Remesh</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../remesh/">Remesh (Quads)</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../remesh/#the-count-you-ask-for-is-the-count-you-get">The count you ask for is the count you get</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../remesh/#what-is-automatic">What is automatic</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../remesh/#the-switches-you-have">The switches you have</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../remesh/#best-on-and-not-for">Best on, and not for</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../remesh/#progress">Progress</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../quad-density/">Quad Density</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../quad-density/#how-to-use-it">How to use it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../quad-density/#strength">Strength</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../quad-density/#good-to-know">Good to know</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hard-surface/">Hard Surface and Sharps</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../hard-surface/#what-is-kept-automatically">What is kept automatically</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../hard-surface/#sharps">Sharps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../hard-surface/#shape-only">Shape only</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../hard-surface/#what-a-very-low-target-costs">What a very low target costs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../hard-surface/#decimate-of-cad-and-subdivided-models">Decimate of CAD and subdivided models</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Show Hard Edges</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-use-it">How to use it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-colors">The colors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hard-edge-angle">Hard Edge Angle</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../protect/">Protect Areas</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../protect/#how-to-use-it">How to use it</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../protect/#using-your-own-vertex-group">Using your own vertex group</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../protect/#strength">Strength</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../protect/#blur">Blur</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../protect/#show-heatmap">Show Heatmap</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../protect/#good-to-know">Good to know</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clean-mesh/">Clean Mesh and Scan Repair</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../clean-mesh/#what-it-does">What it does</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../clean-mesh/#remove-small-pieces">Remove Small Pieces</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../clean-mesh/#runs-on-its-own-when-a-mesh-needs-it">Runs on its own when a mesh needs it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../clean-mesh/#scan-repair">Scan Repair</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../clean-mesh/#cut-floor">Cut Floor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../clean-mesh/#remove-spikes">Remove Spikes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../clean-mesh/#fill-holes">Fill Holes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../clean-mesh/#order">Order</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../clean-mesh/#only-the-copy-changes">Only the copy changes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../clean-mesh/#when-to-use-it">When to use it</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../import-crush/">Import and Crush</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../import-crush/#how-to-use-it">How to use it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../import-crush/#what-comes-along">What comes along</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../import-crush/#settings-that-apply">Settings that apply</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../import-crush/#clean-mesh-runs-by-itself-when-needed">Clean Mesh runs by itself when needed</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../import-crush/#textures">Textures</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bake-maps/">Bake Maps and Auto UVs</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../bake-maps/#undo-bake">Undo Bake</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../bake-maps/#bake-into-kept-uvs-remesh">Bake Into Kept UVs (Remesh)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../bake-maps/#normal-map">Normal Map</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../bake-maps/#base-color">Base Color</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../bake-maps/#auto-uvs">Auto UVs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../bake-maps/#overlapping-uvs">Overlapping UVs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../bake-maps/#where-the-maps-go">Where the maps go</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../bake-maps/#how-the-maps-are-connected">How the maps are connected</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../bake-maps/#viewport">Viewport</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lods/">LODs</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../lods/#how-to-use-it">How to use it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../lods/#what-you-get">What you get</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../lods/#what-changes-while-lods-is-on">What changes while LODs is on</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../lods/#revert">Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../lods/#limits">Limits</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../revert/">Keep Original and Revert</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../revert/#keep-original">Keep Original</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../revert/#revert">Revert</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../revert/#where-the-link-is-kept">Where the link is kept</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../carry-over/">Rigs, Shape Keys and Vertex Colors</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../carry-over/#what-carries-over">What carries over</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../carry-over/#crushing-a-posed-character">Crushing a posed character</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../carry-over/#limits">Limits</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../limits/">Limits</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#the-result-can-stop-above-the-target">The result can stop above the target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#small-pieces-at-heavy-reductions">Small pieces at heavy reductions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#objects-can-be-skipped">Objects can be skipped</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#scans-and-noisy-meshes-hard-edges">Scans and noisy meshes: hard edges</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#sharps">Sharps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#very-low-targets-on-dense-cad">Very low targets on dense CAD</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#remesh">Remesh</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#baking">Baking</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#rigs-shape-keys-and-vertex-colors">Rigs, shape keys and vertex colors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#textures-keep-uvs">Textures (Keep UVs)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#revert">Revert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#import-and-crush">Import and Crush</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../limits/#platform">Platform</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../benchmark/">Benchmark</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../benchmark/#where-it-stands">Where it stands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../benchmark/#against-blender-decimate">Against Blender Decimate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../benchmark/#summary">Summary</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../benchmark/#method">Method</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../benchmark/#speed-and-exact-counts">Speed and exact counts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../benchmark/#shape-at-the-same-triangle-count">Shape at the same triangle count</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../benchmark/#limits-of-this-test">Limits of this test</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../benchmark/#against-meshoptimizer">Against meshoptimizer</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../benchmark/#method_1">Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../benchmark/#scans-sculpts-and-smooth-cad-the-same-error">Scans, sculpts and smooth CAD: the same error</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../benchmark/#the-multi-part-pole-what-271-fixed">The multi-part pole: what 2.7.1 fixed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../benchmark/#speed">Speed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../benchmark/#limits-of-this-test_1">Limits of this test</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../benchmark/#against-meshlab-early-readings">Against MeshLab: early readings</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/">Troubleshooting</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#native-binary-not-found">"Native binary not found"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#the-result-has-more-triangles-than-my-target">The result has more triangles than my target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#a-hole-came-out-as-a-pentagon-or-a-crease-flattened">A hole came out as a pentagon, or a crease flattened</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#small-parts-disappeared">Small parts disappeared</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#hard-edges-kept-almost-nothing-on-my-scan">Hard edges kept almost nothing on my scan</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#the-report-warns-about-non-manifold-edges">The report warns about non-manifold edges</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#crushed-mesh-looks-faceted">Crushed mesh looks faceted</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#my-baked-maps-do-not-show">My baked maps do not show</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#crusher-ignored-my-modifiers">Crusher ignored my modifiers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#blender-freezes-during-crush">Blender freezes during crush</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#where-did-my-crushed-object-go">Where did my crushed object go?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#the-revert-button-is-greyed-out">The Revert button is greyed out</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#last-crush-says-there-are-no-stats">Last Crush says there are no stats</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#remesh-says-the-quad-engine-is-not-available">Remesh says the quad engine is not available</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#remesh-the-result-is-not-what-i-expected">Remesh: the result is not what I expected</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/#contact-support">Contact Support</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Polygon Crusher 9000</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Features</li>
+      <li class="breadcrumb-item active">Show Hard Edges</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="show-hard-edges">Show Hard Edges</h1>
+<p>Show Hard Edges draws, in the viewport, the edges that will be kept in place,
+before you crush. You see what <strong>Sharps</strong> and the Hard Edge Angle will hold,
+and can change them until it looks right. It is only a viewport overlay:
+nothing is added to your scene.</p>
+<p>It works for <strong>Decimate</strong> and <strong>Remesh</strong> and for every kind of model (before
+2.9.3 it was CAD only).</p>
+<p><img alt="Show Hard Edges on a CAD part: kept edges drawn in yellow" src="../../assets/show-hard-edges.png" /></p>
+<h2 id="how-to-use-it">How to use it</h2>
+<ol>
+<li>Open <strong>Advanced</strong> and go to the <strong>Edges</strong> box.</li>
+<li>Click the eye button (next to <strong>Hard Edge Angle</strong>, or alone for Organic,
+   Scan and Cloth sources).</li>
+<li>Change <strong>Hard Edge Angle</strong>, or mark and clear Sharp edges in Edit Mode.
+   The lines update as you go.</li>
+</ol>
+<h2 id="the-colors">The colors</h2>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Edges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Yellow</td>
+<td>Sharper than the Hard Edge Angle</td>
+</tr>
+<tr>
+<td>Cyan</td>
+<td>Marked Sharp (any angle)</td>
+</tr>
+<tr>
+<td>Purple</td>
+<td>Borders between materials</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>UV seams (when <strong>Textures</strong> is on)</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>Open borders (holes and cut edges)</td>
+</tr>
+</tbody>
+</table>
+<p>A key under the button lists only the colors that apply right now.</p>
+<p>On a model that looks like a scan, the panel says <strong>Looks like a scan: only
+marked Sharp kept</strong>: angle-based edges would just be noise there.</p>
+<h2 id="hard-edge-angle">Hard Edge Angle</h2>
+<p><strong>Angle</strong> — default <strong>30°</strong>. Edges where two faces meet at a sharper angle
+than this count as hard edges. Edges you marked Sharp are kept at any angle.
+Raise the angle to let a detected edge go; use <strong>Clear Sharp</strong> in Blender to
+let a marked one go. The setting is hidden for Organic, Scan and Cloth.</p>
+<p>See <a href="../hard-surface/">Hard Surface and Sharps</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../hard-surface/" class="btn btn-neutral float-left" title="Hard Surface and Sharps"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../protect/" class="btn btn-neutral float-right" title="Protect Areas">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../hard-surface/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../protect/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
