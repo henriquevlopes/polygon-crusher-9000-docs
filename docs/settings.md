@@ -7,6 +7,8 @@ collapsed **Advanced** section holds the rest.
 Settings that do not apply to the chosen source or tool are hidden, not
 greyed out, so the panel only shows what the next run will use.
 
+![The Polygon Crusher 9000 panel in the 3D Viewport sidebar](assets/panel-main.png)
+
 ---
 
 ## Status line
@@ -156,6 +158,8 @@ and Crush refuses to run. See [Troubleshooting](troubleshooting.md).
 
 Click **Advanced** to open it. It starts collapsed in every session. It has
 four boxes.
+
+![The panel scrolled down with Advanced open](assets/panel-advanced.png)
 
 ### Result
 

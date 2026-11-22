@@ -7,6 +7,8 @@ underside or parts nobody sees. It only appears while **Remesh** is selected.
 The quad count stays what you asked for. Smaller quads in the painted area
 mean slightly larger ones in the rest of the model, and the other way round.
 
+![Advanced, Extra Steps, with Quad Density ticked](../assets/panel-quad-density.png)
+
 ## How to use it
 
 1. Under **2 Output**, pick **Remesh**.

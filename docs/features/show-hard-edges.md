@@ -8,6 +8,8 @@ nothing is added to your scene.
 It works for **Decimate** and **Remesh** and for every kind of model (before
 2.9.3 it was CAD only).
 
+![Show Hard Edges on a CAD part: kept edges drawn in yellow](../assets/show-hard-edges.png)
+
 ## How to use it
 
 1. Open **Advanced** and go to the **Edges** box.

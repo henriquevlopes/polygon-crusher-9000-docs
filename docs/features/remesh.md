@@ -9,6 +9,10 @@ counts for a game, or when the original must stay exactly as it is.
 Click the **Remesh** tab under **2 Output**, set the amount, and click
 **Crush**. The main button is the same: it does the job of the tab you chose.
 
+![The panel with the Remesh tab selected](../assets/panel-remesh.png)
+
+![Before and after Remesh: the original dog on the left, the remeshed quads on the right](../assets/remesh-before-after.png)
+
 ---
 
 ## The count you ask for is the count you get

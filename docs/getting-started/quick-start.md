@@ -15,6 +15,8 @@ The panel goes top to bottom in four steps:
 4. **Crush** — **Symmetry**, the **Crush** button (with **Revert** beside
    it) and **Import and Crush...**.
 
+![The Polygon Crusher 9000 panel](../assets/panel-main.png)
+
 Under these, a collapsed **Advanced** section holds everything else. The
 [Settings Reference](../settings.md) describes every control.
 
