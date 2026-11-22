@@ -11,7 +11,7 @@ Click the **Remesh** tab under **2 Output**, set the amount, and click
 
 ![The panel with the Remesh tab selected](../assets/panel-remesh.png)
 
-![Before and after Remesh: the original dog on the left, the remeshed quads on the right](../assets/remesh-before-after.png)
+![Before and after Remesh on the Sculpt_Statue_1M test model: the original on the left, the remeshed quads (about 15,000) on the right](../assets/remesh-before-after.png)
 
 ---
 
