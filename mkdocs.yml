@@ -1,5 +1,5 @@
 site_name: Polygon Crusher 9000
-site_description: Blender addon for fast, normal-preserving mesh decimation
+site_description: Blender add-on to reduce triangles or rebuild a model as clean quads
 site_author: Henri Lopes
 site_url: https://henriquevlopes.github.io/polygon-crusher-9000-docs/
 
@@ -15,17 +15,21 @@ theme:
 
 nav:
   - Home: index.md
+  - What's New: whats-new.md
   - Getting Started:
     - Installation: getting-started/installation.md
     - Quick Start: getting-started/quick-start.md
   - Examples: examples.md
   - Settings Reference: settings.md
   - Features:
-    - Modes (Auto, Scan, Sculpt, Hard Surface): features/modes.md
+    - Source Types: features/source-types.md
     - Target Modes: features/target-modes.md
-    - Hard Surface Preservation: features/hard-surface.md
+    - Remesh (Quads): features/remesh.md
+    - Quad Density: features/quad-density.md
+    - Hard Surface and Sharps: features/hard-surface.md
+    - Show Hard Edges: features/show-hard-edges.md
     - Protect Areas: features/protect.md
-    - Clean Mesh: features/clean-mesh.md
+    - Clean Mesh and Scan Repair: features/clean-mesh.md
     - Import and Crush: features/import-crush.md
     - Bake Maps and Auto UVs: features/bake-maps.md
     - LODs: features/lods.md

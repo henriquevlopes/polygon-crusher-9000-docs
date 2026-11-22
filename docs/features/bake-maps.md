@@ -4,14 +4,30 @@ Crush can bake the original's detail onto the low-poly copy as texture maps.
 It connects the maps in the copy's materials, so the result looks right
 straight away.
 
-The **Bake** group in **Advanced** has two toggle buttons (**Sculpt** mode
-opens it):
+Tick **Bake to Textures** in **Advanced → Extra Steps**. It shows two toggle
+buttons:
 
 - **Normal Map** — bakes the original's surface detail.
 - **Base Color** — bakes the original's color: its image textures, or its vertex colors.
 
-You can turn on one or both. Then click **Crush** as usual. After the crush,
-the progress bar shows "Baking" while the maps are made.
+You can turn on one or both. Then click **Crush** as usual, in Decimate or in
+Remesh. After the crush, the progress bar shows "Baking" while the maps are
+made.
+
+## Undo Bake
+
+When a selected object has a bake, an **Undo Bake** button appears under the
+map buttons. It takes the bake back off: the materials from before the bake
+return, and the baked images and the bake's own UV map are deleted. The mesh
+itself stays as it is.
+
+## Bake Into Kept UVs (Remesh)
+
+With **Remesh** and **Textures** on, a **Bake Into Kept UVs** switch appears.
+It bakes into the UV layout the new quads already carry, instead of making a
+fresh unwrap. If the carried UVs come out too distorted, a fresh unwrap is
+made anyway. Remesh also bakes by itself when the UV seams would leave cracks
+(models from Meshy and similar tools often have a black or cracked baked atlas).
 
 ---
 
@@ -21,8 +37,7 @@ Bakes the original's surface detail into a normal map on the crushed mesh's
 UVs.
 
 - The crushed mesh uses its **own smooth shading** instead of the
-  [Keep Normals](../settings.md#keep-normals) transfer. This is what game
-  engines expect. Keep Normals is greyed out while Normal Map is on.
+  **Shading** transfer from the original. This is what game engines expect.
 - **Normal Y** picks the green channel convention. **OpenGL** (default) is for
   Blender, Unity and Godot. **DirectX** is for Unreal. A DirectX map still
   looks correct in Blender.
@@ -53,13 +68,13 @@ like the scan.
 Baking needs UVs on the crushed mesh. Most scans and AI models have none, so
 Crush makes them.
 
-- **When:** the original has no UVs, or **Keep UVs** is off.
+- **When:** the original has no UVs, or **Textures** is off.
 - **How:** the mesh is split into a few large, projection-based islands. Each
   island is flattened, given equal texel density, and packed with a margin
   that fits the map size.
 - **Ask first:** when an original has no UVs, Crush shows a dialog first:
   "No UVs to bake onto" with a **Auto UV and Crush** button. The dialog lists
-  the objects that have no UVs. If Keep UVs is off, the crushed copy is
+  the objects that have no UVs. If Textures is off, the crushed copy is
   unwrapped without a dialog.
 - The report lists how many UV charts were made for each object.
 
@@ -67,16 +82,16 @@ When baking, the borders of the UV islands are marked as seams and Sharp
 on the crushed mesh. This splits the smooth shading along the seams, so the
 normal map bakes without visible seams.
 
-If the original already has UVs and **Keep UVs** is on, those UVs are used for
+If the original already has UVs and **Textures** is on, those UVs are used for
 the bake.
 
 ### Overlapping UVs
 
 A bake writes each pixel of the map once. If two faces share the same UV
 space (stacked or mirrored islands, common in game assets), they fight over
-those pixels and the map is wrong there. With Keep UVs on, Crush checks for
+those pixels and the map is wrong there. With Textures on, Crush checks for
 this and the report says so: it names the objects and how much of their map
-overlaps, and suggests turning **Keep UVs** off so the crushed copy is baked
+overlaps, and suggests turning **Textures** off so the crushed copy is baked
 onto new UVs.
 
 ---

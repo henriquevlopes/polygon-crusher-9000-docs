@@ -2,49 +2,52 @@
 
 ## The Polygon Crusher Panel
 
-Once the addon is installed, open the **N-panel → 9000 Toolkit tab** in the 3D
-Viewport and open the **Polygon Crusher 9000** panel. It starts collapsed.
+Once the add-on is installed, open the **N-panel → Polygon Crusher 9000**
+tab in the 3D Viewport.
 
-The main panel holds what you need for most models: a status line, the
-**Mode** menu, the **Target** box, and the **Crush** and **Revert**
-buttons. Everything else (Preserve, Protect Area, Bake, Clean Mesh, LODs
-and Output) is in the collapsed **Advanced** section below it, in groups
-that fold on their own. When something in Advanced is switched on, a line
-under Crush lists it. The [Settings Reference](../settings.md) describes
-every control.
+The panel goes top to bottom in four steps:
 
-![The Polygon Crusher 9000 panel in Blender](../assets/PolygonCrusher9000_UI_2.4_basic.png){ .ui-panel }
-<!-- TODO screenshot: replace PolygonCrusher9000_UI_2.4_basic.png with the 2.7 main panel: status line, Mode menu (Auto, with its finding lines), Target box, Crush / Revert, Import and Crush..., the "On:" line -->
+1. **Source** — what kind of model this is.
+2. **Output** — **Decimate** (fewer triangles) or **Remesh** (clean quads),
+   and how much you want left.
+3. **Keep** — **Shading**, **Textures** and, for hard-surface and CAD
+   parts, **Sharps**.
+4. **Crush** — **Symmetry**, the **Crush** button (with **Revert** beside
+   it) and **Import and Crush...**.
+
+Under these, a collapsed **Advanced** section holds everything else. The
+[Settings Reference](../settings.md) describes every control.
 
 
 ---
 
 ## Basic Workflow
 
-1. **Select** one or more mesh objects in the 3D Viewport
-2. Open the **Polygon Crusher 9000** panel (press **N** → 9000 Toolkit tab)
-3. Leave **Mode** on **Auto**. It looks at the mesh, says what it sees
-   ("Looks like a scan: rough surface all over. Found: 120 spikes, 11
-   small holes") and sets the switches to match. Or pick **Scan**,
-   **Sculpt** or **Hard Surface** yourself. See [Modes](../features/modes.md)
-4. Pick a target mode: **Percent**, **Count** or **Budget**, and set the value.
-   In Percent mode you can also pick a preset: **Light · 25%**, **Medium ·
-   50%**, **Heavy · 75%** or **Extreme · 90%**
-5. Click **Crush**
+1. **Select** one or more mesh objects in the 3D Viewport.
+2. Under **1 Source**, pick what the model is. Leave it on **Auto** if you
+   are not sure: after the run the panel says what it took the model for
+   ("Last run treated it as: ..."). See [Source Types](../features/source-types.md).
+3. Under **2 Output**, pick **Decimate** or **Remesh**, then **Percent**,
+   **Count** or **Budget** and set the value. Picking a source also sets a
+   sensible starting amount (scans start at 95% removed, CAD parts at 70%).
+4. Under **3 Keep**, leave **Shading** on. Switch on **Textures** if the
+   model has a texture you want to keep.
+5. Click **Crush**.
 
-The addon will:
+The add-on will:
 
-- Evaluate each selected object's full modifier stack and crush the resulting mesh
-- Copy the original surface normals onto the result (when **Keep Normals** is on)
-- Place the result in a **Crushed** collection at the scene root
-- Hide the original (or delete it, depending on **Keep Original**)
-- Keep smooth shading if any face on the source was smooth
+- Evaluate each selected object's full modifier stack and work on the resulting mesh.
+- Place the result in a **Crushed** collection at the scene root.
+- Hide the original (or delete it, depending on **Keep Original**).
 
-The crushed copy lands at the source's exact world transform and is named
+The result lands at the source's exact world transform and is named
 `<original name>_crushed`.
 
-The status bar shows a report with the triangle count before and after. Check
-it. Some options can stop a crush above the target. See [Limits](../limits.md).
+The status bar shows a report with the triangle count before and after.
+Check it. Some options can stop a crush above the target. See [Limits](../limits.md).
+
+While it works, the Crush button becomes a **Cancel** button and a progress
+bar. Click **Cancel** (or press **ESC**) to stop.
 
 ---
 
@@ -56,17 +59,9 @@ it. Some options can stop a crush above the target. See [Limits](../limits.md).
 | **Count** | Every object needs the same triangle count. |
 | **Budget** | The whole selection has one triangle budget. Detail goes where it costs least. |
 
-Under the target control, the panel shows a live `before → after triangles`
-readout, so you can see what the setting means before you click Crush. See
-[Target Modes](../features/target-modes.md).
-
-In Percent mode, these are common values:
-
-| Reduction | Use Case |
-|-----------|----------|
-| **20–40%** | Light clean-up; barely noticeable up close |
-| **50–70%** | Background props, secondary assets (default 50%) |
-| **80–95%** | Distant objects, real-time assets |
+Under the target control, the panel shows a live readout (`before → after
+triangles`, or `tris → quads` in Remesh), so you can see what the setting
+means before you click Crush. See [Target Modes](../features/target-modes.md).
 
 ---
 
@@ -74,55 +69,72 @@ In Percent mode, these are common values:
 
 ### For 3D Scans and Photogrammetry
 
-**Auto** recognises a scan and switches on Clean Mesh with the repairs it
-found (table, spikes, small holes) and Keep UVs with Low Distortion; or
-pick **Scan** mode. Vertex colors carry over to the crushed mesh by
-themselves. To put the detail into texture maps instead, turn on **Normal
-Map** and **Base Color** under **Bake**. See
-[Bake Maps and Auto UVs](../features/bake-maps.md) and
-[Clean Mesh](../features/clean-mesh.md).
+Pick **Scan** under Source. It switches on the scan repairs by itself:
+cracks and small holes are closed and spikes are removed. Switch on
+**Textures** to keep the photo texture, or tick **Bake to Textures** in
+Advanced to put the detail into maps. See
+[Clean Mesh and Scan Repair](../features/clean-mesh.md) and
+[Bake Maps and Auto UVs](../features/bake-maps.md). To get clean quads
+instead of triangles, pick **Remesh**.
 
-### For Hard-Surface and CAD Parts
+### For AI-Generated Models (Meshy, Tripo and others)
 
-**Auto** recognises flat faces and sharp edges and picks **Hard Surface**,
-which keeps borders, material borders, UV seams and sharp edges in place
-while still reaching the count you asked for; or pick it from the Mode
-menu. See
-[Hard Surface Preservation](../features/hard-surface.md).
+Pick **AI**. Seams that split the model are welded and holes are closed.
+
+### For CAD Parts
+
+Pick **CAD**. Corners stay crisp, round holes stay round and flat faces stay
+flat. **Sharps** is on by default. With **Remesh** you get a clean grid
+with quad loops along the hard edges. See
+[Hard Surface and Sharps](../features/hard-surface.md).
+
+### For Subdivided High-Poly Hard Surface
+
+Pick **Hard Surface**. Rounded bevels keep their rows and flat areas become big
+clean triangles.
+
+### For Characters, Creatures and Sculpts
+
+Pick **Organic**. Pick **Remesh** to get quads, and use
+[Quad Density](../features/quad-density.md) to give the face more of them.
+
+### For Clothing
+
+Pick **Cloth**. Folds bend freely and sewn garments are remeshed as one piece.
 
 ### Keeping Detail in One Area
 
-In Edit Mode, select the faces to keep and click **Add** under **Protect
-Area** in Advanced. See [Protect Areas](../features/protect.md).
+Decimate: in Advanced, tick **Protect** and paint the area or select faces
+in Edit Mode. See [Protect Areas](../features/protect.md). Remesh: use
+**Quad Density** instead.
 
 ### Making LODs
 
-Tick **Make LODs** in Advanced and click **Crush LODs**. See [LODs](../features/lods.md).
+Tick **LODs** in Advanced and click **Crush LODs**. See [LODs](../features/lods.md).
 
 ### Working with Modifiers
 
 Polygon Crusher reads the **evaluated** mesh, which is whatever the viewport
-shows, including booleans, subdivision, remesh, and any other modifier on the
-stack. The original object and its modifier stack are left untouched. The
-crushed result is a fresh static mesh with no modifiers.
+shows, including booleans, subdivision, and any other modifier on the stack.
+The original object and its modifiers are left untouched. The result is a
+fresh static mesh with no modifiers.
 
 ### Processing Multiple Objects
 
 Select all the objects you want to crush before clicking **Crush**. They run at
 the same time, up to one job per CPU core.
 
-Press **ESC** at any time to cancel the run.
-
 ### Going Back
 
-Select the crushed object and click the **Revert** button next to Crush. It
-deletes the crushed object and brings back the original. This needs **Keep
-Original** to be on. See [Keep Original and Revert](../features/revert.md).
+Select the result and click the **Revert** button next to Crush. It deletes
+the result and brings back the original. This needs **Keep Original** to be
+on. See [Keep Original and Revert](../features/revert.md).
 
 ---
 
 ## After Crushing
 
-**Last Crush**, at the bottom of Advanced, shows the triangle counts, total
-time and passes for the active crushed object. Click **Details** for the time
-of each phase.
+After a Decimate, **Last Crush** at the bottom of Advanced shows the
+triangle counts, total time and passes for the active crushed object. Click **Details** for the time
+of each phase. After a Remesh, a status box under the Keep section says what
+the run did (the real quad count and any notes).

@@ -1,8 +1,9 @@
 # Rigs, Shape Keys and Vertex Colors
 
 The crushed copy keeps what the original carried per vertex. You don't need
-to re-rig, re-paint or re-bake anything. This happens on every crush, LOD and
-Budget part, with no setting to turn on.
+to re-rig, re-paint or re-bake anything. This happens on every Decimate, LOD and
+Budget part, with no setting to turn on. Remesh keeps vertex colors and, with
+**Textures** on, UVs and materials.
 
 ---
 

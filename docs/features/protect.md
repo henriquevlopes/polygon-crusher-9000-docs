@@ -1,24 +1,33 @@
 # Protect Areas
 
 Some parts of a mesh matter more than the rest: a face, hands, text on a
-label. **Protect Area** keeps their detail while the rest gets crushed. It is
-its own group inside **Advanced**; **Sculpt** mode opens it.
+label. **Protect** keeps their detail while the rest gets crushed. It is in
+**Advanced → Extra Steps**, and it only shows for **Decimate**. For
+**Remesh**, use [Quad Density](quad-density.md) instead.
 
 ---
 
 ## How to use it
 
+In **Advanced → Extra Steps**, tick **Protect**. Then either paint it or
+select it.
+
+**Paint it:**
+
+1. Click **Paint Protect**. Blender opens Weight Paint on the protect group.
+2. Paint **red** where the detail must stay.
+3. Click **Done Painting**.
+
+**Or select it:**
+
 1. Select the object and press **Tab** for Edit Mode.
 2. Select the faces, edges or vertices you want to keep.
-3. Under **Protect Area**, click **Add**. The selection goes into a vertex
-   group named **Protected**, and the field under the buttons shows it.
-4. Set **Strength** and **Blur** if the defaults don't suit you.
-5. Turn on **Show Heatmap** to check the result in the viewport.
-6. Click **Crush**.
+3. Click **Add**. The selection goes into the protect vertex group, and the
+   field under the buttons shows it. **Remove** takes selected parts back out.
+   Add and Remove only show in Edit Mode.
 
-To take parts back out, select them in Edit Mode and click **Remove**.
-Add and Remove only work in Edit Mode. Until an area is set, the panel
-shows a hint: "Edit Mode: select faces, then Add".
+Then set **Strength** and **Blur** if the defaults don't suit you, turn on
+**Show Heatmap** to check the result in the viewport, and click **Crush**.
 
 ### Using your own vertex group
 
@@ -51,7 +60,7 @@ protected, with the Blur fade included: blue is free to crush, red is fully
 protected. It updates as you add, remove or change Blur, including in Edit
 Mode. It is only a viewport overlay; nothing is added to your scene.
 
-Strength and Blur are greyed out until a Protect Area is set.
+Strength and Blur show once a protect group is set.
 
 ---
 

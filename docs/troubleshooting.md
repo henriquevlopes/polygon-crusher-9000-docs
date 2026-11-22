@@ -3,8 +3,8 @@
 ## "Native binary not found"
 
 The addon ships with platform-specific simplifier binaries in its `bin/` folder
-(`simplify-win-x86_64.exe`, `simplify-darwin-arm64`, `simplify-linux-x86_64`,
-`simplify-linux-arm64`). The operator refuses to run if it can't find a binary
+(`simplify-win-x86_64.exe`, `simplify-darwin-arm64`, `simplify-darwin-x86_64`,
+`simplify-linux-x86_64`, `simplify-linux-arm64`). The operator refuses to run if it can't find a binary
 matching your platform. If you see this:
 
 - Re-install the addon from the official `.zip` — do not copy files manually
@@ -12,7 +12,6 @@ matching your platform. If you see this:
   `<Blender extensions folder>/polygon_crusher_9000/bin/simplify-<your-platform>`
 - On macOS / Linux, the executable bit is restored automatically at runtime, but
   if your installer stripped it entirely, re-installing usually fixes it.
-- Intel Macs have no bundled binary.
 
 There is no Python fallback.
 
@@ -24,29 +23,23 @@ This is the most common question. Read the report in Blender's status bar. It
 shows the actual triangle count and usually says why. See [Limits](limits.md)
 for the full list. The usual causes:
 
-- **"preserve options kept N tris"** — only from versions before 2.7.1,
-  where Borders, Materials, UV Seams and Sharp Edges were a hard lock. Since
-  2.7.1 a kept edge is a cost instead and the crush reaches the target. If
-  you still see this on an old version, turn off the options you do not
-  need, raise **Sharp Angle**, or raise the target.
 - **"the mesh may be broken: try Clean Mesh"** — duplicate or zero-area faces
   blocked the crush. Turn on [Clean Mesh](features/clean-mesh.md) and crush
   again.
 - **"it can't be reduced further without breaking the shape"** — Clean Mesh was
   already on. The mesh is at its limit for this shape.
-- **Protect Area** with a high Strength on a large area can leave the result above
+- **Protect** with a high Strength on a large area can leave the result above
   the target. Lower the Strength.
 
 ---
 
 ## A hole came out as a pentagon, or a crease flattened
 
-The target was too low for the number of edges you asked to keep. Since
-2.7.1 the crush reaches the count you asked for even in Hard Surface mode,
-so at a very low count some kept lines have to give way. It picks the ones
-that change the shape least. Raise the target, turn off the Preserve options
-you do not need, or put a [Protect Area](features/protect.md) on the part
-that must stay. See
+The target was too low for the number of edges you asked to keep. The crush
+reaches the count you asked for even on CAD and Hard Surface, so at a very
+low count some kept lines have to give way. It picks the ones that change the
+shape least. Raise the target, raise **Hard Edge Angle** (Advanced → Edges),
+or put a [Protect Area](features/protect.md) on the part that must stay. See
 [Hard Surface Preservation](features/hard-surface.md#what-a-very-low-target-costs).
 
 ---
@@ -58,17 +51,18 @@ every separate piece keeps a minimum number of triangles until nothing else
 is left to remove, and then the smallest pieces go first; before, pieces
 went in whatever order they happened to collapse. Raise the target, or
 protect the pieces that must stay. If pieces are missing right after
-**Clean Mesh**, lower **Remove Small Pieces**: it deletes loose bits on
+**Clean Mesh**, lower **Small Pieces**: it deletes loose bits on
 purpose. See [Limits](limits.md#small-pieces-at-heavy-reductions).
 
 ---
 
-## Sharp Edges kept almost nothing on my scan
+## Hard edges kept almost nothing on my scan
 
-On a scan-like mesh, angle-based Sharp detection is skipped, because surface
-noise would make almost every edge sharp. Only edges you marked Sharp are kept.
-The report names the objects. Mark the edges you want to keep as Sharp in
-Blender, then crush again. See [Limits](limits.md).
+On a scan-like mesh, and with the Scan, Organic or Cloth source, angle-based
+detection is skipped, because surface noise would make almost every edge
+sharp. Only edges you marked Sharp are kept. Mark the edges you want to keep
+as Sharp in Blender, then crush again. Show Hard Edges shows what is kept. See
+[Limits](limits.md).
 
 ---
 
@@ -81,12 +75,12 @@ edges shared by three or more faces. Raise the target. See [Limits](limits.md).
 
 ## Crushed mesh looks faceted
 
-**Keep Normals** was probably off. Turn it on and crush again.
+**Shading** (under Keep) was probably off. Turn it on and crush again.
 
-If you baked a **Normal Map**, Keep Normals is greyed out on purpose. The
-crushed mesh uses its own smooth shading and the normal map carries the
-detail. Make sure the normal map is connected in the crushed mesh's material
-and the viewport is in Material Preview or Rendered mode.
+If you baked a **Normal Map**, the crushed mesh uses its own smooth shading
+and the normal map carries the detail. Make sure the normal map is connected
+in the crushed mesh's material and the viewport is in Material Preview or
+Rendered mode.
 
 ---
 
@@ -100,6 +94,7 @@ and the viewport is in Material Preview or Rendered mode.
   has "no image texture or vertex colors", no base color was baked for it. A
   texture reported as "not loaded" is missing on disk: fix its path on the
   original and crush again. See [Bake Maps and Auto UVs](features/bake-maps.md).
+- Use **Undo Bake** (Advanced → Bake to Textures) to remove a bake and try again.
 - Look in the folder you chose under **Save To**. For an unsaved .blend, the
   maps are packed into the file instead of saved as PNG files.
 
@@ -117,14 +112,14 @@ Polygon Crusher too.
 
 ## Blender freezes during crush
 
-Polygon Crusher runs the heavy work on a worker thread, so Blender should stay
-responsive. If the UI freezes:
+Polygon Crusher runs the heavy work in a separate process, so Blender should
+stay responsive. If the UI freezes:
 
 - Very large meshes can take real time. Give it a few seconds.
-- The progress bar on the **Crush** button updates as each object completes
-  — if it's still moving, the run is healthy.
+- The progress bar under the **Crush** button updates as the run goes: if
+  it is still moving, the run is healthy.
 
-Press **ESC** at any time to cancel.
+Click **Cancel** (the Crush button while it runs) or press **ESC** to stop.
 
 ---
 
@@ -151,12 +146,34 @@ It is also greyed out while a crush is running. See
 
 ---
 
-## Last Crush says "(No run yet)"
+## Last Crush says there are no stats
 
-**Last Crush** (in Advanced) only shows results for the active **crushed** object,
+**Last Crush** (in Advanced) only shows Decimate results for the active **crushed** object,
 from the current Blender session. If you select the original (or anything
 else), it says "No stats for" that object. Click a crushed object in the
 Crushed collection to see its timings.
+
+---
+
+## Remesh says the quad engine is not available
+
+The quad engine is bundled for Windows x64, Linux x64 and macOS (Apple
+Silicon and Intel). On Linux ARM64 only Decimate works. On the other systems,
+re-install the add-on from the official `.zip`: the panel names the missing
+file.
+
+---
+
+## Remesh: the result is not what I expected
+
+- The status box under Keep says the real count and what happened. If it had
+  to spend more quads to avoid damage, it says that too.
+- A CAD part with many holes needs a minimum number of quads for a clean grid.
+  The status says how many.
+- Models that are not one clean surface (triangle soups, self-crossing
+  sheets) may need **Rebuild Surface** (under Keep, Remesh only).
+- Hard edges on a low-poly model with many bevels come out crisper with
+  Decimate. See [Remesh (Quads)](features/remesh.md).
 
 ---
 

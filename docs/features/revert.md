@@ -13,12 +13,15 @@ checkbox and the **Revert** button.
   in the scene, so you can compare, or come back to it later.
 - **Off:** the original is **deleted**. Only the crushed copy remains.
 
-The checkbox is greyed out while [Make LODs](lods.md) is on, because LODs
+The checkbox is in **Advanced → Result**. It is greyed out while [LODs](lods.md) is on, because LODs
 always keep the original.
 
 !!! warning
     With Keep Original off, there is nothing to go back to. Revert needs the
-    original. Right after the crush, Blender's Undo (Ctrl+Z) can still take it back.
+    original. The panel shows a red warning under the main button when it is
+    off: "Original will be deleted" for Decimate, "Keep Original is off:
+    Revert won't work" for Remesh. Right after the crush, Blender's Undo
+    (Ctrl+Z) can still take it back.
 
 ## Revert
 
@@ -32,8 +35,9 @@ the original is un-hidden and selected.
 - You can select several crushed objects and revert them together.
 - Greyed out when none of the selected objects has an original to go back to,
   and while a crush is running.
-- Only available for crushes made with **Keep Original** on (or with Make
-  LODs).
+- Only available for crushes made with **Keep Original** on (or with LODs).
+- Remesh keeps its source in the scene (unlinked from the rig); with Keep
+  Original on, Revert brings it back.
 
 When it is done, Blender's status bar says how many objects were reverted.
 
