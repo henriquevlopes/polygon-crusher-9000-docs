@@ -1,17 +1,16 @@
 # LODs
 
-Tick **Make LODs** and Crush builds a full LOD chain in one click.
+Tick **LODs** and Crush builds a full LOD chain in one click.
 
 ---
 
 ## How to use it
 
 1. Select the object.
-2. In the **LODs** group of **Advanced**, tick **Make LODs**.
+2. In **Advanced → Extra Steps**, tick **LODs** (Decimate only).
 3. Set **Levels** (1 to 8, default 3).
 4. Set **Ratio** (5% to 95%, default 50%).
-5. Click **Crush LODs**. The main button changes its name while Make LODs is
-   on.
+5. Click **Crush LODs**. The main button changes its name while LODs is on.
 
 Each level keeps **Ratio** of the previous level's triangles. With the default
 50% ratio and three levels, the chain is:
@@ -38,15 +37,15 @@ triangles.
 - Every level is crushed from the **original**, not from the level before it.
   This gives each level the best surface for its triangle count.
 
-## What changes while Make LODs is on
+## What changes while LODs is on
 
-- The Target section (Percent, Count, Budget) is greyed out. LODs use their
-  own Ratio.
+- The amount (Percent, Count, Budget) is greyed out. LODs use their own
+  Ratio.
 - **Keep Original** is greyed out. LODs always keep the original.
 - The triangle readout is hidden. Use the LOD list instead.
 - Budget mode is not used. Each object gets its own chain.
 
-The Preserve, Protect Area and Clean Mesh settings still apply to every level.
+The Keep settings, Protect and Clean Mesh still apply to every level.
 
 ## Revert
 

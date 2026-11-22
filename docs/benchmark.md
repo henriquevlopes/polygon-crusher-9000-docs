@@ -1,5 +1,8 @@
 # Benchmarks: against Blender Decimate and meshoptimizer
 
+!!! note
+    These numbers were measured on version 2.3.x (the meshoptimizer comparison on 2.7.1). They have not been re-measured for 2.12.
+
 ## Where it stands
 
 Two comparisons have been measured in full, both with the repo's own test

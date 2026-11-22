@@ -1,94 +1,64 @@
-# Hard Surface Preservation
+# Hard Surface and Sharps
 
 Organic meshes (scans, sculpts) can be crushed freely. Hard-surface and CAD
 parts cannot. Holes must stay round, panel lines must stay straight, and
 material borders must stay where they are.
 
-The **Preserve** options keep those lines in place while everything else
-gets crushed. They are all off by default.
+---
+
+## What is kept automatically
+
+With a source of **Auto**, **CAD** or **Hard Surface**, these are kept in
+place by default, and the result still reaches the count you asked for:
+
+- Edges sharper than the **Hard Edge Angle** (default 30°) and edges you
+  marked Sharp.
+- Borders between materials (not in Shape only mode, see below).
+- Open borders (holes and cut edges).
+- UV seams, when **Textures** is on.
+
+A kept edge is a cost, not a lock. The crush spends its budget everywhere
+else first, and when it has to touch a kept line it collapses *along* the
+crease rather than across it, so the line stays a line.
+
+**Organic**, **Scan** and **Cloth** sources do not keep angle-sharp edges,
+because on those models they are noise or folds. Edges you marked Sharp are
+still kept.
+
+Use **Show Hard Edges** (Advanced) to see the kept edges before you crush. See
+[Show Hard Edges](show-hard-edges.md).
 
 ---
 
-## The options
+## Sharps
 
-| Option | What it keeps in place |
-|--------|------------------------|
-| **Borders** | Open borders: holes and cut edges. They do not shrink or wobble. |
-| **Materials** | The borders between materials. |
-| **UV Seams** | UV seam lines, so textures do not smear across them. Needs **Keep UVs**. |
-| **Sharp Edges** | Edges you marked Sharp, plus any edge sharper than **Sharp Angle**. |
+**Sharps** is a toggle in the **Keep** row. It shows for **Hard Surface** and
+**CAD** sources, and is on by default (since 2.12.16).
 
-The crushed mesh also gets those sharp edges marked Sharp.
+With Sharps on, hard edges stay in place and stay crisp after **Decimate**
+or **Remesh**, including corners modelled with a small bevel (a game
+weapon's triangle bumps, long grooves and panel lines no longer go soft).
 
-## One-click setup
+- **Decimate** holds those edges harder while reducing, then marks the
+  result's real creases Sharp and shades each side flat.
+- **Remesh** gets one quad loop per hard edge. Small round holes come out
+  round instead of pinched into stars, and nothing folds.
+- Rounded parts and fillets that should look smooth are left smooth.
+- When bevel edges cover most of a low-poly model (the game weapon), they
+  ease off, so the result still follows the shape.
+- It is skipped on sources over 1 million triangles (too slow there).
 
-**Hard Surface** in the **Mode** menu turns on all four options and sets
-**Sharp Angle** to 30°. **Auto** picks it by itself on a mesh with flat
-faces and sharp edges. See [Modes](modes.md).
-
-You can also switch options on one at a time. For example, turn on only
-**Materials** to keep material borders on an organic mesh.
-
----
-
-## How kept edges behave (2.7.1)
-
-Up to 2.7.0 a kept edge was a hard lock: the crush was not allowed to touch
-it at all. That had two costs. On a model with many borders, seams and
-creases (an electricity pole made of 103 parts) the crush ran out of edges
-it was allowed to collapse and stopped at about half the triangles, no
-matter what you asked for. And on a CAD block, the locked rims of the holes
-pushed every collapse into the faces next to them, so round holes came out
-as pentagons.
-
-Since 2.7.1 a kept edge is a **cost instead of a lock**. The crush spends
-its budget everywhere else first, and when it has to touch a kept line it
-collapses *along* the crease rather than across it, so the line stays a
-line. In practice:
-
-- **Hard Surface always reaches the count you asked for.** The pole crushes
-  to 2% with its structure intact; on the CAD block at keep 10% the holes
-  stay round and the surface error is half of what it was.
-- **Small parts no longer vanish at heavy reductions.** Every connected
-  piece keeps a minimum number of triangles until the error budget is
-  truly spent. Before, at keep 2% whole beams of the pole disappeared while
-  small insulators floated on; now pieces go in order of how little they
-  matter, smallest first, and only once nothing else is left to remove.
-- **Models with UVs no longer stop short of the target.** With
-  **Low Distortion** on (Hard Surface and Scan modes use it), the crush used
-  to give up at around 12% above the target because it refused every
-  collapse that touched a seam or might fold a UV face. It now tries the
-  plain collapses first and only relaxes the UV rules, in stages, once the
-  model is truly out of safe ones.
-
-Scans, sculpts and smooth CAD parts crush the same as before (within
-measurement noise). See the [Benchmark](../benchmark.md#against-meshoptimizer)
-for the numbers.
-
-<!-- TODO screenshot: the CAD block at keep 10% in Hard Surface mode, 2.7.0 vs 2.7.1, wireframe, showing a round hole that was a pentagon -->
+Turn **Sharps** off if you want the plain method.
 
 ---
 
-## Sharp Edges and Sharp Angle
+## Shape only
 
-**Sharp Edges** uses two sources:
-
-1. Edges you marked Sharp in Blender.
-2. Edges where the two faces meet at more than **Sharp Angle** (default 30°).
-
-Bumps from scan noise do not count as sharp. An edge over the angle only
-counts when it sits next to flat faces or bends one way, like a real crease.
-
-On a mesh that reads as a scan (mostly noise, few flat faces), the angle test
-is skipped. Only the edges you marked Sharp are kept. The report names the
-objects where this happened. See [Limits](../limits.md).
-
----
-
-## UV Seams
-
-**UV Seams** needs **Keep UVs** to be on. If Keep UVs is off, the UV Seams
-button is greyed out.
+If you switch **Shading** and **Textures** both off, you get the shape only:
+a closed mesh ready to 3D print. The panel says "Shape only: closed, ready to
+print". Clean Mesh and Fill Holes (with a big hole size) switch on by
+themselves, and material borders are not held. They go back as they were when
+you switch Shading or Textures on again.
 
 ---
 
@@ -104,17 +74,24 @@ least, but check the result.
 If a line you care about gave way:
 
 - Raise the target.
-- Turn off the Preserve options you do not need, so the budget goes to the
-  lines that matter.
-- Raise **Sharp Angle**, so fewer edges count as sharp.
+- Raise **Hard Edge Angle**, so fewer edges count as sharp.
 - Put a [Protect Area](protect.md) on the part that must stay.
 
 See [Limits](../limits.md) for the full list.
 
 ---
 
-## Presets
+## Decimate of CAD and subdivided models
 
-[Presets](../settings.md#presets) remember the four Preserve options and
-**Sharp Angle**. Save one preset for hard-surface work and one for organic
-meshes.
+- **CAD** source: crisp corners and long thin triangles are handled, so round
+  holes stay round and flat faces stay flat, with no streaks coming out of
+  hole rims.
+- **Hard Surface** source (a subdivided high poly): crushed with a method that
+  keeps the rows of rounded bevels and puts big clean triangles on flat
+  areas. A 5-million-triangle gun body takes half the time it used to. See
+  [Source Types](source-types.md).
+- **Flat Areas as Quads** and **Tidy Flat Areas** (Advanced → Edges) clean up
+  flat areas of a Decimate result. **Flat Areas as Quads** merges the
+  triangles of each flat area into one face and pairs the rest into quads.
+  **Tidy Flat Areas** flips long thin triangles into even ones without moving
+  a point. They show for Auto, CAD and Hard Surface, in Decimate only.

@@ -1,12 +1,14 @@
-# Clean Mesh
+# Clean Mesh and Scan Repair
 
 AI-generated and scanned meshes often have broken geometry. When you crush
 them, they fall apart into fragments or stop far above the target. **Clean
 Mesh** repairs the mesh before the crush.
 
-Turn it on with the **Clean Mesh** checkbox in the **Clean Mesh** group of
-**Advanced**. **Scan** mode turns it on for you, and **Auto** turns it on
-when it finds something to repair.
+Turn it on with the **Clean Mesh** checkbox in **Advanced → Extra Steps**
+(Decimate only). The **Scan** and **AI** sources turn it on for you. It is also
+switched on by the Shape only setting (Shading and Textures both off), so a 3D
+print comes out closed. When the source stops asking for it, it goes back to
+what you had.
 
 ---
 
@@ -51,8 +53,8 @@ faces or floating debris.
 ## Scan Repair
 
 Scans bring their own kind of damage that welding does not touch. Under
-**Clean Mesh** there are three switches for it. They need Clean Mesh on,
-work with a crush from the panel and with
+**Clean Mesh** there are three switches for it. They show for the **Auto**,
+**Scan** and **AI** sources, work with a Decimate from the panel and with
 [Import and Crush](import-crush.md), and the report says what they did.
 
 ### Cut Floor
@@ -62,6 +64,11 @@ The table, turntable or ground captured under the model is removed. With
 layer at the very bottom of the model. If the scan has no such layer,
 nothing is cut and the report says *no floor found*. Set **Height** to cut
 at a share of the model's height instead (everything below that goes).
+
+**Pick Floor** (the eyedropper next to Cut Floor) lets you click a point on
+the model: a blue plane follows the mouse at that height, and everything
+below the clicked height is cut on the next Crush. The **X** clears it, and
+Cut Floor finds the floor by itself again.
 
 A ground scan (a patch of terrain) has a dense flat top of its own. That
 is not mistaken for a floor: only the lowest dense layer counts.
@@ -78,17 +85,34 @@ Two fixes in one switch:
 
 ### Fill Holes
 
-Small missing patches are closed with a fan of faces around a new centre
-point. **Size** is the longest outline a hole may have to be filled, as a
-share of the model's size (default 5%). Bigger openings stay open: the
-bottom of a bust, the back of a relief, the edge of a ground scan. The
-report counts the holes filled and the openings left open.
+Small missing patches are closed. **Size** is the longest outline a hole may
+have to be filled, as a share of the model's size (default 5%). Bigger
+openings stay open: the bottom of a bust, the back of a relief, the edge of a
+ground scan. The report counts the holes filled and the openings left open.
+
+Fill Holes also handles:
+
+- **Cracks in scans.** Scans made of many patches have thin cracks between
+  the patches. Fill Holes zips them shut and smooths the small holes left, with
+  no visible crack lines. A noisy rock scan comes out closed except for its
+  outer ground edge. Only meshes that look like scans get this: hard-surface
+  and cloth models are unchanged. It does not glue two nearby surfaces
+  together, so you do not get edges shared by three or more faces.
+- **Flat openings of any size.** Flat openings (the end of a pipe, the open
+  side of a CAD part) are capped flat, however big.
+- **Seams are not holes.** Models split along UV or material seams are not
+  capped over the seams.
+
+Remesh uses the same crack repair on scans automatically.
 
 ### Order
 
 Floor, spikes and stretched faces are handled first, then small floating
 pieces are removed, then holes are filled, then the winding is fixed so the
-new faces point the right way. The crush runs on the repaired mesh.
+new faces point the right way. The crush runs on the repaired mesh. Scans
+keep their shading through the repair, and fine scan detail is not flattened.
+Scans also no longer waste triangles on the seams of their texture atlas, so
+more of the budget goes into the shape.
 
 ---
 

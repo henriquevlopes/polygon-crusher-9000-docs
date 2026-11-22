@@ -1,7 +1,8 @@
 # Target Modes
 
-The **Target Mode** buttons in the **Target** box, under the Mode menu,
-choose how you ask for a triangle count. There are three modes: **Percent**, **Count** and **Budget**.
+The **Percent**, **Count** and **Budget** buttons under **2 Output**
+choose how you ask for an amount. They work for **Decimate** (triangles)
+and for **Remesh** (quads, see the end of this page).
 
 Triangle counts are measured on the evaluated mesh. That is the mesh you see
 in the viewport, with all modifiers applied.
@@ -23,8 +24,9 @@ Each selected object is reduced by the same percentage. A 100,000-triangle
 object and a 10,000-triangle object, both at 80%, end up with 20,000 and
 2,000 triangles.
 
-**Presets** are available in this mode only. See
-[Presets](../settings.md#presets).
+Picking a [Source](source-types.md) sets a starting value (for example 95%
+for a scan, 70% for CAD). The preset menu (Light, Medium, Heavy, Extreme)
+and saved presets were removed: Percent is just the slider.
 
 ## Count
 
@@ -72,4 +74,13 @@ In every mode:
   after. Check the **after** number. Some settings stop a crush above the
   target. See [Limits](../limits.md).
 
-Make LODs overrides the target mode. See [LODs](lods.md).
+LODs override the target mode. See [LODs](lods.md).
+
+---
+
+## With Remesh
+
+Remesh uses the same three buttons. The amount is turned into quads: the
+triangles the amount would keep, divided by two. The panel's readout shows
+`tris → quads` so you can see the number before you click. Remesh lands
+close to that count. See [Remesh (Quads)](remesh.md).
