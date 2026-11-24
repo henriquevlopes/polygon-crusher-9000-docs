@@ -29,6 +29,12 @@ up to three times.
 
 ## Good to know
 
+- Painted areas get the smaller quads you ask for even on models with thin
+  parts, and thin unpainted parts (legs, tails) no longer tear when quads move
+  to the painted area (2.13.0).
+- For automatic sizing without painting, tick **Adaptive Density** instead.
+  See [Remesh](remesh.md#adaptive-density). Both together: your paint wins
+  where you painted.
 - It works with a Mirror modifier (paint one half, both get it), with
   **Symmetry**, and on sewn garments and many-part models.
 - On a scanned human with the head painted **More Detail**, the head came out

@@ -56,6 +56,13 @@ Remesh has very few switches because it looks at the model and decides:
   on a hard-surface model most of the sharp edges are followed by a loop.
   With **Sharps** on (Hard Surface and CAD sources), small round holes stay
   round and beveled corners stay crisp.
+- **Fewer poles.** Points where three or five-plus quads meet are tidied up,
+  so edge loops run longer and cleaner (the sculpted statue went from 518
+  poles to 363).
+- **A close fit.** After the quads are laid out they are pulled onto the
+  original surface, so the result follows the shape closely.
+- **Thin parts.** Ears, tails and other thin parts stay whole at low quad
+  counts instead of being cut off or flattened.
 - **Damage repair.** If a remesh tears holes in a closed model, it tries again
   with more quads until the result is clean.
 - **UVs and materials.** With **Textures** on, UVs and materials are carried to
@@ -80,10 +87,35 @@ Remesh has very few switches because it looks at the model and decides:
   of loose strips, open or self-crossing models. It rebuilds a closed skin
   first, then remeshes it. Details finer than the skin and your Sharp marks
   are lost. With it off, nothing changes.
-- **Quad Density** (Advanced) — paint where you want smaller or larger quads.
-  See [Quad Density](quad-density.md).
+- **Adaptive Density** (Advanced → Extra Steps) — more, smaller quads where
+  the shape is busy, fewer, larger quads on plain areas. See
+  [Adaptive Density](#adaptive-density) below.
+- **Quad Density** (Advanced → Extra Steps) — paint where you want smaller or
+  larger quads. See [Quad Density](quad-density.md).
+- **Flow Guides** (Advanced → Edges) — draw lines on the model where you want
+  edge loops to run. See [Flow Guides](flow-guides.md).
 - **Show Hard Edges** (Advanced) — see which edges the quad loops will follow.
   See [Show Hard Edges](show-hard-edges.md).
+
+## Adaptive Density
+
+Tick **Adaptive Density** under **Advanced → Extra Steps** (Remesh only).
+Remesh then spends more quads where the shape is busy (face, fingers, toes,
+curls, the silhouette) and fewer on plain, flat areas. The quad count stays
+what you asked for.
+
+![Adaptive Density on a scanned human: same 8,000 quads, smaller ones on the head and ears](../assets/remesh-adaptive-density.jpg)
+
+**Strength** (1 to 5, default 3) sets how big the difference between the
+smallest and the largest quads gets. 1 is mild; 5 is the strongest.
+
+There is nothing to paint: a quick hidden Decimate finds where the detail
+is. Thin parts such as legs and tails are protected, so they don't tear or
+dent when quads move elsewhere. On the sculpted statue at 8,000 quads the
+head gets almost twice the detail of the body.
+
+It works together with **Quad Density** paint (your paint wins where you
+painted), **Flow Guides** and **Symmetry**. Off, quads are even everywhere.
 
 **Keep Original** works as in Decimate, with one difference: Remesh leaves
 the source in place, and **Revert** cannot go back to it when Keep Original is
