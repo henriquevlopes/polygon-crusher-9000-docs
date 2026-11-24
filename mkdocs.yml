@@ -26,6 +26,7 @@ nav:
     - Target Modes: features/target-modes.md
     - Remesh (Quads): features/remesh.md
     - Quad Density: features/quad-density.md
+    - Flow Guides: features/flow-guides.md
     - Hard Surface and Sharps: features/hard-surface.md
     - Show Hard Edges: features/show-hard-edges.md
     - Protect Areas: features/protect.md

@@ -1,7 +1,29 @@
 # What's New
 
 Everything that changed since 2.8.0, grouped by theme, newest first. The
-current version is **2.12.20**.
+current version is **2.13.0**.
+
+---
+
+## Remesh follows the form (2.13.0)
+
+- **Fewer poles.** Edge loops run longer and cleaner: the sculpted statue went
+  from 518 poles to 363, the dog and the scanned human have about half as many.
+- **Adaptive Density, with a Strength slider.** More quads where the shape is
+  busy, fewer on plain areas, for the same count, with nothing to paint. See
+  [Adaptive Density](features/remesh.md#adaptive-density).
+- **Flow Guides.** Draw where edge loops should run; small loops around an eye
+  or a mouth become clean quad rings. See [Flow Guides](features/flow-guides.md).
+- **Stronger Quad Density paint.** Painted areas really get smaller quads, and
+  thin unpainted parts no longer tear.
+- **A closer fit, always on.** The quads are pulled onto the original surface:
+  3 to 29% closer.
+- **Symmetry seam welded shut** every time.
+- **Ears and tails stay whole** at low quad counts.
+- **Cleaner tight spots** (no collapsed sliver faces) and **smooth rounded
+  edges** on hard-surface models.
+- **Decimate from Python scripts** in background Blender now runs.
+- **Same speed as 2.12.20** on most models, despite all of the above.
 
 ---
 
@@ -32,7 +54,7 @@ The panel was rebuilt to ask only what matters.
 
 ---
 
-## Remesh: clean quads at the count you ask for (2.9.0 to 2.12.19)
+## Remesh: clean quads at the count you ask for (2.9.0 to 2.13.0)
 
 Remesh (first called Quadify) rebuilds a model as even quads. It arrived in
 2.9.0 and has been improved in nearly every release since. See
