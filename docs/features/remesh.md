@@ -104,6 +104,8 @@ Remesh then spends more quads where the shape is busy (face, fingers, toes,
 curls, the silhouette) and fewer on plain, flat areas. The quad count stays
 what you asked for.
 
+![Adaptive Density on a scanned human: same 8,000 quads, smaller ones on the head and ears](../assets/remesh-adaptive-density.jpg)
+
 **Strength** (1 to 5, default 3) sets how big the difference between the
 smallest and the largest quads gets. 1 is mild; 5 is the strongest.
 

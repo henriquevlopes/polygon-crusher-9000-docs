@@ -4,6 +4,8 @@ Flow Guides let you draw where a Remesh should run its edge loops: around a
 leg, along the body, around an eye or a mouth. They only appear while
 **Remesh** is selected.
 
+![Flow Guides on the statue's face: the eye and mouth loops become quad rings](../assets/remesh-flow-guides.jpg)
+
 ## How to use it
 
 1. Under **2 Output**, pick **Remesh**.
