@@ -28,7 +28,8 @@ guides the active model has.
   eye: 91% of a proper ring, against 4% without the guide.
   At very low counts a loop that would get fewer than 6 quads round is
   skipped, and the status line says so.
-- Bigger closed loops are treated like open lines.
+- Bigger closed loops, and loops drawn round a leg, an arm or the body, are
+  treated like open lines.
 
 ## Good to know
 
